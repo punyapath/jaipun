@@ -123,7 +123,7 @@ width: 30px;
         <li style="
     list-style: none;
 ">
-          <a href="#" style="
+          <a id="btnsearch" href="#" style="
           opacity: 0.4;
       ">
 <img src="https://img.icons8.com/ios/50/000000/search.png" style="
@@ -148,6 +148,32 @@ width: 30px;
     max-width: 620px;
 
 ">
+<!-- form Search css start-->
+<div id="frmsearch" style="
+width: 100%;
+position: fixed;
+left: 0;
+height: 100%;
+z-index: 1;display: none;
+background: #ffffffc7;
+">
+    <div style="
+    max-width: 420px;
+    margin: 55px;
+    margin-left: auto;
+    margin-right: auto;
+    "><form action="/search" method="GET" accept-charset="UTF-8" style="">
+                <input type="text" name="t" placeholder="Search..." style="width: 100%;border: none;outline: none;background:none;    padding: 1rem;
+                font-size: 1.3rem;font-family: 'cs_prajad', sans-serif;margin: auto;border-bottom: 1px solid #BBB;">
+                <input type="submit" style="
+                    display: none;
+                ">
+            </form>
+    </div>
+</div>
+
+<!-- form Search css end-->
+
   <div style="
     margin-left: auto;
     margin-right: auto;
@@ -155,7 +181,8 @@ width: 30px;
     max-width: 420px;
               font-weight:800;
     /* background: #eee; */
-             "><div style="
+             ">
+             <div style="
     float: left;
     margin: 2px;
 ">Topics For You</div>
@@ -177,10 +204,7 @@ box-shadow: 0 1px 3px rgba(32, 33, 36, 0.28);
     </div>
       
 </div>    
-<form action="/search" method="GET" accept-charset="UTF-8">
-    <input type="text" name="t">
-    <input type="submit">
-</form>
+
 <style>
 
 /***************************FEED START************************************/
@@ -430,7 +454,7 @@ overflow: hidden;
 text-overflow: ellipsis;
 background: #ff5f5f;
 border-radius:5px;
-box-shadow: 0 1px 3px rgba(32, 33, 36, 0.28);
+/*box-shadow: 0 1px 3px rgba(32, 33, 36, 0.28);*/
 
 }
 
@@ -570,12 +594,17 @@ function imgExists(content_id){
 
 $(document).ready(function() {
 
+    $("#btnsearch").click(function(){
+        $("#frmsearch").toggle();
+        $("input").focus();
+    });
+
     $.ajax({
-            url: "http://jaipun.com/feed/tag_new",
+            url: "http://jaipun.com/feed/tag_top",
             }).then(function(data) {
             for(var i = 0; i < data.length; i++){
                 $('.tag').append(   
-                    "<div class='tag-card'><div  class='tag-card-text'>"+ data[i].tagname+"</div></div>"
+                    "<div class='tag-card' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+"<div  class='tag-card-text'>"+ data[i].tagname+"</div></div>"
                 );
                 
         }
@@ -633,6 +662,7 @@ function feed_new(url){
                 }
         }).then(function(data) {
             $('.ajax-load').hide();
+            document.title = 'latest';
         for(var i = 0; i < data.length; i++){
             url = '/profile/'+data[i].user_id +".jpeg";
             profileExists(url);
@@ -649,7 +679,7 @@ function feed_new(url){
             "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
             "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
             "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-            "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag/" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+            "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
             "</div></div>" + 
             "<div class='feed-writer' style='width: 50%;'>" + 
             "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -671,6 +701,7 @@ function feed_top(url){
                 }
         }).then(function(data) {
             $('.ajax-load').hide();
+            document.title = 'Jaipun';            
         for(var i = 0; i < data.length; i++){
             url = '/profile/'+data[i].user_id +".jpeg";
             profileExists(url);
@@ -687,7 +718,7 @@ function feed_top(url){
             "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
             "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
             "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-            "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag/" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+            "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
             "</div></div>" + 
             "<div class='feed-writer' style='width: 50%;'>" + 
             "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -724,7 +755,7 @@ $.ajax({
         "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
         "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
         "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-        "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag/" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+        "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
          "</div></div>" + 
          "<div class='feed-writer' style='width: 50%;'>" + 
          "<img src='"+ profile +"' class='feed-writer-profile'>" +
@@ -762,7 +793,7 @@ $.ajax({
         "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
         "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
         "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-        "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag/" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+        "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
          "</div></div>" + 
          "<div class='feed-writer' style='width: 50%;'>" + 
          "<img src='"+ profile +"' class='feed-writer-profile'>" +
