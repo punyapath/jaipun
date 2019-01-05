@@ -172,6 +172,32 @@
 				echo json_encode($result);
 			}
 		}
+
+
+		//ฟีคหัวข้อ เรียงตาม tagTop   
+		private function tag_top(){
+			$sql = $this->db->query("SELECT * FROM tbltag ORDER BY tagTop DESC LIMIT 8");
+			if($sql->num_rows > 0){
+				//echo "OK sql feed_new";
+				$result = array();
+				while($rlt = $sql->fetch_assoc()){
+					$result[] = $rlt;
+				}
+				echo json_encode($result);
+			}
+	   }
+
+
+	 	private function tagload_top(){
+			$sql = $this->db->query("SELECT * FROM tbltag WHERE tagTop < ".$_GET['tagTop']." ORDER BY tag_id DESC LIMIT 8");
+			if($sql->num_rows > 0){
+				$result = array();
+				while($rlt = $sql->fetch_assoc()){
+					$result[] = $rlt;
+				}
+				echo json_encode($result);
+			}
+		}
 		   
 //ฟีคเฉพาะ tag_id เรียงตาม content_id  
 		private function tagid_new(){
