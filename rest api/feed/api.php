@@ -173,7 +173,7 @@
 			}
 		}
 		   
-//ฟีคเฉพาะ tag_id เรียงตาม contentTop   
+//ฟีคเฉพาะ tag_id เรียงตาม content_id  
 		private function tagid_new(){
 			$sql = $this->db->query("
 			SELECT 
@@ -184,12 +184,13 @@
 			, tblcontent.type
 			, tblcontent.tag_id
 			, tblcontent.contentLike
+			, tblcontent.contentTop			
 			, tbltag.tagname
 			, tbluser.user_id
 			, tbluser.name
 			FROM tblcontent,tbluser,tbltag
 			WHERE tblcontent.tag_id=tbltag.tag_id AND tblcontent.user_id = tbluser.user_id AND tblcontent.tag_id = ".$_GET[id]."
-			ORDER BY contentTop DESC LIMIT 8
+			ORDER BY content_id DESC LIMIT 8
 			");
 			if($sql->num_rows > 0){
 				//echo "OK sql feed_new";
@@ -212,12 +213,13 @@
 			, tblcontent.type
 			, tblcontent.tag_id
 			, tblcontent.contentLike
+			, tblcontent.contentTop		
 			, tbltag.tagname
 			, tbluser.user_id
 			, tbluser.name
 			FROM tblcontent,tbluser,tbltag
-			WHERE contentTop < ".$_GET['contentTop']." AND tblcontent.tag_id=tbltag.tag_id AND tblcontent.user_id = tbluser.user_id AND tblcontent.tag_id = ".$_GET[id]."
-			ORDER BY contentTop DESC LIMIT 8
+			WHERE content_id < ".$_GET['content_id']." AND tblcontent.tag_id=tbltag.tag_id AND tblcontent.user_id = tbluser.user_id AND tblcontent.tag_id = ".$_GET[id]."
+			ORDER BY content_id DESC LIMIT 8
 			");
 			if($sql->num_rows > 0){
 				$result = array();
@@ -227,6 +229,65 @@
 				echo json_encode($result);
 			}
 		}
+
+
+				   
+//ฟีคเฉพาะ tag_id เรียงตาม contentTop   
+private function tagid_top(){
+	$sql = $this->db->query("
+	SELECT 
+	tblcontent.content_id
+	, tblcontent.contentName
+	, tblcontent.content
+	, tblcontent.contentDate
+	, tblcontent.type
+	, tblcontent.tag_id
+	, tblcontent.contentLike
+	, tblcontent.contentTop		
+	, tbltag.tagname
+	, tbluser.user_id
+	, tbluser.name
+	FROM tblcontent,tbluser,tbltag
+	WHERE tblcontent.tag_id=tbltag.tag_id AND tblcontent.user_id = tbluser.user_id AND tblcontent.tag_id = ".$_GET[id]."
+	ORDER BY contentTop DESC LIMIT 8
+	");
+	if($sql->num_rows > 0){
+		//echo "OK sql feed_new";
+		$result = array();
+		while($rlt = $sql->fetch_assoc()){
+			$result[] = $rlt;
+		}
+		echo json_encode($result);
+	}
+}
+
+
+ private function tagidload_top(){
+	$sql = $this->db->query("
+	SELECT 
+	tblcontent.content_id
+	, tblcontent.contentName
+	, tblcontent.content
+	, tblcontent.contentDate
+	, tblcontent.type
+	, tblcontent.tag_id
+	, tblcontent.contentLike
+	, tblcontent.contentTop	
+	, tbltag.tagname
+	, tbluser.user_id
+	, tbluser.name
+	FROM tblcontent,tbluser,tbltag
+	WHERE contentTop < ".$_GET['contentTop']." AND tblcontent.tag_id=tbltag.tag_id AND tblcontent.user_id = tbluser.user_id AND tblcontent.tag_id = ".$_GET[id]."
+	ORDER BY contentTop DESC LIMIT 8
+	");
+	if($sql->num_rows > 0){
+		$result = array();
+		while($rlt = $sql->fetch_assoc()){
+			$result[] = $rlt;
+		}
+		echo json_encode($result);
+	}
+}
 
 //ฟีคเฉพาะ user_id เรียงตาม content_id	   
 		   private function feed_user(){
