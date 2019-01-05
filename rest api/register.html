@@ -1,0 +1,185 @@
+<div class="Register" style="
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    ">
+    
+
+        <div style="
+            background:#fff;
+            padding: 20px 10px;
+            text-align: center;
+            width: 100%;
+            float: left;
+            box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+        ">
+        <img src="https://www.picz.in.th/images/2018/11/01/3ByI2t.png" style="width: 45px;">
+        <a style="display: block; "><img src="https://sv1.picz.in.th/images/2018/11/29/3HKSqV.png" style="width: 150px;"></a>
+
+        <form id="RegisterForm" method="post" action="user/register" onsubmit="return registerval();">
+            <div style="
+            font-size: 24px;
+            padding: 5px 0px;
+            ">Create new account</div>
+            <div id="regerr"></div>
+             <input type="text" id="email" name="email" placeholder="Email"
+             style="
+             background: #fafafa;
+             border: 1px solid #efefef;
+             outline: 0;
+             padding: 9px 0 7px 8px;
+             width: 240px;
+             border-radius: 3px;
+             -webkit-box-flex: 1;
+             color: #262626;
+             margin:5px 0px;
+            ">
+
+            <input type="password" id="password" name="password" placeholder="Password"
+            style="
+            background: #fafafa;
+            border: 1px solid #efefef;
+            outline: 0;
+            padding: 9px 0 7px 8px;
+            width: 240px;
+            border-radius: 3px;
+            -webkit-box-flex: 1;
+            color: #262626;
+            margin:5px 0px;"
+            >
+            <input type="password" id="cpassword" name="cpassword" placeholder="Confrim Password"
+            style="
+            background: #fafafa;
+            border: 1px solid #efefef;
+            outline: 0;
+            padding: 9px 0 7px 8px;
+            width: 240px;
+            border-radius: 3px;
+            -webkit-box-flex: 1;
+            color: #262626;
+            margin:5px 0px;"
+            >  
+            <input type="submit" value="register"
+            style="
+            display: block;
+            margin: 10px auto;
+            width: 240px;
+            color: #fff;
+            border: 1px solid #fb6166;
+            background: #fb6166;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 5px;
+            ">
+        
+        <div> Have your account? <a id="UrlLogin" style=" font-weight: 600; color: #fb6166;">login</a></div>
+        </form>
+
+
+        <!-- ****************** LOGIN START **************** -->
+        <form id="LoginForm"method="post" action="user/login" onsubmit="return loginval();" style="display:none;">
+            <div id="logerr"></div>            
+            <input type="text" id="lemail" name="email" placeholder="Email"
+            style="
+            background: #fafafa;
+            border: 1px solid #efefef;
+            outline: 0;
+            padding: 9px 0 7px 8px;
+            width: 240px;
+            border-radius: 3px;
+            -webkit-box-flex: 1;
+            color: #262626;
+            margin:5px 0px;
+            ">
+            <input type="password" id="lpassword" name="password" placeholder="Password"
+            style="
+            background: #fafafa;
+            border: 1px solid #efefef;
+            outline: 0;
+            padding: 9px 0 7px 8px;
+            width: 240px;
+            border-radius: 3px;
+            -webkit-box-flex: 1;
+            color: #262626;
+            margin:5px 0px;
+            ">
+            <input type="submit" value="login"  style="
+            display: block;
+            margin: 10px auto;
+            width: 240px;
+            color: #fff;
+            border: 1px solid #fb6166;
+            background: #fb6166;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 5px;
+            ">
+            <div> Don't you have account? <a id="UrlRegister" style="font-weight: 600;color: #fb6166;">register</a></div>
+        </form>
+        <!-- ****************** LOGIN END **************** -->
+        
+
+        </div>
+
+</div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$("#UrlLogin").click(function () {
+    $("#LoginForm").show();
+    $("#RegisterForm").hide();
+});
+
+$("#UrlRegister").click(function () {
+    $("#RegisterForm").show();
+    $("#LoginForm").hide();
+});
+
+
+function registerval(){
+    var email=$("#email").val();
+    var pass=$("#password").val();
+    var cpass=$("#cpassword").val();
+    var email_regex=/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if(email_regex.test(email)==false)
+    {
+        $("#regerr").text("Please Enter Correct Email");
+        return false;	
+    }else if(pass.length<8){
+        $("#regerr").text("Enter a password longer than 8 characters");
+        return false;
+    }else if(pass != cpass){
+        $("#regerr").text("Password ไม่ตรงกัน");
+    return false;
+    }else{
+    return true;
+    }
+}
+
+
+function loginval(){
+    var email=$("#lemail").val();
+    var pass=$("#lpassword").val();
+    
+    var email_regex=/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    var password_regex1=/([a-z].*[A-Z])|([A-Z].*[a-z])([0-9])+([!,%,&,@,#,$,^,*,?,_,~])/;
+    var password_regex2=/([0-9])/;
+    var password_regex3=/([!,%,&,@,#,$,^,*,?,_,~])/;
+
+    if(email_regex.test(email)==false){
+        $("#logerr").text("Please Enter Correct Email");
+        return false;	
+    }else if(pass.length<8){
+        $("#logerr").text("Please Enter more than Password");
+        return false;
+    }else{
+        return true;
+    }
+}
+
+
+</script>
