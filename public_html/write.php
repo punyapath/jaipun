@@ -1,9 +1,17 @@
+
+<? include('header.php'); ?>
+
+
+
+<div id="container">
+
 <?
 session_start();
 echo '<title> write your story | Jaipun</title>';
 if($_SESSION["user_id"] == "")
 {
-  header("location:index.php?register");
+  echo"<script>window.location.href='/register.php';</script>";
+  //header("location:register.php");
   exit();
 }
 require('db_config.php');
@@ -334,3 +342,44 @@ padding-bottom: 40px;
 
   gtag('config', 'UA-130480379-1');
 </script>
+
+
+</div>
+  <!-- END CONTAINER  -->
+
+  <script type="text/javascript">
+
+
+
+    $(document).scroll(function() {
+    navbarScroll();
+    });
+
+    function navbarScroll() {
+    var y = window.scrollY;
+        if (y > 10) {
+            $('.header').addClass('small');
+        } else if (y < 10) {
+            $('.header').removeClass('small');
+        }
+    }   
+
+    
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130480379-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-130480379-1');
+</script>
+
+
+</div>
+</body>
+</html>
+
+
+

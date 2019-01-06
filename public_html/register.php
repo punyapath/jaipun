@@ -1,10 +1,16 @@
+<? include('header.php'); ?>
+
+
+<div id="container">
+
 <?
         session_start();
         echo '<title> Register & Login | Jaipun</title>';
         if($_SESSION["user_id"] != "")
         {
-        header("location:index.php?profile=".$_SESSION[user_id]);
-        exit();
+          echo"<script>window.location.href='/name/".$_SESSION[user_id]."';</script>";
+          //header("location:profile.php?profile=".$_SESSION[user_id]);
+          exit();
         }
         require('db_config.php');
 
@@ -25,7 +31,8 @@
             exit();
         }else{
             $_SESSION['user_id']=$row['user_id'];
-            header("location:index.php");
+            echo"<script>window.location.href='/';</script>";
+            header("location:/");
             exit();
         }
     }
@@ -60,7 +67,8 @@
                   $row = $result->fetch_assoc();
                   $_SESSION['user_id']=$row['user_id'];   
                   echo "4";  
-                  header("location:index.php");
+                  echo"<script>window.location.href='/';</script>";
+           // header("location:/");
             
           }
         }
@@ -150,7 +158,7 @@
     font-size: 16px;
     font-weight: 600;
     padding: 5px;
-                   " onClick="document.forms[0].submit()">Register</div>
+                   " onClick="document.forms[1].submit()">Register</div>
       
       
       <div> Have your account? <a id="UrlLogin" style="
@@ -204,7 +212,7 @@
     font-size: 16px;
     font-weight: 600;
     padding: 5px;
-                  " onclick="document.forms[1].submit()">Login</div>
+                  " onclick="document.forms[2].submit()">Login</div>
         
         
       <div> Don't you have account? <a id="UrlRegister" style="
@@ -311,7 +319,7 @@ $('#LoginForm *').keydown(function(e) {
       // trap the return key being pressed
       if (e.keyCode === 13) {
         // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
-        document.forms[1].submit()
+        document.forms[2].submit()
         // prevent the default behaviour of return key pressed
         return false;
       }
@@ -322,7 +330,7 @@ $('#confirm_password').keydown(function(e) {
       // trap the return key being pressed
       if (e.keyCode === 13) {
         // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
-        document.forms[0].submit()
+        document.forms[1].submit()
         // prevent the default behaviour of return key pressed
         return false;
       }
@@ -330,6 +338,44 @@ $('#confirm_password').keydown(function(e) {
 
 
 </script>
+
+
+</div>
+  <!-- END CONTAINER  -->
+
+  <script type="text/javascript">
+
+
+
+    $(document).scroll(function() {
+    navbarScroll();
+    });
+
+    function navbarScroll() {
+    var y = window.scrollY;
+        if (y > 10) {
+            $('.header').addClass('small');
+        } else if (y < 10) {
+            $('.header').removeClass('small');
+        }
+    }   
+
+    
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130480379-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-130480379-1');
+</script>
+
+
+</div>
+</body>
+</html>
 
 
 

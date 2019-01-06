@@ -252,7 +252,7 @@ function cutStr($str, $maxChars='', $holder=''){
 
             <div class="feed" id="<?php echo $tblcontent['content_id']; ?>" >
                 <div class="feed-title"><div class="feed-type-into">
-                    <img class="feed-type-icon" src="type/<?=$tblcontent['type']?>.png" >
+                    <img class="feed-type-icon" src="/type/<?=$tblcontent['type']?>.png" >
 					<div class="feed-type-text" style="font-size: 12px;"><? echo $tblcontent['type']?></div>
 					
 					<div style="
@@ -279,14 +279,14 @@ function cutStr($str, $maxChars='', $holder=''){
                     <div class="feed-into-title" ><?php echo $tblcontent['contentName']; ?></div>
                 </div>
 
-                <div class="feed-content"  onclick="window.location='story.php?id=<?=$tblcontent['content_id']?>'">
+                <div class="feed-content"  onclick="window.location='/story=<?=$tblcontent['content_id']?>'">
                     <div class="feed-into-content"><? echo cutStr($content,'120','...') ?></div>
                     <div class="feed-date"><?php echo generate_date_today("d M Y H:i", $tblcontent['contentDate'], "en", true) ; ?></div>
                 </div>
 
                 <div class="feed-tag" style="width: 100%;">
                     <div class="feed-tag-into">
-                        <div class="feed-tag-text" onclick="feed_new_tag(<?php echo $tblcontent['tag_id']; ?>)"><?php echo $tblcontent['tagname']; ?></div>
+                        <div class="feed-tag-text" onclick="window.location='/tag?id=<?=$tblcontent['tag_id']?>'"><?php echo $tblcontent['tagname']; ?></div>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,7 @@ if($_GET[id] > 0){
 
         $fileimage = $_SERVER['DOCUMENT_ROOT'] . "/"."images/".$tblcontent[content_id].'.jpeg';
         if (file_exists($fileimage)) {
-        $image = '<img src="images/'.$tblcontent[content_id].'.jpeg" style="width: 100%;">';
+        $image = '<img src="/images/'.$tblcontent[content_id].'.jpeg" style="width: 100%;">';
         } else {
         $image = '  ';
         }
@@ -260,9 +260,9 @@ if($checkbuttonedit->num_rows > 0){
 <div style='position: relative;float:right'>
   <div id="edit">
   <div style="text-align: center;">
-<div style="border-bottom: 1px solid #eee;" onclick="window.location.href='delete.php?content_id=<?=$_GET[id]?>'">delete</div>
+<div style="border-bottom: 1px solid #eee;" onclick="window.location.href='/delete.php?content_id=<?=$_GET[id]?>'">delete</div>
 
-<div onclick="window.location.href='editform.php?content_id=<?=$_GET[id]?>'">edit</div>
+<div onclick="window.location.href='/editform.php?content_id=<?=$_GET[id]?>'">edit</div>
   
 </div>
   </div>
@@ -278,9 +278,9 @@ if($checkbuttonedit->num_rows > 0){
   <? echo $image ?>
     <div class="content-into">
     <div class="content-header"><div class="content-type">
-    <img src="type/<?=$tblcontent['type']?>.png" class="content-type-icon"><div class="content-type-text"><?echo $tblcontent['type'];?></div>
+    <img src="/type/<?=$tblcontent['type']?>.png" class="content-type-icon"><div class="content-type-text"><?echo $tblcontent['type'];?></div>
     </div><div class="content-tag">
-    <div class="content-tag-text" onclick="window.location='index.php?tag_id=<?=$tblcontent['tag_id']?>'"><?echo $tblcontent['tagname'];?></div>
+    <div class="content-tag-text" onclick="window.location='/tag?id=<?=$tblcontent['tag_id']?>'"><?echo $tblcontent['tagname'];?></div>
     
     </div>
     </div>
@@ -329,7 +329,7 @@ if($checkbuttonedit->num_rows > 0){
 
 
 
-<div class="content-profile"><div class="content-profile-into"><img src="profile/<?=$profile?>" class="content-profile-img">
+<div class="content-profile"><div class="content-profile-into"><img src="/profile/<?=$profile?>" class="content-profile-img">
 </div>
 
 <div class="content-profile-text">

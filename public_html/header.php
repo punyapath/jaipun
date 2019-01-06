@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link rel='shortcut icon' href='css/3ByI2t.ico' type='image/x-icon'>
+<link rel='shortcut icon' href='/css/3ByI2t.ico' type='image/x-icon'>
 <? session_start(); 
 
 
@@ -241,11 +241,34 @@ function generate_date_today($Format, $Timestamp, $Language = "en", $TimeText = 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
      
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/icon.css">
+      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="/css/icon.css">
       
 
+<style>
 
+#frmsearch{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    z-index: 1;display: none;
+    background: #ffffffe0;
+}
+
+.frmsearch-into{
+    max-width: 420px;
+    margin: 55px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.frmsearch-text{
+    width: 100%;border: none;outline: none;background:none;    padding: 1rem;
+    font-size: 1.3rem;font-family: 'cs_prajad', sans-serif;margin: auto;border-bottom: 1px solid #BBB;
+}
+
+</style>
 
 </head>
 <body style="background: #FAFAFA; -webkit-overflow-scrolling: touch;">
@@ -289,46 +312,71 @@ function generate_date_today($Format, $Timestamp, $Language = "en", $TimeText = 
 
 <div style="display: block;margin: 8px;">
 
-
 <header class="header">
     <nav>
         <div class="navleft">
-            <ul>
-                <li class="like">
-                     <div class="icon-good"></div>
-                </li>
-                
-                <li></li>
-            </ul>
+        <ul>
+            <li>
+            <a id="latest" style="opacity: 0.4;">
+                <img src="https://img.icons8.com/wired/64/000000/select-all.png"style="width: 30px;" >    
+            </a>   
+            </li>
+            
+            <li >
+            <a href="#"></a>   
+            </li>
+        </ul>
         </div>
-    <div class="navcenter">
-        <a href="index.php"><img src="https://sv1.picz.in.th/images/2018/11/29/3HKSqV.png" style="width: 150px; "></a>
-    </div>
 
+        <div class="navcenter">
+                <a  href="/">
+                <img src="https://sv1.picz.in.th/images/2018/11/29/3HKSqV.png" style="width: 150px;">
+            </a>
+        </div>
 
-    <div class="navright">
-       <ul><li></li>
-        <li >
-            <? if($_SESSION[user_id] == ""){ ?>
-          <a href="index.php?register">
-            <div class="icon-user"></div>
-          </a>   
-          <? }else{ ?>
-          <a href="index.php?profile=<?=$_SESSION[user_id]?>">
-          <div class="icon-user" style="opacity: 1;"></div>
-          </a>         
-            <? } ?>
-        </li>
-      </ul>
-    </div>
+        <div class="navright">
+        <ul>
+                <li ></li>
+                
+                <li>
+                <a id="btnsearch" href="#" style="opacity: 0.4;">
+                    <img src="https://img.icons8.com/ios/50/000000/search.png" style="width: 30px;">    
+                </a>   
+                </li>
+            </ul>
+        </div>    
     </nav>
 </header>
 
 
 
+<div style="
+    margin-left: auto;
+    margin-right: auto;
+
+">
+<!-- form Search css start-->
+<div id="frmsearch">
+    <div class="frmsearch-into">
+        <form action="/search" method="GET" accept-charset="UTF-8">
+                <input type="text" name="t" placeholder="Search..." class="frmsearch-text">
+                <input type="submit" style="display: none; ">
+            </form>
+    </div>
+</div>
+<!-- form Search css end-->
+
+
 <script type="text/javascript">
 
+$(document).ready(function() {
 
+    $("#btnsearch").click(function(){
+        $("#frmsearch").toggle();
+        $("input").focus();
+    });
+
+});
 
     $(document).scroll(function() {
     navbarScroll();

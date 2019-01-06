@@ -1,3 +1,9 @@
+<? include('header.php'); ?>
+
+
+
+<div id="container">
+
 <? session_start();
 require('db_config.php');
 
@@ -167,7 +173,7 @@ background: #fff;
 
 
 <div class="profile-photo">
-    <img src="profile/<?=$profile ?>" class="profile-photo-img">
+    <img src="/profile/<?=$profile ?>" class="profile-photo-img">
 </div>
 
 <div class="profile_container"></div>
@@ -185,7 +191,7 @@ background: #fff;
 
 <div class="profile-button">
     <a href="#" class="profile-button-edit" onclick="button_edit()">Edit Profile</a>
-    <a href="logout.php" class="profile-button-logout"  >log out</a>
+    <a href="/logout.php" class="profile-button-logout"  >log out</a>
 </div>
 
 
@@ -886,3 +892,42 @@ $(document).ready(function() {
 
     </script>
     
+
+    
+    </div>
+    
+      <!-- END CONTAINER  -->
+    
+    <script type="text/javascript">
+    
+    
+    
+        $(document).scroll(function() {
+        navbarScroll();
+        });
+    
+        function navbarScroll() {
+        var y = window.scrollY;
+            if (y > 10) {
+                $('.header').addClass('small');
+            } else if (y < 10) {
+                $('.header').removeClass('small');
+            }
+        }   
+    
+        
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130480379-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-130480379-1');
+    </script>
+    
+    
+    </div>
+    </body>
+    </html>

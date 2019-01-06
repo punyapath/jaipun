@@ -349,7 +349,7 @@ $(document).ready(function () {
         data:{drawname_id:drawname_id},
         success: function(data){
           //href='index.php?write'
-           window.location.href='index.php?write';
+           window.location.href='write.php';
         }
       });
   });
