@@ -1,448 +1,86 @@
 <html>
-    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/feed.css">
+    
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<head><style>
-.header {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    background: #ffffff;
-    height: 50px;
-    display: block;
-    width: 100%;
-    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 2;
-   transition: .3s;
-   padding-top: 5px;
-
-}
-.header.small {
-    height: 40px;
-    padding-top: 0px;
-}
-</style></head>
+<head></head>
 
 
 <body style="background:#FAFAFA;">
-<header class="header"><nav style="
-    max-width: 900px;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    display: flex;
-"><div style="
-    flex: 1 1 10%;
-    padding: 0;
-    /* padding-top: 10px; */
-    margin: 0;
-    box-sizing: border-box;
-" class="">
-      <ul style="
-    flex: 1 1 20%;
-    justify-content: space-between;
-    align-items: center;
-    /* padding-top: 15px; */
-    box-sizing: border-box;
-    display: flex;
-    width: 100px;
-    padding: 5px;
-    margin: 0;
-    box-sizing: border-box;
-">
-        <li style="
-    list-style: none;
-">
-          <a id="latest" style="
-          opacity: 0.4;
-      ">
-<img src="https://img.icons8.com/wired/64/000000/select-all.png"style="
-width: 30px;
-" >    
-</a>   
-        </li>
-        
-        
+<header class="header">
+    <nav>
+        <div class="navleft">
+        <ul>
+            <li>
+            <a id="latest" style="opacity: 0.4;">
+                <img src="https://img.icons8.com/wired/64/000000/select-all.png"style="width: 30px;" >    
+            </a>   
+            </li>
+            
+            <li >
+            <a href="#"></a>   
+            </li>
+        </ul>
+        </div>
 
-        <li style="
-    list-style: none;
-">
-          <a href="#">
+        <div class="navcenter">
+            <a  href="/">
+                <img src="https://sv1.picz.in.th/images/2018/11/29/3HKSqV.png" style="width: 150px;">
+            </a>
+        </div>
 
-</a>   
-        </li>
-
-
-        
-        
-      </ul>
-    </div>
-<div style="
-    flex: 1 1 80%;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    justify-content: center;
-    display: flex;
-">
-    <a style=""><img src="https://sv1.picz.in.th/images/2018/11/29/3HKSqV.png" style="
-    width: 150px;
-"></a>
-    
-</div>
-
-<div style="
-    flex: 1 1 10%;
-    padding: 0;
-    margin: 0;
-    padding-top: 5px;
-    box-sizing: border-box;
-">
-<ul style="
-    /* flex: 1 1 30%; */
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    width: 100px;
-    margin: 0;
-    box-sizing: border-box;
-">
-        <li style="
-    list-style: none;
-">
-             
-        </li>
-        
-        
-
-        <li style="
-    list-style: none;
-">
-          <a id="btnsearch" href="#" style="
-          opacity: 0.4;
-      ">
-<img src="https://img.icons8.com/ios/50/000000/search.png" style="
-    width: 30px;
-">    
-</a>   
-        </li>
-
-
-        
-        
-      </ul>
-</div>
-    
+        <div class="navright">
+        <ul>
+                <li ></li>
+                
+                <li>
+                <a id="btnsearch" href="#" style="opacity: 0.4;">
+                    <img src="https://img.icons8.com/ios/50/000000/search.png" style="width: 30px;">    
+                </a>   
+                </li>
+            </ul>
+        </div>    
     </nav>
-    
-    </header>
+</header>
+
+
  <div style="
     margin-left: auto;
     margin-right: auto;
     max-width: 620px;
 
 ">
-
 <!-- form Search css start-->
-<div id="frmsearch" style="
-width: 100%;
-position: fixed;
-left: 0;
-height: 100%;
-z-index: 1;display: none;
-background: #ffffffc7;
-">
-    <div style="
-    max-width: 420px;
-    margin: 55px;
-    margin-left: auto;
-    margin-right: auto;
-    "><form action="/search" method="GET" accept-charset="UTF-8" style="">
-                <input type="text" name="t" placeholder="Search..." style="width: 100%;border: none;outline: none;background:none;    padding: 1rem;
-                font-size: 1.3rem;font-family: 'cs_prajad', sans-serif;margin: auto;border-bottom: 1px solid #BBB;">
-                <input type="submit" style="
-                    display: none;
-                ">
+<div id="frmsearch">
+    <div class="frmsearch-into">
+        <form action="/search" method="GET" accept-charset="UTF-8">
+                <input type="text" name="t" placeholder="Search..." class="frmsearch-text">
+                <input type="submit" style="display: none; ">
             </form>
     </div>
 </div>
 
 <!-- form Search css end-->
-  <div style="
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 55px;
-    max-width: 420px;
-              font-weight:800;
-    /* background: #eee; */
-             ">
 
-</div>    
-<h1></h1>
-<style>
+<h1 class="titletag"></h1>
 
-/***************************FEED START************************************/
-
-.feed{
-word-wrap:break-word;
-float: left;
-margin:10px 0px;
-max-width: 620px;
-width: 100%;
-background: #fff;
-border: 1px solid #e6e6e6;
-box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
-
-}
+    <div class="feed-data"></div>
 
 
-
-.feed-like{
-word-wrap:break-word;
-float: left;
-margin:10px 0px;
-max-width: 620px;
-width: 100%;
-background: #fff;
-border: 1px solid #e6e6e6;
-box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
-
-}
-
-.feed-title{
-float: left;
-width: 100%;
-}
-
-.feed-into-title{
-display: inline-block;
-margin: 0px 20px 10px 20px;
-font-family: sans-serif;
-font-size: 18px;
-font-weight: 600;
-color: #616161;
-}
-
-.feed-content{
-float: left;
-width: 100%;
-
-}
-
-.feed-into-content{
-word-wrap:break-word;
-height: 2em;
-white-space: wrap;	
-text-overflow: '...?';
--o-text-overflow: '...?';
--ms-text-overflow: '...';
-overflow: hidden;
-margin: 0 20px;
-min-height: 70px;
-color: #757575;
-font-size: 18px;
-line-height: 32px;
-}
-
-.feed-date{
-float: left;
-margin: 10px 20px 20px;
-font-size: 12px;
-}
-
-.feed-type{
-float: left;
-width: 30%;
-border-top: 1px solid #e6e6e6;
-}
-
-.feed-type-into{
-margin-bottom: 15px;
-width: 90%;
-float: left;
-margin-left: 15px;
-margin-top: 15px;
-opacity: 0.8;
-}
-
-.feed-type-icon{
-float: left;
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin: 5px 10px 0px 0px;
-}
-
-.feed-type-text{
-float: left;
-margin: 7px 0;
-font-weight: 600;
-font-size: 20px;
-}
-
-.feed-tag{
-float: left;
-width: 50%;
-border-top: 1px solid #e6e6e6;
-}
+    <div class="ajax-load" style="display:none;text-align: center;">
+        <p><img src="http://www.fastsailing.it/wp-content/uploads/2017/12/lg.liquid-fill-preloader.gif" style="width:80px"></p>
+        </div>
 
 
-
-.feed-tag-into{
-opacity: 0.8;
-}
-
-.feed-tag-text{
-float: left;
-margin: 7px 15px;
-font-weight: 600;
-font-size: 20px;
-}
-
-
-.feed-writer{
-float: left;
-width: 50%;
-border-top: 1px solid #e6e6e6;
-}
-
-.feed-writer-profile{
-border-radius: 100px;
-float: right;
-height: 35px;
-margin: 5px 20px;
-object-fit: cover;
-width: 35px;
-display: inline-block;
-}
-
-.feed-writer-name{
-float: right;
-color: #E53935;
-margin: 10px 0;
-font-size: 18px;
-}
-
-.feed-check{
-float: right;
-margin-right: -25px;
-margin-top: -5px;
-color: #ff5f5f;
-font-weight: bold;
-position: relative;
-width:40px
-}
-
-.feed-check-text{
-float: right;
-font-size:14px; 
-position: absolute;
-top: 65%;
-left: 40%;
-transform: translate(-50%, -50%);
-font-size: 16px;
-}
-
-.tag{
-width:100%;
-}
-
-.tag-text{
-display: block;
-margin: 5px 5px;    
-width: 180px;
-height: 60px;
-position: relative;
-overflow: hidden;
-text-overflow: ellipsis;
-background: #fff;
-box-shadow: 0 1px 3px rgba(32, 33, 36, 0.28);
-}
-
-.tag-text div{
-padding: 5px 5px;
-word-wrap:break-word;
-}
-
-
-#left{
-opacity: 0.2;  
-margin-top: 30px;
-float: left;
-text-align: left;
-}
-
-#right{
-opacity: 0.2;
-margin-top: 30px;
-float: right;
-text-align: right;
-}
-
-@media screen and (max-width: 450px) {
-
-    .feed-type{
-        width: 30%;
-        border-top: 1px solid #e6e6e6;
-    }
-
-    .feed-type-into{
-        margin-bottom: 0px;
-        width: 80%;
-        float: left;
-        margin-left: 15px;
-        margin-top: 15px;
-        opacity: 1;
-     }
-    
-     .feed-type-icon{
-        float: left;
-        width: 20px;
-        height: 20px;
-        margin-left: 15px;
-        margin: 5px 10px 0px 0px;
-     }
-    .feed-type-text{
-        margin: 10px 0;
-        font-size: 16px;
-    }
-
-    .feed-writer{
-        width: 50%;
-        border-top: 1px solid #e6e6e6;
-    }
-      .tag{
-      width:350px;
-    }
-
-}
-
-/***************************FEED END************************************/
-
-
-</style>
-
-
-
-<div class="feed-data"></div>
-
-<div class="ajax-load" style="display:none;text-align: center;">
-<p><img src="http://www.fastsailing.it/wp-content/uploads/2017/12/lg.liquid-fill-preloader.gif" style="width:80px"></p>
-</div>
-
-</div>
+    </div>
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-/*ตัวค่าการค้นหาจาก href*/
+
 var url_string = window.location.href; //window.location.href
 var url = new URL(url_string);
-var t = url.searchParams.get("t");
+var id = url.searchParams.get("id");
 
 var timer;
 $(document).scroll(function() {
@@ -453,15 +91,15 @@ if(timer) {
 }
 timer = window.setTimeout(function() {
     if($(window).height() - $(window).scrollTop() <= 850) {
-        if(window.location.href.indexOf("searchn") > -1) {
+        if(window.location.href.indexOf("tagn") > -1) {
             var last_new = $(".feed:last").attr("id");
-            var url = "http://jaipun.com/feed/searchload_new?content_id="+last_new+"&t="+t;
-            load_new(encodeURI(url));
+            var url = "http://jaipun.com/feed/tagidload_new?content_id="+last_new +"&id="+id;
+            load_new(url);
         }else{
             var last_id = $(".feed:last").attr("id");
-            var url = "http://jaipun.com/feed/searchload_top?contentTop="+last_id+"&t="+t;
+            var url = "http://jaipun.com/feed/tagidload_top?contentTop="+last_id+"&id="+id;
             //loadMoreData(last_id);
-            load_top(encodeURI(url));
+            load_top(url);
         }  
     }
 console.log( "Firing!" );
@@ -469,12 +107,12 @@ console.log( "Firing!" );
 });
 
 function navbarScroll() {
-var y = window.scrollY;
-if (y > 10) {
-$('.header').addClass('small');
-} else if (y < 10) {
-$('.header').removeClass('small');
-}
+    var y = window.scrollY;
+    if (y > 10) {
+    $('.header').addClass('small');
+    } else if (y < 10) {
+    $('.header').removeClass('small');
+    }
 }
 
 
@@ -536,215 +174,209 @@ function imgExists(content_id){
 } 
 
 
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-
-
 $(document).ready(function() {
-    $("#btnsearch").click(function(){
-        $("#frmsearch").toggle();
-        $("input").focus();
-    });
+
+        $("#btnsearch").click(function(){
+            $("#frmsearch").toggle();
+            $("input").focus();
+        });
 
 
-    if(window.location.href.indexOf("searchn") > -1) {
-        $('#latest').attr('data-click-state', 1)
-        $('#latest').css('opacity', '1')
-        url="http://jaipun.com/feed/search_new?t="+t;
-        feed_new(encodeURI(url));
-    }else{
-        url="http://jaipun.com/feed/search_top?t="+t;
-        feed_top(encodeURI(url));
-    }
+        if(window.location.href.indexOf("tagn") > -1) {
+            $('#latest').attr('data-click-state', 1)
+            $('#latest').css('opacity', '1')
+            url="http://jaipun.com/feed/tagid_new?id="+id;
+            feed_new(url);
+        }else{
+            url="http://jaipun.com/feed/tagid_top?id="+id;
+            feed_top(url);
+        }
 
-    $('h1').html("result of search "+'"'+ t + '"');
-    $('#latest').on('click',function(){
-                if($(this).attr('data-click-state') == 1) {
-                    $(this).attr('data-click-state', 0)
-                    $(this).css('opacity', '0.4')
-                    var url="http://jaipun.com/feed/search_top?t="+t;
-                    $('.feed-data').html(" ");
-                    window.history.replaceState(null, null, "search?t="+t);
-                    document.body.scrollTop = 0; // For Safari
-                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-                    feed_top(encodeURI(url));
-                } else {
-                    $(this).attr('data-click-state', 1)
-                    $(this).css('opacity', '1')
-                    var url="http://jaipun.com/feed/search_new?t="+t;
-                    $('.feed-data').html(" ");
-                    window.history.replaceState(null, null, "searchn?t="+t);
-                    document.body.scrollTop = 0; // For Safari
-                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-                    feed_new(encodeURI(url));
-                }
-                
-    });
 
+        $('#latest').on('click',function(){
+                    if($(this).attr('data-click-state') == 1) {
+                        $(this).attr('data-click-state', 0)
+                        $(this).css('opacity', '0.4')
+                        var url="http://jaipun.com/feed/tagid_top?id="+id;
+                        $('.feed-data').html(" ");
+                        window.history.replaceState(null, null, "tag?id="+id);
+                        document.body.scrollTop = 0; // For Safari
+                        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                        feed_top(url);
+                    } else {
+                        $(this).attr('data-click-state', 1)
+                        $(this).css('opacity', '1')
+                        var url="http://jaipun.com/feed/tagid_new?id="+id;
+                        $('.feed-data').html(" ");
+                        window.history.replaceState(null, null, "tagn?id="+id);
+                        document.body.scrollTop = 0; // For Safari
+                        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                        feed_new(url);
+                    }
+                    
+        });
 
 });
+</script>
 
 
+<script type="text/javascript">
 
-
-/****************************************************************/
-function feed_new(url){
+    
+    
+    /****************************************************************/
+    function feed_new(url){
+        $.ajax({
+                url: url,
+                beforeSend: function()
+                    {
+                        $('.ajax-load').show();
+                    }
+            }).then(function(data) {
+                $('.ajax-load').hide();
+                $('h1').html(data[0].tagname);
+                document.title = data[0].tagname+ ' new | Jaipun';            
+            for(var i = 0; i < data.length; i++){
+                url = '/profile/'+data[i].user_id +".jpeg";
+                profileExists(url);
+                imgExists(data[i].content_id);
+                if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
+                $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + image +
+                "<div class='feed-title'><div class='feed-type-into' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' +
+                "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
+                "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
+                "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
+                Like + "</span>" + "</div>" + "</div>" +
+                "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
+                "<div class='feed-content' onclick="+ '"' + "window.location='/story/" + MD5(data[i].content_id) + "'" + '">' + 
+                "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
+                "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
+                "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+                "</div></div>" + 
+                "<div class='feed-writer' style='width: 50%;'>" + 
+                "<img src='"+profile+"' class='feed-writer-profile'>" +
+                "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].name + "'" + '">' + 
+                data[i].name + "</div>" +
+                "</div></div>"
+            );
+        }
+    });
+    }
+    
+    
+    function feed_top(url){
+        $.ajax({
+                url: url,
+                beforeSend: function()
+                    {
+                        $('.ajax-load').show();
+                    }
+            }).then(function(data) {
+                $('.ajax-load').hide();
+                $('h1').html(data[0].tagname);
+                document.title = data[0].tagname+ ' | Jaipun';                            
+            for(var i = 0; i < data.length; i++){
+                url = '/profile/'+data[i].user_id +".jpeg";
+                profileExists(url);
+                imgExists(data[i].content_id);
+                if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
+                $('.feed-data').append(   "<div class='feed' id="+ data[i].contentLike +">" + image +
+                "<div class='feed-title'><div class='feed-type-into' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' +
+                "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
+                "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
+                "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
+                Like + "</span>" + "</div>" + "</div>" +
+                "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
+                "<div class='feed-content' onclick="+ '"' + "window.location='/story/" + MD5(data[i].content_id) + "'" + '">' + 
+                "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
+                "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
+                "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+                "</div></div>" + 
+                "<div class='feed-writer' style='width: 50%;'>" + 
+                "<img src='"+profile+"' class='feed-writer-profile'>" +
+                "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].name + "'" + '">' + 
+                data[i].name + "</div>" +
+                "</div></div>"
+            );
+        }
+    });
+    }
+    
+    function load_new(url){
     $.ajax({
-            url: url,
-            beforeSend: function()
-                {
-                    $('.ajax-load').show();
-                }
-        }).then(function(data) {
-            $('.ajax-load').hide();
-            document.title = t + ' | new';                            
+        url:url,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+    }).then(function(data) {
+        $('.ajax-load').hide();
         for(var i = 0; i < data.length; i++){
             url = '/profile/'+data[i].user_id +".jpeg";
             profileExists(url);
             imgExists(data[i].content_id);
             if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
             $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + image +
-            "<div class='feed-title'><div class='feed-type-into'>" +
+            "<div class='feed-title'><div class='feed-type-into' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' +
             "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
             "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
             "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
-            Like + "</span>" + "</div>" + "</div>" +
-            "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
+             Like + "</span>" + "</div>" + "</div>" +
+             "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
             "<div class='feed-content' onclick="+ '"' + "window.location='/story/" + MD5(data[i].content_id) + "'" + '">' + 
-            "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+            "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
             "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
             "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
             "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
-            "</div></div>" + 
-            "<div class='feed-writer' style='width: 50%;'>" + 
-            "<img src='"+profile+"' class='feed-writer-profile'>" +
-            "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].name + "'" + '">' + 
-            data[i].name + "</div>" +
-            "</div></div>"
-        );
+             "</div></div>" + 
+             "<div class='feed-writer' style='width: 50%;'>" + 
+             "<img src='"+ profile +"' class='feed-writer-profile'>" +
+             "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].name + "'" + '">' + 
+             data[i].name + "</div>" +
+             "</div></div>"
+            );
+        }
+    });
     }
-});
-}
-
-
-function feed_top(url){
+    
+    
+    function load_top(url){
     $.ajax({
-            url: url,
-            beforeSend: function()
-                {
-                    $('.ajax-load').show();
-                }
-        }).then(function(data) {
-            $('.ajax-load').hide();
-            document.title = t + ' | Jaipun';                                        
+        url:url,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+         }).then(function(data) {
+        $('.ajax-load').hide();
         for(var i = 0; i < data.length; i++){
             url = '/profile/'+data[i].user_id +".jpeg";
             profileExists(url);
             imgExists(data[i].content_id);
             if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
-            $('.feed-data').append(   "<div class='feed' id="+ data[i].contentTop +">" + image +
-            "<div class='feed-title'><div class='feed-type-into'>" +
+            $('.feed-data').append(   "<div class='feed' id="+ data[i].contentLike+">" + image +
+            "<div class='feed-title'><div class='feed-type-into' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' +
             "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
             "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
             "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
-            Like + "</span>" + "</div>" + "</div>" +
-            "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
+             Like + "</span>" + "</div>" + "</div>" +
+             "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
             "<div class='feed-content' onclick="+ '"' + "window.location='/story/" + MD5(data[i].content_id) + "'" + '">' + 
-            "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+            "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
             "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
             "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
             "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
-            "</div></div>" + 
-            "<div class='feed-writer' style='width: 50%;'>" + 
-            "<img src='"+profile+"' class='feed-writer-profile'>" +
-            "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].name + "'" + '">' + 
-            data[i].name + "</div>" +
-            "</div></div>"
-        );
-    }
-});
-}
-
-function load_new(url){
-$.ajax({
-    url:url,
-    beforeSend: function()
-        {
-            $('.ajax-load').show();
+             "</div></div>" + 
+             "<div class='feed-writer' style='width: 50%;'>" + 
+             "<img src='"+ profile +"' class='feed-writer-profile'>" +
+             "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].name + "'" + '">' + 
+             data[i].name + "</div>" +
+             "</div></div>"
+            );
         }
-}).then(function(data) {
-    $('.ajax-load').hide();
-    for(var i = 0; i < data.length; i++){
-        url = '/profile/'+data[i].user_id +".jpeg";
-        profileExists(url);
-        imgExists(data[i].content_id);
-        if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
-        $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + image +
-        "<div class='feed-title'><div class='feed-type-into'>" +
-        "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
-        "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
-        "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
-         Like + "</span>" + "</div>" + "</div>" +
-         "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
-        "<div class='feed-content' onclick="+ '"' + "window.location='/story/" + MD5(data[i].content_id) + "'" + '">' + 
-        "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
-        "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
-        "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-        "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
-         "</div></div>" + 
-         "<div class='feed-writer' style='width: 50%;'>" + 
-         "<img src='"+ profile +"' class='feed-writer-profile'>" +
-         "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].name + "'" + '">' + 
-         data[i].name + "</div>" +
-         "</div></div>"
-        );
+    });
     }
-});
-}
-
-
-function load_top(url){
-$.ajax({
-    url:url,
-    beforeSend: function()
-        {
-            $('.ajax-load').show();
-        }
-     }).then(function(data) {
-    $('.ajax-load').hide();
-    for(var i = 0; i < data.length; i++){
-        url = '/profile/'+data[i].user_id +".jpeg";
-        profileExists(url);
-        imgExists(data[i].content_id);
-        if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
-        $('.feed-data').append(   "<div class='feed' id="+ data[i].contentTop+">" + image +
-        "<div class='feed-title'><div class='feed-type-into'>" +
-        "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
-        "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
-        "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
-         Like + "</span>" + "</div>" + "</div>" +
-         "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
-        "<div class='feed-content' onclick="+ '"' + "window.location='/story/" + MD5(data[i].content_id) + "'" + '">' + 
-        "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
-        "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
-        "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-        "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
-         "</div></div>" + 
-         "<div class='feed-writer' style='width: 50%;'>" + 
-         "<img src='"+ profile +"' class='feed-writer-profile'>" +
-         "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].name + "'" + '">' + 
-         data[i].name + "</div>" +
-         "</div></div>"
-        );
-    }
-});
-}
-
-</script>
-</body>
-</html>
+    
+    </script>
