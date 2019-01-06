@@ -1,0 +1,56 @@
+/*********************FONT_START**************************/
+@font-face {
+    font-family: 'cs_prajad';
+    src: url('csprajadPraJad-webfont.woff2') format('woff2'),
+         url('csprajadPraJad-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
+  
+  
+  
+  
+  @font-face {
+    font-family: 'cs_prajad';
+    src: url('csprajad-boldPraJad-webfont.woff2') format('woff2'),
+         url('csprajad-boldPraJad-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  
+  }
+  
+  
+  
+  
+  @font-face {
+    font-family: 'cs_prajad';
+    src: url('csprajad-bolditalicPraJad-webfont.woff2') format('woff2'),
+         url('csprajad-bolditalicPraJad-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+  
+  }
+  
+  
+  
+  
+  @font-face {
+    font-family: 'cs_prajad';
+    src: url('csprajad-italicPraJad-webfont.woff2') format('woff2'),
+         url('csprajad-italicPraJad-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+  
+  }
+  
+  
+  html{
+    font-family: 'cs_prajad', sans-serif;
+  }
+
+  body{
+    display: block;
+  }
+
+/***********************HEADER__START****************************/
