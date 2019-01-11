@@ -272,7 +272,7 @@ function feed_new(url){
             "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
             Like + "</span>" + "</div>" + "</div>" +
             "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
-            "<div class='feed-content' onclick="+ '"' + "window.location='/story=" + data[i].content_id + "'" + '">' + 
+            "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
             "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
             "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
             "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
@@ -311,7 +311,7 @@ function feed_top(url){
             "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
             Like + "</span>" + "</div>" + "</div>" +
             "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
-            "<div class='feed-content' onclick="+ '"' + "window.location='/story=" + data[i].content_id + "'" + '">' + 
+            "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
             "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
             "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
             "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
@@ -348,7 +348,7 @@ $.ajax({
         "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
          Like + "</span>" + "</div>" + "</div>" +
          "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
-        "<div class='feed-content' onclick="+ '"' + "window.location='/story=" + data[i].content_id + "'" + '">' + 
+        "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
         "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
         "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
         "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
@@ -386,7 +386,7 @@ $.ajax({
         "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
          Like + "</span>" + "</div>" + "</div>" +
          "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
-        "<div class='feed-content' onclick="+ '"' + "window.location='/story=" + data[i].content_id + "'" + '">' + 
+        "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
         "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
         "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
         "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
