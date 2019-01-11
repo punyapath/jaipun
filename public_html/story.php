@@ -505,7 +505,11 @@ if(window.location.href.indexOf("story") > -1) {
             $('#opencontent').css('margin-top', '60px');      
 }
 
-                
+document.addEventListener('contextmenu', event => event.preventDefault());
+ $('article img').click(function () {
+     var id =  $(this).attr('src').substr(5, 1);
+     window.location.href='viewdraw.php?drawname_id='+id;
+ });               
 
 $('#closecontent').click(function () {
         window.history.back();
