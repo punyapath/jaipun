@@ -320,7 +320,7 @@ function generate_date_today($Format, $Timestamp, $Language = "en", $TimeText = 
 	<ul>
 		<li>
 		<a id="latest" style="">
-			<img src="icon/feed.svg"style="width: 30px;" >    
+			<img src="icon/feed.svg"style="width: 20px;padding-top:5px" >   
 		</a>   
 		</li>
 		
@@ -342,7 +342,7 @@ function generate_date_today($Format, $Timestamp, $Language = "en", $TimeText = 
 			
 			<li>
 			<a id="btnsearch" href="#" style="">
-				<img src="icon/search.svg" style="width: 30px;">    
+				<img src="icon/search.svg" style="width: 20px;padding-top:5px"> 
 			</a>   
 			</li>
 		</ul>
