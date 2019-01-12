@@ -268,6 +268,8 @@ function generate_date_today($Format, $Timestamp, $Language = "en", $TimeText = 
     font-size: 1.3rem;font-family: 'cs_prajad', sans-serif;margin: auto;border-bottom: 1px solid #BBB;
 }
 
+
+
 </style>
 
 </head>
@@ -330,7 +332,7 @@ function generate_date_today($Format, $Timestamp, $Language = "en", $TimeText = 
 
 	<div class="navcenter">
 			<a  href="/">
-			<img src="icon/namelogo.svg" style="width: 100px;margin-top: -5px;">
+			<img src="icon/namelogo.svg" style="width: 150px;">
 		</a>
 	</div>
 
