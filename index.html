@@ -65,11 +65,8 @@
 
 
 
-<div class="btn-write" onclick="window.location.href='write.php'">
-    <div style="display: inline;margin: 2px;">       
-        <img src="https://sv1.picz.in.th/images/2019/01/02/9bcmyN.png" style="">
-    </div>
-    <span class="btn-write-text">WRITE YOUR STORY</span>
+<div class="btn-write" onclick="window.location.href='write.php'" style>
+    <span class="btn-write-text" >WRITE YOUR STORY</span>
  </div>
      
 
@@ -196,7 +193,7 @@ $(document).ready(function() {
         $("#frmsearch").toggle();
         $("input").focus();
     });
-
+/*
     $.ajax({
             url: "http://jaipun.com/feed/tag_top",
             }).then(function(data) {
@@ -209,7 +206,7 @@ $(document).ready(function() {
         $('.tag').append(   
                     "<div class='tag-card' style='background: #ffffff;'><div class='tag-card-all'>view all</div></div>"
         );
-    });
+    });*/
 
     if(window.location.href.indexOf("new") > -1) {
         $('#latest').attr('data-click-state', 1)
