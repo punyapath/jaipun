@@ -7,7 +7,7 @@
 <head></head>
 
 
-<body style="background:#FAFAFA;">
+<body style="background:#fff;">
 
     <header class="header">
         <nav>
@@ -253,37 +253,35 @@ $(document).ready(function() {
 /****************************************************************/
 function feed_new(url){
     $.ajax({
-            url: url,
-            beforeSend: function()
-                {
-                    $('.ajax-load').show();
-                }
-        }).then(function(data) {
-            $('.ajax-load').hide();
-            document.title = 'latest';
-        for(var i = 0; i < data.length; i++){
-            url = '/profile/'+data[i].user_id +".jpeg";
-            profileExists(url);
-            imgExists(data[i].content_id);
-            if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
-            $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + image +
-            "<div class='feed-title'><div class='feed-type-into' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' +
-            "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
-            "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
-            "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
-            Like + "</span>" + "</div>" + "</div>" +
-            "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
+        url: url,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+    }).then(function(data) {
+        $('.ajax-load').hide();
+        document.title = 'latest';
+    for(var i = 0; i < data.length; i++){
+        var n = data[i].content.search("&lt;img");
+        var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+        var all = data[i].content.slice(n, en);
+        var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+        url = '/profile/'+data[i].user_id +".jpeg";
+        profileExists(url);
+        //imgExists(data[i].content_id);
+        if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+        $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + 
+            "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+            "<div class='feed-title-under'>" + 
+            "<div class='feed-tag' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+            "<div class='feed-type' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' + data[i].type + "</div>" +  "</div>" +
             "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
-            "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
-            "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
-            "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-            "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
-            "</div></div>" + 
-            "<div class='feed-writer' style='width: 50%;'>" + 
+             draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+            "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+             Like + "</span></div></div>" +  "<div class='feed-writer' style='width: 50%;'>" + 
             "<img src='"+profile+"' class='feed-writer-profile'>" +
             "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
-            data[i].name + "</div>" +
-            "</div></div>"
+            data[i].name + "</div>" +"</div>"
         );
     }
 });
@@ -292,37 +290,35 @@ function feed_new(url){
 
 function feed_top(url){
     $.ajax({
-            url: url,
-            beforeSend: function()
-                {
-                    $('.ajax-load').show();
-                }
-        }).then(function(data) {
-            $('.ajax-load').hide();
-            document.title = 'Jaipun';            
-        for(var i = 0; i < data.length; i++){
-            url = '/profile/'+data[i].user_id +".jpeg";
-            profileExists(url);
-            imgExists(data[i].content_id);
-            if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
-            $('.feed-data').append(   "<div class='feed' id="+ data[i].contentLike +">" + image +
-            "<div class='feed-title'><div class='feed-type-into' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' +
-            "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
-            "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
-            "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
-            Like + "</span>" + "</div>" + "</div>" +
-            "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
+        url: url,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+    }).then(function(data) {
+        $('.ajax-load').hide();
+        document.title = 'Jaipun';
+    for(var i = 0; i < data.length; i++){
+        var n = data[i].content.search("&lt;img");
+        var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+        var all = data[i].content.slice(n, en);
+        var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+        url = '/profile/'+data[i].user_id +".jpeg";
+        profileExists(url);
+        //imgExists(data[i].content_id);
+        if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+        $('.feed-data').append(   "<div class='feed' id="+ data[i].contentLike+">" + 
+            "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+            "<div class='feed-title-under'>" + 
+            "<div class='feed-tag' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+            "<div class='feed-type' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' + data[i].type + "</div>" +  "</div>" +
             "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
-            "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
-            "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
-            "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-            "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
-            "</div></div>" + 
-            "<div class='feed-writer' style='width: 50%;'>" + 
+             draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+            "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+             Like + "</span></div></div>" +  "<div class='feed-writer' style='width: 50%;'>" + 
             "<img src='"+profile+"' class='feed-writer-profile'>" +
             "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
-            data[i].name + "</div>" +
-            "</div></div>"
+            data[i].name + "</div>" +"</div>"
         );
     }
 });
@@ -338,28 +334,26 @@ $.ajax({
 }).then(function(data) {
     $('.ajax-load').hide();
     for(var i = 0; i < data.length; i++){
+        var n = data[i].content.search("&lt;img");
+        var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+        var all = data[i].content.slice(n, en);
+        var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
         url = '/profile/'+data[i].user_id +".jpeg";
         profileExists(url);
         imgExists(data[i].content_id);
-        if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
-        $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + image +
-        "<div class='feed-title'><div class='feed-type-into' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' +
-        "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
-        "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
-        "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
-         Like + "</span>" + "</div>" + "</div>" +
-         "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
-        "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
-        "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
-        "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
-        "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-        "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
-         "</div></div>" + 
-         "<div class='feed-writer' style='width: 50%;'>" + 
-         "<img src='"+ profile +"' class='feed-writer-profile'>" +
-         "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
-         data[i].name + "</div>" +
-         "</div></div>"
+        if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+        $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + 
+            "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+            "<div class='feed-title-under'>" + 
+            "<div class='feed-tag' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+            "<div class='feed-type' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' + data[i].type + "</div>" +  "</div>" +
+            "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+             draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+            "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+             Like + "</span></div></div>" +  "<div class='feed-writer' style='width: 50%;'>" + 
+            "<img src='"+profile+"' class='feed-writer-profile'>" +
+            "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+            data[i].name + "</div>" +"</div>"
         );
     }
 });
@@ -376,28 +370,26 @@ $.ajax({
      }).then(function(data) {
     $('.ajax-load').hide();
     for(var i = 0; i < data.length; i++){
+        var n = data[i].content.search("&lt;img");
+        var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+        var all = data[i].content.slice(n, en);
+        var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
         url = '/profile/'+data[i].user_id +".jpeg";
         profileExists(url);
         imgExists(data[i].content_id);
-        if(data[i].contentLike != 0){var Like = data[i].contentLike;}else{var Like = ""}
-        $('.feed-data').append(   "<div class='feed' id="+ data[i].contentLike+">" + image +
-        "<div class='feed-title'><div class='feed-type-into' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' +
-        "<img class='feed-type-icon' src='type/"+ data[i].type +".png' >" + 
-        "<div class='feed-type-text' style='font-size: 12px;'>" + data[i].type + "</div>"+
-        "<div class='feed-check'><img src='https://sv1.picz.in.th/images/2019/01/04/9lqDJk.png' style='width: 100%;height: auto;'><span class='feed-check-text'>" +
-         Like + "</span>" + "</div>" + "</div>" +
-         "<div class='feed-into-title' >" + data[i].contentName + "</div></div>" +
-        "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
-        "<div class='feed-into-content' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,'').substring(0, 120) +"....</div>" +
-        "<div class='feed-date'>" + timeSince(data[i].contentDate) + "</div></div>" + 
-        "<div class='feed-tag' style='width: 50%;'><div class='feed-tag-into'>" + 
-        "<div class='feed-tag-text' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
-         "</div></div>" + 
-         "<div class='feed-writer' style='width: 50%;'>" + 
-         "<img src='"+ profile +"' class='feed-writer-profile'>" +
-         "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
-         data[i].name + "</div>" +
-         "</div></div>"
+        if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+        $('.feed-data').append(   "<div class='feed' id="+ data[i].contentLike+">" + 
+            "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+            "<div class='feed-title-under'>" + 
+            "<div class='feed-tag' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
+            "<div class='feed-type' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' + data[i].type + "</div>" +  "</div>" +
+            "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+             draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+            "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+             Like + "</span></div></div>" +  "<div class='feed-writer' style='width: 50%;'>" + 
+            "<img src='"+profile+"' class='feed-writer-profile'>" +
+            "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+            data[i].name + "</div>" +"</div>"
         );
     }
 });
