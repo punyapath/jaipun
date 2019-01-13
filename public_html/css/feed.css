@@ -116,7 +116,7 @@
 .btn-write{
     display: table;
     width: 100%;
-    box-shadow: 0 1px 20px -8px #636463;
+    box-shadow: 0 0.5px 12px -8px #636463;
     color: #ff5f5f;
     background-color: #fff;
     margin-top: 60px;
@@ -127,8 +127,10 @@
 }
 
 .btn-write-text{
-    margin: 0px 10px;
+    padding: 2px 10px;
     font-size: 22px;
+    border-bottom: 5px solid #f3f3f3;
+    border-radius: 2px;
 }
 .tag-card{
     display: block;
@@ -174,9 +176,9 @@
 
 /***************************FEED START************************************/
 /************************ FEED START********************************/
-
 .feed{
-    border-bottom: 1px solid rgba(0,0,0,.15)!important;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+    border-bottom: 2px solid rgba(0,0,0,.15)!important;
     word-wrap: break-word;
     float: left;
     margin: 2px 0px;
@@ -192,8 +194,7 @@
 .feed-title-text{
     margin: 20px 20px 0px 20px;
             display: inline-block;
-            font-family: sans-serif;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             color: #000;
 }
@@ -228,7 +229,7 @@
     margin-right: auto;
     margin-top: 0px;
     margin-bottom: 0px;
-    width: 200px;
+    width: 140px;
 }
 .feed-content-into{
     word-wrap: break-word;
