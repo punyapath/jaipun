@@ -404,42 +404,42 @@ if($checklike->num_rows > 0){
 top: 30%;
 left: 40%;width:80px' class='check'>
 <body style="background:#fafafa;margin: 0px;">
+<header class="header">
+<nav>
+    <div class="navleft">
+    <ul>
+        <li>
+        <a id="latest" style="">
+            <img src="icon/feed.svg"style="width: 20px;padding-top:5px" >    
+        </a>   
+        </li>
+        
+        <li >
+        <a href="#"></a>   
+        </li>
+    </ul>
+    </div>
 
-    <header class="header">
-        <nav>
-            <div class="navleft">
-            <ul>
-                <li>
-                <a id="latest" style="">
-                    <img src="icon/feed.svg"style="width: 20px;padding-top:5px" >    
-                </a>   
-                </li>
-                
-                <li >
-                <a href="#"></a>   
-                </li>
-            </ul>
-            </div>
-    
-            <div class="navcenter">
-                    <a  href="/">
-                    <img src="icon/namelogo.svg" style="width: 150px;">
-                </a>
-            </div>
-    
-            <div class="navright">
-            <ul>
-                    <li ></li>
-                    
-                    <li>
-                    <a id="btnsearch" href="#" style="">
-                        <img src="icon/search.svg" style="width: 20px;padding-top:5px">    
-                    </a>   
-                    </li>
-                </ul>
-            </div>    
-        </nav>
-    </header>
+    <div class="navcenter">
+            <a  href="/">
+            <img src="icon/namelogo.svg" style="width: 150px;">
+        </a>
+    </div>
+
+    <div class="navright">
+    <ul>
+            <li ></li>
+            
+            <li>
+            <a href="/all.html" style="">
+            <!--<a id="btnsearch" href="#" style="">-->
+                <img src="icon/tagall.svg" style="width: 20px;padding-top:5px">    
+            </a>   
+            </li>
+        </ul>
+    </div>    
+</nav>
+</header>
 
     
 <div id="closecontent">
