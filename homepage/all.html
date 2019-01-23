@@ -136,9 +136,84 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
+var timer;
+$(document).scroll(function() {
+    navbarScroll();
+    /*ระบบจำกัดครั้งการส่งเวลาเลื่อนลง ใช้ time ในการรีเลย์ ไม่ให้ส่งซ้ำมากเกินไป*/
+    if(timer) {
+        window.clearTimeout(timer);
+    }
+    timer = window.setTimeout(function() {
+        if($(window).height() - $(window).scrollTop() <= 750) {
+            if(window.location.href.indexOf("alln") > -1) {
+                var last_new = $(".tag:last").attr("id");
+                var url = "http://jaipun.com/feed/tagload_new?tag_id="+last_new;
+                tagload_new(url);
+                
+            }else{
+                var last_id = $(".tag:last").attr("id");
+                var url = "http://jaipun.com/feed/tagload_top?tagTop="+last_id;
+                tagload_top(url);
+                //loadMoreData(last_id);
+                
+            }  
+        }
+    console.log( "Firing!" );
+    }, 100);
+    });
+
+    function navbarScroll() {
+    var y = window.scrollY;
+    if (y > 10) {
+    $('.header').addClass('small');
+    } else if (y < 10) {
+    $('.header').removeClass('small');
+    }
+}
+
 $(document).ready(function() {
+    
+    if(window.location.href.indexOf("alln") > -1) {
+        $('#latest').attr('data-click-state', 1)
+        $('#latest').css('border-bottom', '2px solid #fff')
+        url="http://jaipun.com/feed/tag_new";
+        tag_new(url);
+    }else{
+        url="http://jaipun.com/feed/tag_top";
+        tag_top(url);
+    }
+    
+    $('#latest').on('click',function(){
+                if($(this).attr('data-click-state') == 1) {
+                    $(this).attr('data-click-state', 0)
+                    $(this).css('border-bottom', 'none')
+                    var url="http://jaipun.com/feed/tag_top";
+                    $('.feed-data').html(" ");
+                    window.history.replaceState(null, null, "all");
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                    tag_top(url);
+                } else {
+                    $(this).attr('data-click-state', 1)
+                    $(this).css('border-bottom', '2px solid #fff')
+                    var url="http://jaipun.com/feed/tag_new";
+                    $('.feed-data').html(" ");
+                    window.history.replaceState(null, null, "alln");
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                    tag_new(url);
+                }
+                
+    });
+   
+    
+
+});
+
+
+function tag_top(url){
     $.ajax({
-        url: "http://jaipun.com/feed/tag_top",
+        url: url,
         beforeSend: function()
             {
                 $('.ajax-load').show();
@@ -149,14 +224,82 @@ $(document).ready(function() {
     for(var i = 0; i < data.length; i++){
 
         $('.feed-data').append(
-            "<div class='tag' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">' +
+            "<div class='tag' id='"+ data[i].tagTop + "' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">' +
             "<img src='"+ data[i].tagDraw +"'>" +  "<div class='tag-text'><div class='tag-name'>" + data[i].tagname + "</div>" +
              "<div class='tag-detail'>"+ data[i].tagDetail  +"</div>" +
                "<div class='tag-int'>" + data[i].tagStories +  "    Stories</div></div></div>"
         );
     }
-});
-});
+    });
+}
+
+function tagload_top(url){
+    $.ajax({
+        url: url,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+    }).then(function(data) {
+        $('.ajax-load').hide();
+        document.title = 'Jaipun';
+    for(var i = 0; i < data.length; i++){
+
+        $('.feed-data').append(
+            "<div class='tag' id='"+ data[i].tagTop + "' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">' +
+            "<img src='"+ data[i].tagDraw +"'>" +  "<div class='tag-text'><div class='tag-name'>" + data[i].tagname + "</div>" +
+             "<div class='tag-detail'>"+ data[i].tagDetail  +"</div>" +
+               "<div class='tag-int'>" + data[i].tagStories +  "    Stories</div></div></div>"
+        );
+    }
+    });
+}
+
+
+
+function tag_new(url){
+    $.ajax({
+        url: url,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+    }).then(function(data) {
+        $('.ajax-load').hide();
+        document.title = 'Jaipun';
+    for(var i = 0; i < data.length; i++){
+
+        $('.feed-data').append(
+            "<div class='tag' id='"+ data[i].tag_id + "' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">' +
+            "<img src='"+ data[i].tagDraw +"'>" +  "<div class='tag-text'><div class='tag-name'>" + data[i].tagname + "</div>" +
+             "<div class='tag-detail'>"+ data[i].tagDetail  +"</div>" +
+               "<div class='tag-int'>" + data[i].tagStories +  "    Stories</div></div></div>"
+        );
+    }
+    });
+}
+
+function tagload_new(url){
+    $.ajax({
+        url: url,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+    }).then(function(data) {
+        $('.ajax-load').hide();
+        document.title = 'Jaipun';
+    for(var i = 0; i < data.length; i++){
+
+        $('.feed-data').append(
+            "<div class='tag' id='"+ data[i].tag_id + "' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">' +
+            "<img src='"+ data[i].tagDraw +"'>" +  "<div class='tag-text'><div class='tag-name'>" + data[i].tagname + "</div>" +
+             "<div class='tag-detail'>"+ data[i].tagDetail  +"</div>" +
+               "<div class='tag-int'>" + data[i].tagStories +  "    Stories</div></div></div>"
+        );
+    }
+    });
+}
 
 </script>
 
