@@ -8,6 +8,7 @@
 
 
 <body style="background:#FFF;">
+        <div id="viewnew" style="width: 100%; position: fixed; text-align: center; z-index: 3; display: none;"><p style="background: #00000070;width: 100px;margin-left: auto;margin-right: auto;color: #fff;border-radius: 2px;font-size: 16px;margin-top: 5px;">new</p></div>
         <header class="header">
                 <nav>
                     <div class="navleft">
@@ -103,13 +104,13 @@ if(timer) {
 }
 timer = window.setTimeout(function() {
     if($(window).height() - $(window).scrollTop() <= 850) {
-        if(window.location.href.indexOf("tagn") > -1) {
+        if(window.location.href.indexOf("feedtypen") > -1) {
             var last_new = $(".feed:last").attr("id");
-            var url = "http://jaipun.com/feed/tagidload_new?content_id="+last_new +"&t="+t;
+            var url = "http://jaipun.com/feed/typeload_new?content_id="+last_new +"&t="+t;
             load_new(url);
         }else{
             var last_id = $(".feed:last").attr("id");
-            var url = "http://jaipun.com/feed/tagidload_top?contentTop="+last_id+"&t="+t;
+            var url = "http://jaipun.com/feed/typeload_top?contentTop="+last_id+"&t="+t;
             //loadMoreData(last_id);
             load_top(url);
         }  
@@ -224,6 +225,8 @@ $(document).ready(function() {
                         document.body.scrollTop = 0; // For Safari
                         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                         feed_new(url);
+                        $("#viewnew").fadeIn();
+                        $("#viewnew").fadeOut(4000);
                     }
                     
         });
@@ -249,10 +252,10 @@ $(document).ready(function() {
                 $('h1').html(data[0].type);
                 document.title = data[0].type+ ' new | Jaipun';            
                 for(var i = 0; i < data.length; i++){
-                    var n = data[i].content.search("&lt;img");
-                    var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+                    var n = data[i].content.search("draw/");
+                    var e = data[i].content.search("png"); var en = e + 3;
                     var all = data[i].content.slice(n, en);
-                    var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+                    var draw = "<img src='"+all+"'>";       
                     url = '/profile/'+data[i].user_id +".jpeg";
                     profileExists(url);
                     //imgExists(data[i].content_id);
@@ -271,6 +274,7 @@ $(document).ready(function() {
                     );
                 }
     });
+    $('.ajax-load').hide();
     }
     
     
@@ -286,10 +290,10 @@ $(document).ready(function() {
                 $('h1').html(data[0].type);
                 document.title = data[0].type+ ' | Jaipun';                            
                 for(var i = 0; i < data.length; i++){
-                    var n = data[i].content.search("&lt;img");
-                    var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+                    var n = data[i].content.search("draw/");
+                    var e = data[i].content.search("png"); var en = e + 3;
                     var all = data[i].content.slice(n, en);
-                    var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+                    var draw = "<img src='"+all+"'>";       
                     url = '/profile/'+data[i].user_id +".jpeg";
                     profileExists(url);
                     //imgExists(data[i].content_id);
@@ -308,6 +312,7 @@ $(document).ready(function() {
                     );
                 }
     });
+    $('.ajax-load').hide();
     }
     
     function load_new(url){
@@ -320,10 +325,10 @@ $(document).ready(function() {
     }).then(function(data) {
         $('.ajax-load').hide();
         for(var i = 0; i < data.length; i++){
-            var n = data[i].content.search("&lt;img");
-            var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+            var n = data[i].content.search("draw/");
+            var e = data[i].content.search("png"); var en = e + 3;
             var all = data[i].content.slice(n, en);
-            var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+            var draw = "<img src='"+all+"'>";       
             url = '/profile/'+data[i].user_id +".jpeg";
             profileExists(url);
             //imgExists(data[i].content_id);
@@ -342,6 +347,7 @@ $(document).ready(function() {
             );
         }
     });
+    $('.ajax-load').hide();
     }
     
     
@@ -355,10 +361,10 @@ $(document).ready(function() {
          }).then(function(data) {
         $('.ajax-load').hide();
         for(var i = 0; i < data.length; i++){
-            var n = data[i].content.search("&lt;img");
-            var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+            var n = data[i].content.search("draw/");
+            var e = data[i].content.search("png"); var en = e + 3;
             var all = data[i].content.slice(n, en);
-            var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+            var draw = "<img src='"+all+"'>";       
             url = '/profile/'+data[i].user_id +".jpeg";
             profileExists(url);
             //imgExists(data[i].content_id);
@@ -377,6 +383,7 @@ $(document).ready(function() {
             );
         }
     });
+    $('.ajax-load').hide();
     }
     
     </script>

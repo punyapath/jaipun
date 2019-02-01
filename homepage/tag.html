@@ -8,6 +8,7 @@
 
 
 <body style="background:#fff;">
+        <div id="viewnew" style="width: 100%; position: fixed; text-align: center; z-index: 3; display: none;"><p style="background: #00000070;width: 100px;margin-left: auto;margin-right: auto;color: #fff;border-radius: 2px;font-size: 16px;margin-top: 5px;">new</p></div>
         <header class="header">
                 <nav>
                     <div class="navleft">
@@ -225,6 +226,8 @@ $(document).ready(function() {
                         document.body.scrollTop = 0; // For Safari
                         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                         feed_new(url);
+                        $("#viewnew").fadeIn();
+                        $("#viewnew").fadeOut(4000);
                     }
                     
         });
@@ -250,10 +253,10 @@ $(document).ready(function() {
                 $('h1').html(data[0].tagname);
                 document.title = data[0].tagname+ ' new | Jaipun';            
                 for(var i = 0; i < data.length; i++){
-                    var n = data[i].content.search("&lt;img");
-                    var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+                    var n = data[i].content.search("draw/");
+                    var e = data[i].content.search("png"); var en = e + 3;
                     var all = data[i].content.slice(n, en);
-                    var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+                    var draw = "<img src='"+all+"'>";       
                     url = '/profile/'+data[i].user_id +".jpeg";
                     profileExists(url);
                     //imgExists(data[i].content_id);
@@ -272,6 +275,7 @@ $(document).ready(function() {
                     );
                 }
     });
+    $('.ajax-load').hide();
     }
     
     
@@ -287,10 +291,10 @@ $(document).ready(function() {
                 $('h1').html(data[0].tagname);
                 document.title = data[0].tagname+ ' | Jaipun';                            
                 for(var i = 0; i < data.length; i++){
-                    var n = data[i].content.search("&lt;img");
-                    var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+                    var n = data[i].content.search("draw/");
+                    var e = data[i].content.search("png"); var en = e + 3;
                     var all = data[i].content.slice(n, en);
-                    var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+                    var draw = "<img src='"+all+"'>";       
                     url = '/profile/'+data[i].user_id +".jpeg";
                     profileExists(url);
                     //imgExists(data[i].content_id);
@@ -309,6 +313,7 @@ $(document).ready(function() {
                     );
                 }
     });
+    $('.ajax-load').hide();
     }
     
     function load_new(url){
@@ -321,10 +326,10 @@ $(document).ready(function() {
     }).then(function(data) {
         $('.ajax-load').hide();
         for(var i = 0; i < data.length; i++){
-            var n = data[i].content.search("&lt;img");
-            var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+            var n = data[i].content.search("draw/");
+            var e = data[i].content.search("png"); var en = e + 3;
             var all = data[i].content.slice(n, en);
-            var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+            var draw = "<img src='"+all+"'>";       
             url = '/profile/'+data[i].user_id +".jpeg";
             profileExists(url);
             //imgExists(data[i].content_id);
@@ -343,6 +348,7 @@ $(document).ready(function() {
             );
         }
     });
+    $('.ajax-load').hide();
     }
     
     
@@ -356,10 +362,10 @@ $(document).ready(function() {
          }).then(function(data) {
         $('.ajax-load').hide();
         for(var i = 0; i < data.length; i++){
-            var n = data[i].content.search("&lt;img");
-            var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+            var n = data[i].content.search("draw/");
+            var e = data[i].content.search("png"); var en = e + 3;
             var all = data[i].content.slice(n, en);
-            var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+            var draw = "<img src='"+all+"'>";       
             url = '/profile/'+data[i].user_id +".jpeg";
             profileExists(url);
             //imgExists(data[i].content_id);
@@ -378,6 +384,7 @@ $(document).ready(function() {
             );
         }
     });
+    $('.ajax-load').hide();
     }
     
     </script>

@@ -8,7 +8,7 @@
 
 
 <body style="background:#fff;">
-
+    <div id="viewnew" style="width: 100%; position: fixed; text-align: center; z-index: 3; display: none;"><p style="background: #00000070;width: 100px;margin-left: auto;margin-right: auto;color: #fff;border-radius: 2px;font-size: 16px;margin-top: 5px;">new</p></div>
     <header class="header">
         <nav>
             <div class="navleft">
@@ -105,7 +105,7 @@ if(timer) {
     window.clearTimeout(timer);
 }
 timer = window.setTimeout(function() {
-    if($(window).height() - $(window).scrollTop() <= 850) {
+    if($(window).height() - $(window).scrollTop() <= 950) {
         if(window.location.href.indexOf("new") > -1) {
             var last_new = $(".feed:last").attr("id");
             var url = "http://jaipun.com/feed/load_new?content_id="+last_new;
@@ -118,7 +118,7 @@ timer = window.setTimeout(function() {
         }  
     }
 console.log( "Firing!" );
-}, 100);
+}, 200);
 });
 
 function navbarScroll() {
@@ -238,6 +238,8 @@ $(document).ready(function() {
                     document.body.scrollTop = 0; // For Safari
                     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                     feed_new(url);
+                    $("#viewnew").fadeIn();
+                    $("#viewnew").fadeOut(4000);
                 }
                 
     });
@@ -260,10 +262,10 @@ function feed_new(url){
         $('.ajax-load').hide();
         document.title = 'latest';
     for(var i = 0; i < data.length; i++){
-        var n = data[i].content.search("&lt;img");
-        var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+        var n = data[i].content.search("draw/");
+        var e = data[i].content.search("png"); var en = e + 3;
         var all = data[i].content.slice(n, en);
-        var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+        var draw = "<img src='"+all+"'>";       
         url = '/profile/'+data[i].user_id +".jpeg";
         profileExists(url);
         //imgExists(data[i].content_id);
@@ -274,7 +276,7 @@ function feed_new(url){
             "<div class='feed-tag' onclick="+ '"' + "window.location='/tag?id=" + data[i].tag_id + "'" + '">'+  data[i].tagname + "</div>" +
             "<div class='feed-type' onclick="+ '"' + "window.location='/feedtype?t=" + data[i].type + "'" + '">' + data[i].type + "</div>" +  "</div>" +
             "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
-             draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+             draw  + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
             "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
              Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
             "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
@@ -296,10 +298,10 @@ function feed_top(url){
         $('.ajax-load').hide();
         document.title = 'Jaipun';
     for(var i = 0; i < data.length; i++){
-        var n = data[i].content.search("&lt;img");
-        var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+        var n = data[i].content.search("draw/");
+        var e = data[i].content.search("png"); var en = e + 3;
         var all = data[i].content.slice(n, en);
-        var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+        var draw = "<img src='"+all+"'>";       
         url = '/profile/'+data[i].user_id +".jpeg";
         profileExists(url);
         //imgExists(data[i].content_id);
@@ -330,10 +332,10 @@ $.ajax({
 }).then(function(data) {
     $('.ajax-load').hide();
     for(var i = 0; i < data.length; i++){
-        var n = data[i].content.search("&lt;img");
-        var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+        var n = data[i].content.search("draw/");
+        var e = data[i].content.search("png"); var en = e + 3;
         var all = data[i].content.slice(n, en);
-        var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+        var draw = "<img src='"+all+"'>";       
         url = '/profile/'+data[i].user_id +".jpeg";
         profileExists(url);
         imgExists(data[i].content_id);
@@ -365,10 +367,10 @@ $.ajax({
      }).then(function(data) {
     $('.ajax-load').hide();
     for(var i = 0; i < data.length; i++){
-        var n = data[i].content.search("&lt;img");
-        var e = data[i].content.search("png&quot;&gt;"); var en = e + 13;
+        var n = data[i].content.search("draw/");
+        var e = data[i].content.search("png"); var en = e + 3;
         var all = data[i].content.slice(n, en);
-        var draw = all.replace("&lt;","<").replace(/&quot;/gm,"'").replace('&gt;','>');
+        var draw = "<img src='"+all+"'>";       
         url = '/profile/'+data[i].user_id +".jpeg";
         profileExists(url);
         imgExists(data[i].content_id);
