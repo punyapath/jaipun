@@ -175,32 +175,6 @@ h3{
   }
 
 
-  .drawtag div{
-    padding: 7px 10px;
-    opacity: 0.6;
-    /*border-right: 1px solid #eee;*/
-    display: inline-flex;
-  }
-
-  
-  .drawtag div img{
-    width: 25px;height:25px
-  }
-
-
-  .drawtag div:active{
-    opacity:1;
-    background:#eee;
-  }
-
-  .drawtag div:hover{
-    opacity:1;
-    background:#eee;
-  }
-
-
-
-
   /* 
   .select-emoji{
     width: 100%;
@@ -286,6 +260,7 @@ h3{
   
   /************************TYPE FORM END*******************************/
 
+  /************************DRAW FORM START*******************************/
 
 .tag div{
   font-size: 20px;
@@ -304,86 +279,146 @@ h3{
 
 
 #drawForm img{
-  width:150px;
+  width:120px;
   opacity: 0.6;
 }
 #drawForm img:hover{
   opacity: 1;
 }
 
+
+#drawForm div{
+  float: left;
+  margin: 10px 20px;
+}    
+#drawForm span{
+  display: block;    
+  margin: 10px;
+} 
 .draw{
-  width: 100px;
-  margin: 10px 30px;
+  width: 80px;
+  margin: 10px 20px;
+}
+
+#selectdraw{
+  position:fixed!important;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: #75757585;
+  display:none;
+  top: 0;    
+  overflow-y: scroll;
+  right: 0;
+}
+.selectdraw-into{
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  z-index: 101;
+}
+
+.drawtitle{
+  padding: 15px;
+  background: #fafafa;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#drawcontent{
+  padding: 20px;
+  max-width: 720px;
+  float: left;
+  text-align: center;
+  border: 1px solid #e9eaea;
+  background: #fff;
 }
   
-</style>
+.drawtag div{
+    padding: 7px 10px;
+    opacity: 0.6;
+    /*border-right: 1px solid #eee;*/
+    display: inline-flex;
+  }
+
   
-<!-- ---------------------------------------------------------------------->
-<div style="
-position:fixed!important;
-width: 100%;
-height: 100%;
-z-index: 100;
-background: #75757585;display:none;top: 0;    overflow-y: scroll;
-    right: 0;
-" id='selectdraw'>
-<div style="
-margin-top: 70px;
-margin-left: auto;
-margin-right: auto;
-max-width: 720px;z-index: 101;
-">
-<div style="
-padding: 20px;
-max-width: 720px;
-float: left;
-text-align: center;
-border: 1px solid #e9eaea;
-background: #fff;
-/* border-radius: 20px; */
-" id="drawcontent" class='drawcontent'>
-
-<div>ภาพประกอบโดด ๆ สำหรับเนื้อหาของคุณ</div>
-
-<form id="drawForm">
+  .drawtag div img{
+    width: 25px;height:25px
+  }
 
 
-</form>
+  .drawtag div:active{
+    opacity:1;
+    background:#eee;
+  }
 
-</div>
-</div>
+  .drawtag div:hover{
+    opacity:1;
+    background:#eee;
+  }
 
-</div>
+  /************************DRAW FORM END*******************************/
 
-<!-- ---------------------------------------------------------------------->
-<body style="margin: 0px;     background: #fafafa;">
-<header style="padding: 0;
-margin: 0;
-box-sizing: border-box;
-background: #ffffff;
-height: 40px;
-display: block;
-width: 100%;
-border-bottom: 1px solid #f7f7f7;
-position: fixed;
-left: 0;
-top: 0;
-z-index: 99;
-transition: .3s;">
-<nav style='    max-width: 700px;
+
+  /******************HEADER START*********************/
+  header{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #ffffff;
+    height: 40px;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #f7f7f7;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    transition: .3s;
+  }
+
+  header nav{
+    max-width: 700px;
     justify-content: space-between;
     margin: 0 auto;
     padding: 0 10px;
     position: relative;
-    display: flex;'>
+    display: flex;
+  }
+
+  #showdraw{
+    padding: 7px 10px;
+    opacity: 0.6;
+    /* border-right: 1px solid #eee; */
+    display: inline-flex;
+  }
+
+
+  /******************HEADER END*********************/
+  
+
+</style>
+  
+<!-- SELECT DRAW START -->
+<div id='selectdraw'>
+  <div class='selectdraw-into'>
+    <div class="drawtitle drawcontent"></div>
+    <div id="drawcontent" class='drawcontent'>
+      <form id="drawForm"></form>
+    </div>
+  </div>
+</div>
+
+<!-- SELECT DRAW END -->
+
+<body style="margin: 0px;     background: #fafafa;">
+<!-- HEADER START -->
+<header>
+<nav>
     <div class="toolbar">
       <div class="drawtag"></div>
-      <div style="
-          padding: 7px 10px;
-          opacity: 0.6;
-          /* border-right: 1px solid #eee; */
-          display: inline-flex;
-      " id='showdraw'><img src="https://img.icons8.com/ios/50/000000/plus-math-filled.png" style="
+      <div id='showdraw'><img src="https://img.icons8.com/ios/50/000000/plus-math-filled.png" style="
           width: 25px;
           height: 25px;
       ">
@@ -413,7 +448,9 @@ transition: .3s;">
 
  </div>
 
+<!-- HEADER END -->
 
+<!-- POST FORM START -->
  <div style="
       max-width: 600px;
       height: 500px;
@@ -422,100 +459,104 @@ transition: .3s;">
       margin-left: auto;
       margin-right: auto;
   ">
+    <!-- WRITE START -->
+    <fieldset class="msf_show"  style="max-width: 600px;">
 
- <fieldset class="msf_show"  style="
- max-width: 600px;
-">
-
-<input name="title" type="text" id="txtUsername" placeholder="ชื่อเรื่อง" style="
-border: none;
-outline: none;
-padding: 15px 20px;
-font-size: 22px;
-font-weight: 600;
-width: 100%;
-border-bottom: 1px solid #eee;
-font-family: 'cs_prajad', sans-serif;
-">
+      <input name="title" type="text" id="txtUsername" placeholder="ชื่อเรื่อง" style="
+      border: none;
+      outline: none;
+      padding: 15px 20px;
+      font-size: 22px;
+      font-weight: 600;
+      width: 100%;
+      border-bottom: 1px solid #eee;
+      font-family: 'cs_prajad', sans-serif;
+      ">
 
 
-<div class="errorpost" style='color:red;'></div>
-<input type="hidden" name="document" id="inputC">
+      <div class="errorpost" style='color:red;'></div>
+      <input type="hidden" name="document" id="inputC">
 
-<div style="
-    width: 99%;
-    position: absolute;
-">
-    <div id="document" contenteditable="true" data-text="เล่าเรื่องของคุณที่นี่" class="post-card-contentform" style="
-    min-height: 100%;
-    border: none;
-    outline: none;
-    padding: 20px 20px;
-"></div>
-</div>
+      <div style="
+          width: 99%;
+          position: absolute;
+      ">
+      <div id="document" contenteditable="true" data-text="เล่าเรื่องของคุณที่นี่" class="post-card-contentform" style="
+          min-height: 100%;
+          border: none;
+          outline: none;
+          padding: 20px 20px;
+      "></div>
+      </div>
 
-</fieldset>
-<fieldset class="msf_hide">
+    </fieldset>
+    <!-- WRITE END -->
 
-<div class="typeform-head">Select type of your content</div>
-        <div class="typeform-select">
-                <div class="typeform-select-into">
-                  <input type="radio" name="r1" id="r1" value="knowledge" checked>
-                  <label for="r1">
-                    <img src="https://img.icons8.com/ios/100/000000/light.png" style="width: 20px;">
-                    <h4 >Knowledge</h4>
-                  </label>
-                </div>
-                <div  class="typeform-select-into">
-                  <input type="radio" name="r1" id="r2" value="dhamma"><label for="r2">
-                    <img src="https://img.icons8.com/ios/100/000000/sphere.png" style=" width: 20px;">
-                    <h4 >dhamma</h4>
-                  </label>
-                </div>
-                <div class="typeform-select-into">
-                  <input type="radio" name="r1" id="r3" value="experience"><label for="r3">
-                    <img src="https://img.icons8.com/wired/100/000000/briefcase.png" style="width: 20px;">
-                    <h4 >experience</h4>
-                  </label>
-                </div>
-                <div class="typeform-select-into">
-                  <input type="radio" name="r1" id="r4" value="emotion">
-                  <label for="r4">
-                    <img src="https://img.icons8.com/wired/100/000000/heart-health.png" style="width: 20px;">
-                    <h4 >emotion</h4>
-                  </label>
-                </div>
-                <div  class="typeform-select-into">
-                  <input type="radio" name="r1" id="r5" value="tipitaka"><label for="r5">
-                    <img src="https://img.icons8.com/wired/100/000000/book.png" style=" width: 20px;">
-                    <h4 >tipitaka</h4>
-                  </label>
-                </div>
-                <div class="typeform-select-into">
-                  <input type="radio" name="r1" id="r6" value="story"><label for="r6">
-                    <img src="https://img.icons8.com/ios/100/000000/leaf.png" style="width: 20px;">
-                    <h4 >story</h4>
-                  </label>
-        
-        </div>
-</fieldset>
+    <!-- TYPE SELECT START -->
+    <fieldset class="msf_hide">
+    <div class="typeform-head">Select type of your content</div>
+            <div class="typeform-select">
+                    <div class="typeform-select-into">
+                      <input type="radio" name="r1" id="r1" value="knowledge" checked>
+                      <label for="r1">
+                        <img src="https://img.icons8.com/ios/100/000000/light.png" style="width: 20px;">
+                        <h4 >Knowledge</h4>
+                      </label>
+                    </div>
+                    <div  class="typeform-select-into">
+                      <input type="radio" name="r1" id="r2" value="dhamma"><label for="r2">
+                        <img src="https://img.icons8.com/ios/100/000000/sphere.png" style=" width: 20px;">
+                        <h4 >dhamma</h4>
+                      </label>
+                    </div>
+                    <div class="typeform-select-into">
+                      <input type="radio" name="r1" id="r3" value="experience"><label for="r3">
+                        <img src="https://img.icons8.com/wired/100/000000/briefcase.png" style="width: 20px;">
+                        <h4 >experience</h4>
+                      </label>
+                    </div>
+                    <div class="typeform-select-into">
+                      <input type="radio" name="r1" id="r4" value="emotion">
+                      <label for="r4">
+                        <img src="https://img.icons8.com/wired/100/000000/heart-health.png" style="width: 20px;">
+                        <h4 >emotion</h4>
+                      </label>
+                    </div>
+                    <div  class="typeform-select-into">
+                      <input type="radio" name="r1" id="r5" value="tipitaka"><label for="r5">
+                        <img src="https://img.icons8.com/wired/100/000000/book.png" style=" width: 20px;">
+                        <h4 >tipitaka</h4>
+                      </label>
+                    </div>
+                    <div class="typeform-select-into">
+                      <input type="radio" name="r1" id="r6" value="story"><label for="r6">
+                        <img src="https://img.icons8.com/ios/100/000000/leaf.png" style="width: 20px;">
+                        <h4 >story</h4>
+                      </label>
+            
+            </div>
+    </fieldset>
+    <!-- TYPE SELECT END -->
+    
 
+    <!-- TAG SELECT START -->
 
-<fieldset class="msf_hide">
-  <div class='SelectedTag'>กรุณาเลือกหัวข้อเรื่องของคุณ</div>
-  <input type="text" id="search-box" placeholder="เพิ่มและค้นหาหัวข้อของคุณ" style="
-    width: 100%;
-    background: #f5f5f5;
-    padding: 10px 10px;
-    border: 1px solid #dbdbdb;
-    font-family: 'cs_prajad', sans-serif;
-    outline: 0;
-    font-size: 20px;
-">
-  <input type="hidden" name="tag_id" id="inputA">
+    <fieldset class="msf_hide">
+      <div class='SelectedTag'>กรุณาเลือกหัวข้อเรื่องของคุณ</div>
+      <input type="text" id="search-box" placeholder="เพิ่มและค้นหาหัวข้อของคุณ" style="
+          width: 100%;
+          background: #f5f5f5;
+          padding: 10px 10px;
+          border: 1px solid #dbdbdb;
+          font-family: 'cs_prajad', sans-serif;
+          outline: 0;
+          font-size: 20px;
+      ">
+      <input type="hidden" name="tag_id" id="inputA">
 
-  <div class='tag'></div>
-</fieldset>
+      <div class='tag'></div>
+    </fieldset>
+    <!-- TAG SELECT END -->
 
 
 </div>
@@ -525,14 +566,14 @@ font-family: 'cs_prajad', sans-serif;
 <script>
 
 $(document).ready(function () {
+        selectdraw();
         $("#showdraw").on("click",function(){
           $("#selectdraw").show();
-          selectdraw();
         });
 
         $("#selectdraw").mouseup(function(e) 
         {
-            var container = $("#drawcontent");
+            var container = $(".drawcontent");
 
             // if the target of the click isn't the container nor a descendant of the container
             if (!container.is(e.target) && container.has(e.target).length === 0) 
@@ -550,10 +591,10 @@ function viewdraw(drawname_id) {
         $.ajax({
           url:"http://jaipun.com/data/drawer/"+ drawname_id,
             }).then(function(data) {
+              $('.drawtitle').html("<img src='https://img.icons8.com/ios/50/000000/undo-filled.png' id='backdrawname' style='width: 20px;'>");
                 $('#drawer').append(   
-                  "<img src='https://img.icons8.com/ios/50/000000/undo-filled.png' id='backdrawname' style='width:30px;float:left'>" +
-                    "<div>"+'<img src="drawtag/'+ data.drawTag +'" style="width: 250px;">'+
-                    "<div>" +  data.drawname + "</div>" +
+                    "<div style='max-width: 400px;margin-left: auto;margin-right: auto;'>"+'<img src="drawtag/'+ data.drawTag +'" style="width: 140px;float: left;">'+
+                    "<h1 style='margin: 0px;'>" +  data.drawname + "</h1>" +
                     "<div onclick="+ '"' + "window.location='/name/" + data.user_id + "'" + '">' +  data.name + "</div>" +
                     "<div> จำนวนการใช้ต่อเนื้อหา  :   " +data.drawuseCount + "</div>" +
                     "<div>" +data.drawnameDate + "</div>" +
@@ -580,7 +621,6 @@ function viewdraw(drawname_id) {
                   $('#drawcontent').html("<form id='drawForm'></form>");
                   selectdraw();
                 });
-              
          });
 
       $.ajax({
@@ -608,9 +648,11 @@ function selectdraw(){
       //url: "http://jaipun.com/data/drawname",
       url: "http://jaipun.com/data/drawname",
       }).then(function(data) {
+        $('.drawtitle').html("Jaipun Store");
       for(var i = 0; i < data.length; i++){
           $('#drawForm').append(   
-              "<div onclick="+ '"' + "viewdraw(" + data[i].drawname_id + ")" + '">'+'<img src="drawtag/'+ data[i].drawTag +'">'+"</div>"
+              "<div onclick="+ '"' + "viewdraw(" + data[i].drawname_id + ")" + '">'+'<img src="drawtag/'+ data[i].drawTag +'">'+
+              "<span>"+data[i].drawname+"</span>"+"</div>"
           );
         }
     });
@@ -849,6 +891,7 @@ function sendtag(){
 }
 
 function drawtag(){
+  $('.drawtag').html("");
   $.ajax({
             //url: "http://jaipun.com/data/drawname",
             url: "http://jaipun.com/data/drawuse/" + <? echo $_SESSION[user_id]?>,
