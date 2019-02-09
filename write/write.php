@@ -357,7 +357,10 @@ h3{
     opacity:1;
     background:#eee;
   }
-
+  #drawcontent img:hover{
+    transition: .3s;
+    transform: scale(1.5);
+  }
   /************************DRAW FORM END*******************************/
 
 
@@ -543,7 +546,7 @@ h3{
 
     <fieldset class="msf_hide">
       <div class='SelectedTag'>กรุณาเลือกหัวข้อเรื่องของคุณ</div>
-      <input type="text" id="search-box" placeholder="เพิ่มและค้นหาหัวข้อของคุณ" style="
+      <input type="text" id="search-box" placeholder="ค้นหาหัวข้อของคุณ" style="
           width: 100%;
           background: #f5f5f5;
           padding: 10px 10px;
@@ -561,120 +564,26 @@ h3{
 
 </div>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
 $(document).ready(function () {
+       //Show Jaipun Store for selecting draw tag
         selectdraw();
         $("#showdraw").on("click",function(){
           $("#selectdraw").show();
         });
 
+        //ถ้าคลิกที่อื่น จะปิดตัว Jaipun Store ทั้งที
         $("#selectdraw").mouseup(function(e) 
         {
             var container = $(".drawcontent");
-
             // if the target of the click isn't the container nor a descendant of the container
             if (!container.is(e.target) && container.has(e.target).length === 0) 
             {
               $("#selectdraw").hide();
             }
         });
-
-});
-
-
-function viewdraw(drawname_id) {
-  $('#drawcontent').html("");
-  $('#drawcontent').append("<div id='drawer'></div>"); 
-        $.ajax({
-          url:"http://jaipun.com/data/drawer/"+ drawname_id,
-            }).then(function(data) {
-              $('.drawtitle').html("<img src='https://img.icons8.com/ios/50/000000/undo-filled.png' id='backdrawname' style='width: 20px;'>");
-                $('#drawer').append(   
-                    "<div style='max-width: 400px;margin-left: auto;margin-right: auto;'>"+'<img src="drawtag/'+ data.drawTag +'" style="width: 140px;float: left;">'+
-                    "<h1 style='margin: 0px;'>" +  data.drawname + "</h1>" +
-                    "<div onclick="+ '"' + "window.location='/name/" + data.user_id + "'" + '">' +  data.name + "</div>" +
-                    "<div> จำนวนการใช้ต่อเนื้อหา  :   " +data.drawuseCount + "</div>" +
-                    "<div>" +data.drawnameDate + "</div>" +
-                    "<button id='usedraw' data-drawname-id='"+ data.drawname_id +"' style='background: #00b84f;border: none;color: #fff;padding: 10px 50px;margin: 10px;'>USE</button></div>" +
-                    "</div>"
-                );
-
-
-                $("#usedraw").on("click",function(){
-                  var drawname_id = $("#usedraw").attr('data-drawname-id');
-                  $.ajax({
-                      type: "GET",
-                      url: "drawinsert.php",
-                      data:{drawname_id:drawname_id},
-                      success: function(data){
-                        $("#selectdraw").hide();
-                        //href='index.php?write'
-                        drawtag();
-                      }
-                    });
-                });
-
-                $("#backdrawname").on("click",function(){
-                  $('#drawcontent').html("<form id='drawForm'></form>");
-                  selectdraw();
-                });
-         });
-
-      $.ajax({
-          url:"http://jaipun.com/data/usedraw/"+ drawname_id,
-          beforeSend: function()
-              {
-                  $('.ajax-load').show();
-              }
-      }).then(function(emojis) {
-
-          for(var i = 0; i < emojis.length; i++){
-                    $('#drawcontent').append(   
-                          '<img class="draw" src="/'+ emojis[i].name+'">'
-                    );
-              }
-      });
-
-  
-
-}
-
-
-function selectdraw(){
-    $.ajax({
-      //url: "http://jaipun.com/data/drawname",
-      url: "http://jaipun.com/data/drawname",
-      }).then(function(data) {
-        $('.drawtitle').html("Jaipun Store");
-      for(var i = 0; i < data.length; i++){
-          $('#drawForm').append(   
-              "<div onclick="+ '"' + "viewdraw(" + data[i].drawname_id + ")" + '">'+'<img src="drawtag/'+ data[i].drawTag +'">'+
-              "<span>"+data[i].drawname+"</span>"+"</div>"
-          );
-        }
-    });
-}
-
-
-</script>
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-
-$(document).ready(function() {
-  
 
     drawtag();
     $('button').on('click', function(e) {
@@ -687,12 +596,6 @@ $(document).ready(function() {
            document.execCommand(action, aShowDefaultUI, aValueArgument);
     });
 
- 
- });
-
- 
- $(document).ready(function(){
-    
     $('[contenteditable]').on('paste',function(e) {
         
         e.preventDefault();
@@ -740,10 +643,7 @@ $(document).ready(function() {
         
       }
       });
-      if(e.keyCode == 13)
-      {
-        sendtag();
-      }
+      /*if(e.keyCode == 13){sendtag();}*/
     });
     
 });
@@ -757,139 +657,106 @@ var msf_form_nr = 0;
 var fieldset = msf_getFsTag[msf_form_nr];
 fieldset.className = "msf_show";
 
-function msf_btn_next(){
+/*** OPEN DRAW START ***/
+        var btn = document.querySelector('.btn')
+        var input = document.querySelector('.toolbar')
+        var emojiholder = document.querySelector('.emoji-holder')
+        var emojiwrapper = document.querySelector('.emoji-wrapper')
+        var emojibtn = document.querySelector('.emoji-btn')
 
-    var msf_val = true;
-    var title = $('input[type=text][name=title]').val();
-    var doc = document.getElementById("document").innerHTML;
+        // Button/Enter Key
 
-    if (title.length === 0 || doc.length < 300) {
-        if(title.length === 0 ){
-          //document.getElementById("title").style.backgroundColor = "#eee";
-          var errortitle = "*กรุณาใส่ชื่อเรื่อง";
-        }else{ var errortitle =  ""}
-        if(doc.length < 300 ){
-          //document.getElementById("document").style.backgroundColor = "#eee";
-          var errordoc = "**กรอกเนื้อให้ครบ 300 ตัวอักษรด้วยครับ";
-        }else{ var errordoc =  ""}
-        $('.errorpost').html(errortitle + errordoc);
-        msf_val = false;
-    } 
-    
-    
-    if (msf_val === true) {
-      var inputC = $('#inputC'); //document
-      inputC.val(doc);
-      var selection = msf_getFsTag[msf_form_nr];
-      selection.className = "msf_hide";
-      msf_form_nr = msf_form_nr + 1;
-      var selection = msf_getFsTag[msf_form_nr];
-      selection.className = "msf_show";
-      $('.btn_next').attr("onclick",'msf_btn_next_tag()');
-      $('.toolbar').html("<button onclick='msf_btn_back_post()'>Back</button>");
-      $('.post-bold').hide();
-      document.querySelector('.emoji-btn').classList.remove('open');
-    }
-
-}
+        input.addEventListener('keyup', function(evt){ if(evt.keyCode == 13) sendMessage() })
+        emojibtn.addEventListener('click', function(e){
+        e.stopPropagation()
+        this.classList.toggle('open')
+        })
+        // Load the Emojies
+        for(var i = 0; i < emojis.length; i++){
+        if(emojis[i].name == null) continue
+        emojiwrapper.innerHTML += `
+            <button  data-action="insertImage" data-img="${emojis[i].name}" ><img    class="emoji-img" src="${emojis[i].name}"/></button>
+        `
+        }
 
 
-function msf_btn_next_tag(){ 
-  tag();
-  var type =$('input[type=radio][name=r1]:checked').val();
-  var selection = msf_getFsTag[msf_form_nr];
-  selection.className = "msf_hide";
-  msf_form_nr = msf_form_nr + 1;
-  var selection = msf_getFsTag[msf_form_nr];
-  selection.className = "msf_show";
-  $('.btn_next').attr("onclick",'submit()');
-  $('.toolbar').html("<button onclick='msf_btn_back_tag()'>Back</button>");
-  $('.btn_next').html('Post');
+//funtion สำหรับดูรายละเอียดของ draw นั้น
+function viewdraw(drawname_id) {
+  $('#drawcontent').html("");
+  $('#drawcontent').append("<div id='drawer'></div>"); 
+       /*** ดึงข้อมูลของผู้ทำ draw ***/
+        $.ajax({
+          url:"http://jaipun.com/data/drawer/"+ drawname_id,
+            }).then(function(data) {
+              $('.drawtitle').html("<img src='https://img.icons8.com/ios/50/000000/undo-filled.png' id='backdrawname' style='width: 20px;'>");
+                $('#drawer').append(   
+                    "<div style='max-width: 400px;margin-left: auto;margin-right: auto;'>"+'<img src="drawtag/'+ data.drawTag +'" style="width: 140px;float: left;">'+
+                    "<h1 style='margin: 0px;'>" +  data.drawname + "</h1>" +
+                    "<div onclick="+ '"' + "window.location='/name/" + data.user_id + "'" + '">' +  data.name + "</div>" +
+                    "<div> จำนวนการใช้ต่อเนื้อหา  :   " +data.drawuseCount + "</div>" +
+                    "<div>" +data.drawnameDate + "</div>" +
+                    "<button id='usedraw' data-drawname-id='"+ data.drawname_id +"' style='background: #00b84f;border: none;color: #fff;padding: 10px 50px;margin: 10px;'>USE</button></div>" +
+                    "</div>"
+                );
+
+                  //ปุ่มกดใช้ draw
+                $("#usedraw").on("click",function(){
+                  var drawname_id = $("#usedraw").attr('data-drawname-id');
+                  $.ajax({
+                      type: "GET",
+                      url: "drawinsert.php",
+                      data:{drawname_id:drawname_id},
+                      success: function(data){
+                        $("#selectdraw").hide();
+                        //href='index.php?write'
+                        drawtag();
+                      }
+                    });
+                });
+                //ปุ่มกดกลับไปหน้าแรกที่แสดง drawTag
+                $("#backdrawname").on("click",function(){
+                  $('#drawcontent').html("<form id='drawForm'></form>");
+                  selectdraw();
+                });
+         });
+      /*** ดึงภาพทั้งหมดตาม drawname_id ***/
+      $.ajax({
+          url:"http://jaipun.com/data/usedraw/"+ drawname_id,
+          beforeSend: function()
+              {
+                  $('.ajax-load').show();
+              }
+      }).then(function(emojis) {
+
+          for(var i = 0; i < emojis.length; i++){
+                    $('#drawcontent').append(   
+                          '<img class="draw" src="/'+ emojis[i].name+'">'
+                    );
+              }
+      });
 
   
+
 }
 
-
-function msf_btn_back_post() {
-  msf_getFsTag[msf_form_nr].className = "msf_hide";
-  msf_form_nr = msf_form_nr - 1;
-  msf_getFsTag[msf_form_nr].className = "msf_showhide";
-  $('.toolbar').html("<div class='drawtag'></div>");
-  $('.btn_next').attr("onclick",'msf_btn_next()');  
-  $('.post-bold').show();
-  drawtag();
-};
-
-function msf_btn_back_tag() {
-  msf_getFsTag[msf_form_nr].className = "msf_hide";
-  msf_form_nr = msf_form_nr - 1;
-  msf_getFsTag[msf_form_nr].className = "msf_showhide";
-  $('.toolbar').html("<button onclick='msf_btn_back_post()'>Back</button>");
-  $('.btn_next').attr("onclick",'msf_btn_next_tag()');  
-  $('.btn_next').html('Next');
-  $('.tag').html(""); 
-};
-
-
-function selectTag(tag_id,tagname) {
-      var inputA = $('#inputA'); //tag_id
-      inputA.val(tag_id);
-      inputA.val(tag_id);
-      $('.SelectedTag').html(tagname);
-}
-
-function submit(){
-  var tag_id = $('input[type=hidden][name=tag_id]').val();
-  var title = $('input[type=text][name=title]').val();
-  var content = $('input[type=hidden][name=document]').val();
-  var type = $('input[type=radio][name=r1]:checked').val();
-
-      $.ajax({
-        type : 'POST',
-        url : 'user/poststory',
-        data : {tag_id:tag_id,title:title,content:content,type:type},
-        beforeSend: function() {
-          $('.msf_show').html("<h3>Sending........</h3>");
-        },
-        success : function(response) {
-            window.location.href="story.php?id="+ response;
-        }
-      });
-      return false;
-}
-
-
-function tag(){
-  $.ajax({
-            url: "http://jaipun.com/feed/tag_top",
-            //url: "http://jaipun.com/data/drawuse/" + <?// echo $_SESSION[user_id]?>,
-            }).then(function(data) {
-            for(var i = 0; i < data.length; i++){
-                $('.tag').append(   
-                    "<div onclick="+ '"' + "selectTag(" + data[i].tag_id + ",'"+ data[i].tagname +"')" + '">'+ data[i].tagname +"</div>"
-                );
-              }
-         });
-}
-
-
-function sendtag(){
-  if ($("#search-box").val()!=null) {
-    var tagname = $("#search-box").val(); //tag_id
-    var inputA = $('#inputA'); //tag_id  
-    $('.SelectedTag').html(tagname);
-    $("#search-box").val("");
+//funtion สำหรับเลือก draw ที่จะใช้แสดง drawTag
+function selectdraw(){
     $.ajax({
-      type: "POST",
-      url: "savetag.php",
-      data:{tagname:tagname},
-      success: function(data){
-        inputA.val(data);
-      }
-      });
-  }
+      //url: "http://jaipun.com/data/drawname",
+      url: "http://jaipun.com/data/drawname",
+      }).then(function(data) {
+        $('.drawtitle').html("Jaipun Store");
+      for(var i = 0; i < data.length; i++){
+          $('#drawForm').append(   
+              "<div onclick="+ '"' + "viewdraw(" + data[i].drawname_id + ")" + '">'+'<img src="drawtag/'+ data[i].drawTag +'">'+
+              "<span>"+data[i].drawname+"</span>"+"</div>"
+          );
+        }
+    });
 }
 
+
+//funtion ใช้เรียก drawTag ที่จะใช้ในการเรียก draw ต่อไป
 function drawtag(){
   $('.drawtag').html("");
   $.ajax({
@@ -904,47 +771,7 @@ function drawtag(){
          });
 }
 
-        /**********************************************************************************************/
-        // Font Style
-
-        //var emojis = JSON.parse('[{"name":null,"width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/smirking-face_1f60f.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/persevering-face_1f623.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/disappointed-but-relieved-face_1f625.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/face-with-open-mouth_1f62e.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/hushed-face_1f62f.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/sleepy-face_1f62a.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/tired-face_1f62b.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/sleeping-face_1f634.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/relieved-face_1f60c.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/face-with-stuck-out-tongue_1f61b.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/face-with-stuck-out-tongue-and-winking-eye_1f61c.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/face-with-stuck-out-tongue-and-tightly-closed-eyes_1f61d.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/unamused-face_1f612.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/face-with-cold-sweat_1f613.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/pensive-face_1f614.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/confused-face_1f615.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/astonished-face_1f632.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/slightly-frowning-face_1f641.png","width":"72","height":"72"},{"name":"https://emojipedia-us.s3.amazonaws.com/thumbs/72/mozilla/36/dog-face_1f436.png","width":"72","height":"72"}]');
-        // Not Made to be production level I made this quickly for testing a websocket server and added the emojies for fun!
-        // Selectors
-        var btn = document.querySelector('.btn')
-        var input = document.querySelector('.toolbar')
-        var emojiholder = document.querySelector('.emoji-holder')
-        var emojiwrapper = document.querySelector('.emoji-wrapper')
-        var emojibtn = document.querySelector('.emoji-btn')
-
-        // Button/Enter Key
-
-        input.addEventListener('keyup', function(evt){ if(evt.keyCode == 13) sendMessage() })
-        emojibtn.addEventListener('click', function(e){
-        e.stopPropagation()
-        this.classList.toggle('open')
-        })
-        //document.body.addEventListener('click', function(){
-        //emojibtn.classList.remove('open')
-        //})
-
-
-        // 
-        // Load the Emojies
-        for(var i = 0; i < emojis.length; i++){
-        if(emojis[i].name == null) continue
-        emojiwrapper.innerHTML += `
-            <button  data-action="insertImage" data-img="${emojis[i].name}" ><img    class="emoji-img" src="${emojis[i].name}"/></button>
-        `
-        }
-
-
-
-
-
-        /**********************************************************************************************/
-
-
-
+//function ใช้งานเมื่อกดที่ภาพ ใช้สำหรับกดเลือกภาพลงในเนื้อหา
 function usedraw(drawname_id) {
   emojiwrapper.innerHTML="";
   $.ajax({
@@ -982,5 +809,128 @@ function usedraw(drawname_id) {
 
   });
 }
-                        
+
+
+/*** OPEN DRAW END ***/
+
+/*** SYSTEM PAGE FORM START ***/
+//function Go to page select type
+function msf_btn_next(){
+    var msf_val = true;
+    var title = $('input[type=text][name=title]').val();
+    var doc = document.getElementById("document").innerHTML;
+
+    if (title.length === 0 || doc.length < 300) {
+        if(title.length === 0 ){
+          //document.getElementById("title").style.backgroundColor = "#eee";
+          var errortitle = "*กรุณาใส่ชื่อเรื่อง";
+        }else{ var errortitle =  ""}
+        if(doc.length < 300 ){
+          //document.getElementById("document").style.backgroundColor = "#eee";
+          var errordoc = "**กรอกเนื้อให้ครบ 300 ตัวอักษรด้วยครับ";
+        }else{ var errordoc =  ""}
+        $('.errorpost').html(errortitle + errordoc);
+        msf_val = false;
+    } 
+    
+    
+    if (msf_val === true) {
+      var inputC = $('#inputC'); //document
+      inputC.val(doc);
+      var selection = msf_getFsTag[msf_form_nr];
+      selection.className = "msf_hide";
+      msf_form_nr = msf_form_nr + 1;
+      var selection = msf_getFsTag[msf_form_nr];
+      selection.className = "msf_show";
+      $('.btn_next').attr("onclick",'msf_btn_next_tag()');
+      $('.toolbar').html("<button onclick='msf_btn_back_post()'>Back</button>");
+      $('.post-bold').hide();
+      document.querySelector('.emoji-btn').classList.remove('open');
+    }
+
+}
+
+
+//function Go to page select tag
+function msf_btn_next_tag(){ 
+  tag();
+  var type =$('input[type=radio][name=r1]:checked').val();
+  var selection = msf_getFsTag[msf_form_nr];
+  selection.className = "msf_hide";
+  msf_form_nr = msf_form_nr + 1;
+  var selection = msf_getFsTag[msf_form_nr];
+  selection.className = "msf_show";
+  $('.btn_next').attr("onclick",'submit()');
+  $('.toolbar').html("<button onclick='msf_btn_back_tag()'>Back</button>");
+  $('.btn_next').html('Post');
+}
+
+//function Back to page POST FORM
+function msf_btn_back_post() {
+  msf_getFsTag[msf_form_nr].className = "msf_hide";
+  msf_form_nr = msf_form_nr - 1;
+  msf_getFsTag[msf_form_nr].className = "msf_showhide";
+  $('.toolbar').html("<div class='drawtag'></div>");
+  $('.btn_next').attr("onclick",'msf_btn_next()');  
+  $('.post-bold').show();
+  drawtag();
+};
+
+//function Back to page select type
+function msf_btn_back_tag() {
+  msf_getFsTag[msf_form_nr].className = "msf_hide";
+  msf_form_nr = msf_form_nr - 1;
+  msf_getFsTag[msf_form_nr].className = "msf_showhide";
+  $('.toolbar').html("<button onclick='msf_btn_back_post()'>Back</button>");
+  $('.btn_next').attr("onclick",'msf_btn_next_tag()');  
+  $('.btn_next').html('Next');
+  $('.tag').html(""); 
+};
+
+//function select Tag in tag form
+function selectTag(tag_id,tagname) {
+      var inputA = $('#inputA'); //tag_id
+      inputA.val(tag_id);
+      inputA.val(tag_id);
+      $('.SelectedTag').html(tagname);
+}
+
+//function Send data to datadase
+function submit(){
+  var tag_id = $('input[type=hidden][name=tag_id]').val();
+  var title = $('input[type=text][name=title]').val();
+  var content = $('input[type=hidden][name=document]').val();
+  var type = $('input[type=radio][name=r1]:checked').val();
+
+  if(tag_id != 0){
+      $.ajax({
+        type : 'POST',
+        url : 'user/poststory',
+        data : {tag_id:tag_id,title:title,content:content,type:type},
+        beforeSend: function() {
+          $('.msf_show').html("<h3>Sending........</h3>");
+        },
+        success : function(response) {
+            window.location.href="story.php?id="+ response;
+        }
+      });
+      return false;
+    }else{alert('กรุณาเลือกหัวข้อ เพื่อง่ายต่อการเข้าถึงเนื้อหาของคุณ')}
+}
+
+//function ดึงข้อมูลรายละเอียดของ tag ทั้งหมด
+function tag(){
+  $.ajax({
+            url: "http://jaipun.com/feed/tag_top",
+            //url: "http://jaipun.com/data/drawuse/" + <?// echo $_SESSION[user_id]?>,
+            }).then(function(data) {
+            for(var i = 0; i < data.length; i++){
+                $('.tag').append(   
+                    "<div onclick="+ '"' + "selectTag(" + data[i].tag_id + ",'"+ data[i].tagname +"')" + '">'+ data[i].tagname +"</div>"
+                );
+              }
+         });
+}
+
+               
 </script>
