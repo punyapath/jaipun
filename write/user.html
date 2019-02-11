@@ -1,0 +1,1213 @@
+<link rel='shortcut icon' href='/css/3ByI2t.ico' type='image/x-icon'>        
+<link rel="stylesheet" href="css/font.css">   
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+.header {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #ff7f7f;
+    height: 40px;
+    display: block;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+   transition: .3s;
+   padding-top: 5px;
+
+}
+
+.headerbottom{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #fff;
+    height: 35px;
+    display: block;
+    width: 100%;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+   transition: .3s;
+   margin-top:40px;
+}
+.header.small {
+    height: 45px;
+    padding-top: 10px;
+}
+
+
+.navtop{
+    max-width: 700px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative;
+    display: flex;
+}
+
+.navbottom{
+    max-width: 400px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative;
+    display: flex;
+}
+
+
+.navbottom-into{
+    flex: 1 1 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbottom-into ul{
+    flex: 1 1 20%;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-top: 15px; */
+    box-sizing: border-box;
+    display: flex;
+    padding: 0px;
+    margin: 0px 20px;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+
+.navleft{
+    flex: 1 1 10%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navleft ul{
+    flex: 1 1 20%;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-top: 15px; */
+    box-sizing: border-box;
+    display: flex;
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.navcenter{
+    flex: 1 1 80%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+}
+
+.navright{
+    flex: 1 1 10%;
+    padding: 0;
+    margin: 0;
+    padding-top: 0px;
+    box-sizing: border-box;
+}
+
+.navright ul{
+        /* flex: 1 1 30%; */
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        margin: 0;
+        padding: 0px;
+        box-sizing: border-box;
+        list-style: none;
+}
+
+#search{
+    padding: 5px 0px;
+    width: 80%;
+    float: left;
+    display: inline;
+    font-size:14px;
+    outline:none;
+}
+
+#search:focus{
+    background: #fff;
+    width: 100%;
+    float: left;
+    margin-top: -27px;
+    border-radius: 5px;
+    padding:5px;
+    margin-left:-5px;
+    z-index:20;
+}
+/*****************CSS HEADER END *****************/
+/************************ FEED START********************************/
+.feed{
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+    border-bottom: 2px solid rgba(0,0,0,.15)!important;
+    word-wrap: break-word;
+    float: left;
+    margin: 2px 0px;
+    width: 100%;
+    background: #fff;
+}
+.feed-title{
+        float: left;
+        width: 100%;
+}
+
+.feed-title-text{
+    margin: 20px 20px 0px 40px;
+            display: inline-block;
+            font-size: 28px;  
+            font-weight: 600;
+            color: #000;
+}
+
+.feed-title-under{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 90%;
+    float: left;
+    margin-left: 35px;
+    opacity: 0.8;
+}
+
+.feed-tag{
+    font-size: 18px;
+    float: left;
+    margin: 0px 10px;
+    font-weight: 600;
+}
+
+.feed-type{
+    float: left;
+    font-weight: 600;
+    color: #008a0c;
+    font-size: 18px;
+    margin: 0px 10px;
+}
+.feed-content{
+    float: left;
+    width: 100%;
+}
+
+.feed-content img { 
+    display: block;
+    margin-left: auto;
+    margin-right: 60px;
+    margin-top: -40px;
+    margin-bottom: -180px;
+    width: 200px;
+}
+
+.feed-content-into{
+    word-wrap: break-word;
+    height: 2em;
+    overflow: hidden;
+    margin: 40px 300px 15px 40px;
+    min-height: 70px;
+    color: #757575;
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.feed-date{
+    margin: 0px 40px 10px;
+    float: left;
+    font-size: 12px;
+}
+
+.feed-like{
+    font-size:12px;
+    margin:0px 10px
+}
+
+.feed-writer{
+    float: left;
+    width: 100%;
+    border-top: none;
+    padding-bottom: 16px;
+}
+
+.feed-writer-profile{
+        float: left;
+        margin: 5px 10px 5px 35px;
+        border-radius: 100px;
+        height: 35px;
+        width: 35px;
+        object-fit: cover;
+        display: inline-block;
+}
+
+.feed-writer-name{
+    float: left;
+        font-weight: 600;
+        color: #E53935;
+        margin: 10px 0;
+        font-size: 18px;
+}
+
+
+.feed-writer-detail{
+    font-weight: 500;
+    color: #000;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.feed-user-draw{
+    display: block !important;
+    margin-left: auto !important;
+    margin-top: -45px !important;
+    margin-bottom: -140px !important;
+    width: 160px !important;
+}
+
+    
+@media only screen and (max-width: 820px) {
+    .feed-data{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .feed{
+        margin:5px 0px;
+    }
+    .feed-title-text{
+        margin: 20px 20px 0px 20px;
+        font-size: 28px;
+    }
+    
+    .feed-title-under{
+        margin-left: 15px;
+    }
+
+    .feed-tag{
+        font-size: 18px;
+    }
+
+    .feed-type{
+        font-size: 18px;
+    }
+
+    .feed-content img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        width: 200px;
+    }
+    .feed-user-draw{
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto!important;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        width: 200px !important;
+    }
+
+    .feed-content-into{
+        margin: 0 30px;
+        min-height: 70px;
+        font-size: 18px;
+    }
+    
+    .feed-date{
+        margin: 0px 30px 10px;
+    }
+
+    .feed-writer-profile{
+        margin: 5px 10px 5px 30px;
+    }
+
+}
+
+
+@media only screen and (max-width: 620px) {
+    .feed-data{
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .feed-title-text{
+        margin: 20px 20px 0px 20px;
+        font-size: 22px;
+    }
+    
+    .feed-title-under{
+        margin-left: 15px;
+    }
+
+    .feed-tag{
+        font-size: 16px;
+    }
+
+    .feed-type{
+        font-size: 16px;
+    }
+
+    .feed-content img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        width: 140px;
+    }
+
+    .feed-user-draw{
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        width: 140px !important;
+    }
+
+    .feed-content-into{
+        margin: 0 20px;
+        min-height: 70px;
+        font-size: 16px;
+    }
+    
+    .feed-date{
+        margin: 0px 20px 10px;
+    }
+
+    .feed-writer-profile{
+        margin: 5px 10px 5px 20px;
+    }
+
+}
+    
+/***************************FEED END************************************/
+
+
+/**** FEED TAG START ****/
+.tag{
+        padding: 30px 0;
+        text-align: center;
+        box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+        border-bottom: 2px solid rgba(0,0,0,.15)!important;
+        word-wrap: break-word;
+        float: left;
+        margin: 2px 0px;
+        width: 100%;
+        background: #fff;
+    }
+
+    .tag img{
+        width: 140px;
+    }
+
+    .tag-text{
+        float: left;
+        width: 100%;
+    }
+
+    .tag-name{
+        color: #ff5959;
+        margin: 0px;
+        display: inline-block;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    .tag-detail{
+        float: none;
+        margin: 0px 50px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .tag-int{
+        font-size: 18px;
+        margin: 0px 10px;
+        float: none;
+        font-weight: 500;
+    }
+/******FEED TAG END******/
+
+
+.write-post{
+    padding: 20px;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+    border: 1px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    border-bottom: 3px solid #ff9195;
+}
+
+.write-create{
+    padding: 20px;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+    border: 1px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#star:active{
+    border-bottom: 2px solid #eee;
+}
+
+.profile-photo {
+    width: auto;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.profile-photo-img {
+    border-radius: 100px;
+    height: 100px;
+    object-fit: cover;
+    width: 100px;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+
+#profile-name {
+    font-weight: bold;
+    font-size: 20px;
+    width: auto;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    display: flex;
+}
+
+#profile-detail {
+    width: auto;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    display: flex;
+    font-size: 16px;
+}
+
+.profile-follow {
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    display: flex;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 20px solid #ff7f7f;
+}
+
+.profile-followers {
+    padding: 0px 20px;
+    text-align: center;
+}
+
+.profile-follow-int {
+    font-size: 30px;
+}
+
+.profile-follow-text {
+    margin-top: 5px;
+    display: block;
+    color: #8a8b8a;
+}
+</style>
+
+<!---   HEADER START   -->
+  <header class="header">
+    <nav class="navtop">
+        <div class="navleft">
+        <ul>
+            <li id="latest">
+                <img src="/icon/feed.svg"style="width: 20px;padding-top:5px" >    
+            </li>
+            
+            <li >
+            <a href="#"></a>   
+            </li>
+        </ul>
+        </div>
+
+        <div class="navcenter">
+                    <div style="
+                    width: 100%;
+                    border-radius: 5px;
+                    background: #ec7979;
+                            "><img src="/icon/magnifying-glass.svg" style="float:left;width: 17px;padding:5px;opacity:0.8">
+                            <div contenteditable="true" id="search" ></div>
+            </div>
+        </div>
+
+        <div class="navright">
+        <ul>
+                <li ></li>
+                
+                <li>
+                <a id="btnsearch" href="#" style="">
+                    <img src="/icon/bell.svg" style="width: 20px;padding-top:5px">    
+                </a>   
+                </li>
+            </ul>
+        </div>    
+    </nav>
+
+    
+</header>
+<div class='headerbottom'><nav class="navbottom">
+    
+        <div class="navbottom-into">
+            <ul>
+                <li id="star">
+                        <img src="https://image.flaticon.com/icons/svg/1447/1447574.svg" style="width: 20px;padding-top:5px">     
+                </li>
+                <li  id="tags">
+                        <img src="https://image.flaticon.com/icons/svg/923/923140.svg" style="width: 20px;padding-top:5px">    
+                </li>
+                <li id="write">
+                        <img src="https://image.flaticon.com/icons/svg/126/126483.svg" style="width: 20px;padding-top:5px">    
+                </li>
+                <li id="store">
+                        <img src="https://image.flaticon.com/icons/svg/1008/1008010.svg" style="width: 20px;padding-top:5px">    
+                </li>
+                <li id="profile">
+                        <img src="https://image.flaticon.com/icons/svg/747/747376.svg" style="width: 20px;padding-top:5px">      
+                </li>
+            </ul>
+        </div>
+    </nav>  
+</div>
+<!---   HEADER END   -->
+
+
+<body style="background:#fff">
+
+<div style="
+margin-top:100px;
+margin-left: auto;
+margin-right: auto;
+max-width: 820px;
+">
+
+<div class='feed-data' ></div>
+<div class="ajax-load" style="display:none;text-align: center;">
+        <p><img src="https://loading.io/spinners/facebook/index.pulse-bar-preloader.svg" style="width:80px"></p>
+        </div>
+
+
+    </div>
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+/***************** Function Date & image *********************/
+/*ฟังก์ชั่นในการนับวันถอยหลัง*/
+function timeSince(timeStamp) {
+timeStamp = new Date(timeStamp * 1000);
+var now = new Date(),
+secondsPast = (now.getTime() - timeStamp.getTime() ) / 1000;
+if(secondsPast < 60){
+    return parseInt(secondsPast) + ' seconds ago';
+}
+if(secondsPast < 3600){
+    return parseInt(secondsPast/60) + ' minutes ago';
+}
+if(secondsPast <= 86400){
+    return parseInt(secondsPast/3600) + ' hours ago';
+}
+if(secondsPast <= 259200){
+    hour = timeStamp.getHours();
+    minute = timeStamp.getMinutes();
+    return parseInt(secondsPast/86400) + ' day ago at  ' + hour +":"+ minute;
+}
+
+if(secondsPast > 259200){
+    day = timeStamp.getDate();
+    month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
+    year = timeStamp.getFullYear() == now.getFullYear() ? "" :  " "+timeStamp.getFullYear();
+    hour = timeStamp.getHours();
+    minute = timeStamp.getMinutes();
+    return day + " " + month + year + " " + hour +":"+ minute;
+}
+}
+
+var MD5 = function(d){result = M(V(Y(X(d),8*d.length)));return result.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+
+//check profile ว่ามีภาพอยู่ใน folder หรือไม่
+function profileExists(url){
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    if (http.status == "404") {
+        return profile = '/profile/user.jpeg';
+    } else {
+        return profile = url;
+    }
+}
+
+//check img ว่ามีภาพอยู่ใน folder หรือไม่
+function imgExists(content_id){
+    var url = "/images/"+content_id+".jpeg";
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    if (http.status == "404") {
+        return image = '';
+    } else {
+        return image = '<img src="images/'+ content_id +'.jpeg" style="width: 100%;">';
+    }
+} 
+
+
+
+$(document).ready(function () { 
+    feed_star();
+    $('#latest').on('click', function(e) {
+        $('.feed-data').attr("id","new");  
+        feed_new();
+    });
+
+    $('#star').on('click', function(e) {
+        $('.feed-data').attr("id","star");
+        feed_star();
+    });
+
+    $('#tags').on('click', function(e) {
+        $('.feed-data').attr("id","tag");  
+        tag_top();  
+    });
+
+    $('#write').on('click', function(e) {
+        $('.feed-data').attr("id","write"); 
+        $('.feed-data').html(
+            "<img src='https://image.flaticon.com/icons/svg/124/124752.svg' style='display:block;width:140px;margin:0px auto'>"+
+            "<div class='write-post'"+ 'onclick="' +"window.location='/write.php'"+'">' +"write your story</div>"+
+            "<div class='write-create'"+ 'onclick="' +"window.location='/create.html'"+'">' +"create a your tag</div>"
+        );
+    });
+
+    $('#store').on('click', function(e) {
+        window.location='/store.html';
+    });
+
+    $.get('/session_check.php', function(data) {
+        if( data == "Expired" ) {
+            alert("Please login!!");
+            window.history.back();
+        } else if (data != 0 ) {
+            name=data;
+        }
+    });
+
+    $('#profile').on('click', function(e) {
+        $('.feed-data').html("");
+        $('.feed-data').attr("id","profile");
+        $.ajax({
+        url: 'http://jaipun.com/data/users/'+name,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+            }).then(function(data) {
+                $('.ajax-load').hide();
+                document.title = data.name;
+                url = '/profile/'+data.user_id +".jpeg";
+                profileExists(url);
+                $('.feed-data').append( 
+                    "<div class='profile-photo'><img src='"+profile+"' class='profile-photo-img'></div>"   +                   
+                    "<p id='profile-name'>" + data.name + "</p>" +
+                    "<p id='profile-detail'>" + data.detail + "</p>" +
+                    "<div class='profile-follow'><div class='profile-followers'>"+
+                    "<span class='profile-follow-int'>"+ data.stories +"</span><span class='profile-follow-text'>Stories</span></div>" 
+                );
+                $.ajax({
+                url: 'http://jaipun.com/feed/feed_user?id='+data.user_id,
+                beforeSend: function()
+                    {
+                        $('.ajax-load').show();
+                    }
+                    }).then(function(data) {
+                        $('.ajax-load').hide();
+                        for(var i = 0; i < data.length; i++){
+                            var n = data[i].content.search("draw/");
+                            var e = data[i].content.search("png"); var en = e + 3;
+                            var all = data[i].content.slice(n, en);
+                            var draw = "<img src='"+all+"' class='feed-user-draw'>";       
+                            //imgExists(data[i].content_id);
+                            if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+                            $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + 
+                                "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                                "<div class='feed-title-under'>" + 
+                                "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+  data[i].tagname + "</div>" +
+                                "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">' + data[i].type + "</div>" +  "</div>" +
+                                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                                "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                                Like + "</span></div></div>"  +"</div>"
+                            );
+                        }
+
+                        var timer;
+                        $(window).scroll(function() {
+                            if(timer) {
+                                    window.clearTimeout(timer);
+                                }
+                                timer = window.setTimeout(function() {
+                                    if($(window).height() - $(window).scrollTop() <= 950 && $('.feed-data').attr("id")=='profile') {
+                                        // ajax call get data from server and append to the div
+                                        var last_id = $(".feed:last").attr("id");
+                                        $.ajax({
+                                            url:'http://jaipun.com/feed/load_user?id='+data[0].user_id+"&content_id="+last_id,
+                                            beforeSend: function()
+                                                {
+                                                    $('.ajax-load').show();
+                                                }
+                                        }).then(function(data) {
+                                            $('.ajax-load').hide();
+                                            for(var i = 0; i < data.length; i++){
+                                                var n = data[i].content.search("draw/");
+                                                var e = data[i].content.search("png"); var en = e + 3;
+                                                var all = data[i].content.slice(n, en);
+                                                var draw = "<img src='"+all+"' class='feed-user-draw'>";       
+                                                //imgExists(data[i].content_id);
+                                                if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+                                                $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + 
+                                                    "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                                                    "<div class='feed-title-under'>" + 
+                                                    "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+  data[i].tagname + "</div>" +
+                                                    "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">' + data[i].type + "</div>" +  "</div>" +
+                                                    "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                                    draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                                                    "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                                                    Like + "</span></div></div>"  +"</div>"
+                                                );
+                                            }
+                                        });
+                                        $('.ajax-load').hide();
+                                    }
+                            }, 200);
+                            });
+
+                });
+
+      
+ 
+
+        });
+    });
+
+
+});
+
+
+/***************** Function Feed Star *********************/
+function feed_star(){
+    $('.feed-data').html("");
+    $('.feed-data').attr("id","star");
+    $.ajax({
+    url: 'http://jaipun.com/feed/feed_top',
+    beforeSend: function()
+        {
+            $('.ajax-load').show();
+        }
+        }).then(function(data) {
+            $('.ajax-load').hide();
+            document.title = 'Jaipun';
+        for(var i = 0; i < data.length; i++){
+            var n = data[i].content.search("draw/");
+            var e = data[i].content.search("png"); var en = e + 3;
+            var all = data[i].content.slice(n, en);
+            var draw = "<img src='"+all+"'>";       
+            url = '/profile/'+data[i].user_id +".jpeg";
+            profileExists(url);
+            //imgExists(data[i].content_id);
+            if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+            $('.feed-data').append(   "<div class='feed' id="+ data[i].contentLike+">" + 
+                "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                "<div class='feed-title-under'>" + 
+                "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+  data[i].tagname + "</div>" +
+                "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">' + data[i].type + "</div>" +  "</div>" +
+                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
+                "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+                data[i].name + "<span class='feed-writer-detail'>" + data[i].detail + "</span></div>" +"</div>"
+            );
+        }
+    });
+}
+
+/***************** Function Feed NEW *********************/
+function feed_new(){
+    $('.feed-data').html("");  
+    $.ajax({
+        url: "http://jaipun.com/feed/feed_new",
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+    }).then(function(data) {
+            $('.ajax-load').hide();
+            document.title = 'latest';
+        for(var i = 0; i < data.length; i++){
+            var n = data[i].content.search("draw/");
+            var e = data[i].content.search("png"); var en = e + 3;
+            var all = data[i].content.slice(n, en);
+            var draw = "<img src='"+all+"'>";       
+            url = '/profile/'+data[i].user_id +".jpeg";
+            profileExists(url);
+            //imgExists(data[i].content_id);
+            if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+            $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + 
+                "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                "<div class='feed-title-under'>" + 
+                "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
+                "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
+                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                draw  + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
+                "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+                data[i].name + "<span class='feed-writer-detail'>" + data[i].detail + "</span></div>" +"</div>"
+            );
+        }
+    });
+}
+
+/***************** Function Feed type *********************/
+function feed_type(type){
+    $('.feed-data').html("");
+    $('.feed-data').attr("id","type");        
+    $('.feed-data').append('<h1></h1>');
+    $.ajax({
+        url: "http://jaipun.com/feed/type_top?t="+type,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+    }).then(function(data) {
+        $('.ajax-load').hide();
+        $('h1').html(data[0].type);
+        document.title = data[0].type+ ' | Jaipun';                            
+        for(var i = 0; i < data.length; i++){
+            var n = data[i].content.search("draw/");
+            var e = data[i].content.search("png"); var en = e + 3;
+            var all = data[i].content.slice(n, en);
+            var draw = "<img src='"+all+"'>";       
+            url = '/profile/'+data[i].user_id +".jpeg";
+            profileExists(url);
+            //imgExists(data[i].content_id);
+            if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+            $('.feed-data').append(   "<div class='feed' id="+ data[i].contentTop+">" + 
+                "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                "<div class='feed-title-under'>" + 
+                "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
+                "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
+                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                    draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
+                "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+                data[i].name + "<span class='feed-writer-detail'>" + data[i].detail + "</span></div>" +"</div>"
+            );
+        }
+
+        var timer;
+        $(window).scroll(function() {
+            if(timer) {
+                    window.clearTimeout(timer);
+                }
+                timer = window.setTimeout(function() {
+                    if($(window).height() - $(window).scrollTop() <= 950 && $('.feed-data').attr("id")=='type') {
+                        // ajax call get data from server and append to the div
+                        var last_id = $(".feed:last").attr("id");
+                        $.ajax({
+                            url:"http://jaipun.com/feed/typeload_top?contentTop="+last_id+"&t="+type,
+                            beforeSend: function()
+                                {
+                                    $('.ajax-load').show();
+                                }
+                        }).then(function(data) {
+                            $('.ajax-load').hide();
+                            for(var i = 0; i < data.length; i++){
+                                var n = data[i].content.search("draw/");
+                                var e = data[i].content.search("png"); var en = e + 3;
+                                var all = data[i].content.slice(n, en);
+                                var draw = "<img src='"+all+"'>";       
+                                url = '/profile/'+data[i].user_id +".jpeg";
+                                profileExists(url);
+                                imgExists(data[i].content_id);
+                                if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+                                $('.feed-data').append(   "<div class='feed' id="+ data[i].contentTop +">" + 
+                                    "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                                    "<div class='feed-title-under'>" + 
+                                    "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
+                                    "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
+                                    "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                     draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                                    "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                                     Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
+                                    "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+                                    data[i].name + "<span class='feed-writer-detail'>" + data[i].detail + "</span></div>" +"</div>"
+                                );
+                            }
+                        });
+                        $('.ajax-load').hide();
+                    }
+            }, 200);
+        });
+    });
+    $('.ajax-load').hide();
+}
+
+/***************** Function Feed tag *********************/
+function feed_tag(id){
+    $('.feed-data').html("");
+    $('.feed-data').attr("id","tagid");        
+    $('.feed-data').append('<h1></h1>');
+    $.ajax({
+        url: "http://jaipun.com/feed/tagid_top?id="+id,
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+    }).then(function(data) {
+        $('.ajax-load').hide();
+        $('h1').html(data[0].tagname);
+        document.title = data[0].tagname+ ' | Jaipun';                            
+        for(var i = 0; i < data.length; i++){
+            var n = data[i].content.search("draw/");
+            var e = data[i].content.search("png"); var en = e + 3;
+            var all = data[i].content.slice(n, en);
+            var draw = "<img src='"+all+"'>";       
+            url = '/profile/'+data[i].user_id +".jpeg";
+            profileExists(url);
+            //imgExists(data[i].content_id);
+            if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+            $('.feed-data').append(   "<div class='feed' id="+ data[i].contentTop+">" + 
+                "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                "<div class='feed-title-under'>" + 
+                "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
+                "<div class='feed-type' onclick="+ '"' + "feed_type('"  + data[i].type + "'" + ')">' + data[i].type + "</div>" +  "</div>" +
+                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                 draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
+                "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+                data[i].name + "<span class='feed-writer-detail'>" + data[i].detail + "</span></div>" +"</div>"
+            );
+        }
+
+        var timer;
+        $(window).scroll(function() {
+            if(timer) {
+                    window.clearTimeout(timer);
+                }
+                timer = window.setTimeout(function() {
+                    if($(window).height() - $(window).scrollTop() <= 950 && $('.feed-data').attr("id")=='tagid') {
+                        // ajax call get data from server and append to the div
+                        var last_id = $(".feed:last").attr("id");
+                        $.ajax({
+                            url:"http://jaipun.com/feed/tagidload_top?contentTop="+last_id+"&id="+id,
+                            beforeSend: function()
+                                {
+                                    $('.ajax-load').show();
+                                }
+                             }).then(function(data) {
+                            $('.ajax-load').hide();
+                            for(var i = 0; i < data.length; i++){
+                                var n = data[i].content.search("draw/");
+                                var e = data[i].content.search("png"); var en = e + 3;
+                                var all = data[i].content.slice(n, en);
+                                var draw = "<img src='"+all+"'>";       
+                                url = '/profile/'+data[i].user_id +".jpeg";
+                                profileExists(url);
+                                //imgExists(data[i].content_id);
+                                if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+                                $('.feed-data').append(   "<div class='feed' id="+ data[i].contentTop+">" + 
+                                    "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                                    "<div class='feed-title-under'>" + 
+                                    "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
+                                    "<div class='feed-type' onclick="+ '"' + "feed_type('"  + data[i].type + "'" + ')">'  + data[i].type + "</div>" +  "</div>" +
+                                    "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                     draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                                    "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                                    Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
+                                    "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+                                    data[i].name + "<span class='feed-writer-detail'>" + data[i].detail + "</span></div>" +"</div>"
+                                );
+                            }
+                        });
+                        $('.ajax-load').hide();
+                    }
+            }, 200);
+        });
+
+
+        });
+        $('.ajax-load').hide();
+
+
+}
+
+
+
+
+/***************** Function Feed TAG *********************/
+function tag_top(){
+    $('.feed-data').html("");        
+    $.ajax({
+        url: "http://jaipun.com/feed/tag_top",
+        beforeSend: function()
+            {
+                $('.ajax-load').show();
+            }
+        }).then(function(data) {
+            $('.ajax-load').hide();
+            document.title = 'Jaipun';
+        for(var i = 0; i < data.length; i++){
+
+            $('.feed-data').append(
+                "<div class='tag' id='"+ data[i].tagTop + "' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">' +
+                "<img src='"+ data[i].tagDraw +"'>" +  "<div class='tag-text'><div class='tag-name'>" + data[i].tagname + "</div>" +
+                "<div class='tag-detail'>"+ data[i].tagDetail  +"</div>" +
+                "<div class='tag-int'>" + data[i].tagStories +  "    Stories</div></div></div>"
+            );
+        }
+
+    });
+}
+
+
+/************LOAD SCROLL**************/
+var timer;
+$(window).scroll(function() {
+    if(timer) {
+            window.clearTimeout(timer);
+        }
+        timer = window.setTimeout(function() {
+            if($(window).height() - $(window).scrollTop() <= 950) {
+                /***** FEED STAR *****/
+                if($('.feed-data').attr("id")=='star'){
+                // ajax call get data from server and append to the div
+                var last_id = $(".feed:last").attr("id");
+                $.ajax({
+                    url:"http://jaipun.com/feed/load_top?contentLike="+last_id,
+                    beforeSend: function()
+                        {
+                            $('.ajax-load').show();
+                        }
+                    }).then(function(data) {
+                    $('.ajax-load').hide();
+                    for(var i = 0; i < data.length; i++){
+                        var n = data[i].content.search("draw/");
+                        var e = data[i].content.search("png"); var en = e + 3;
+                        var all = data[i].content.slice(n, en);
+                        var draw = "<img src='"+all+"'>";       
+                        url = '/profile/'+data[i].user_id +".jpeg";
+                        profileExists(url);
+                        imgExists(data[i].content_id);
+                        if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+                        $('.feed-data').append(   "<div class='feed' id="+ data[i].contentLike+">" + 
+                            "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                            "<div class='feed-title-under'>" + 
+                            "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
+                            "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
+                            "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                            draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                            "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                            Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
+                            "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+                            data[i].name + "<span class='feed-writer-detail'>" + data[i].detail + "</span></div>" +"</div>"
+                        );
+                    }
+                    });
+                    $('.ajax-load').hide();
+                }
+
+                /***** FEED NEW *****/
+                if($('.feed-data').attr("id")=='new'){
+                    var last_new = $(".feed:last").attr("id");
+                    $.ajax({
+                        url:"http://jaipun.com/feed/load_new?content_id="+last_new,
+                        beforeSend: function()
+                            {
+                                $('.ajax-load').show();
+                            }
+                    }).then(function(data) {
+                        $('.ajax-load').hide();
+                        for(var i = 0; i < data.length; i++){
+                            var n = data[i].content.search("draw/");
+                            var e = data[i].content.search("png"); var en = e + 3;
+                            var all = data[i].content.slice(n, en);
+                            var draw = "<img src='"+all+"'>";       
+                            url = '/profile/'+data[i].user_id +".jpeg";
+                            profileExists(url);
+                            imgExists(data[i].content_id);
+                            if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+                            $('.feed-data').append(   "<div class='feed' id="+ data[i].content_id+">" + 
+                                "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                                "<div class='feed-title-under'>" + 
+                                "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
+                                "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
+                                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                    draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                                "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                                    Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
+                                "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+                                data[i].name + "<span class='feed-writer-detail'>" + data[i].detail + "</span></div>" +"</div>"
+                            );
+                        }
+                    });
+                    $('.ajax-load').hide();
+                }
+
+                /***** FEED TAG *****/
+                if($('.feed-data').attr("id")=='tag'){
+                    var last_id = $(".tag:last").attr("id");
+                    $.ajax({
+                        url: "http://jaipun.com/feed/tagload_top?tagTop="+last_id,
+                        beforeSend: function()
+                            {
+                                $('.ajax-load').show();
+                            }
+                    }).then(function(data) {
+                        $('.ajax-load').hide();
+                        document.title = 'Jaipun';
+                        for(var i = 0; i < data.length; i++){
+                    
+                            $('.feed-data').append(
+                                "<div class='tag' id='"+ data[i].tagTop + "' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'  +
+                                "<img src='"+ data[i].tagDraw +"'>" +  "<div class='tag-text'><div class='tag-name'>" + data[i].tagname + "</div>" +
+                                "<div class='tag-detail'>"+ data[i].tagDetail  +"</div>" +
+                                "<div class='tag-int'>" + data[i].tagStories +  "    Stories</div></div></div>"
+                            );
+                        }
+                    });
+                    $('.ajax-load').hide();
+                }
+            }
+    }, 200);
+});
+</script>
+
