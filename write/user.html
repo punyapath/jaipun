@@ -530,6 +530,435 @@
     display: block;
     color: #8a8b8a;
 }
+
+    
+.content{
+        background: #fff;
+        float: left;
+        max-width: 740px;
+        border: 1px solid #e6e6e6;
+        padding: 20px;
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+    .content-type {
+        float: right;
+        width: 50%;
+        margin-top: -10px;
+        margin-bottom: 50px;
+        opacity: 0.8;
+    }
+    .content-type-text {
+        float: left;
+        padding: 12px 10px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #008a0c;
+    }
+
+
+    .content-tag {
+        float: left;
+        width: 50%;
+    }
+    .content-tag-text {
+        float: right;
+        padding: 10px 10px;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .content-title {
+        margin: 60px 0px 0px 0px;
+        width: 100%;
+        font-size: 28px;
+        text-align: center;
+        float: left;
+        font-weight: 600;
+    }
+    
+    .content-article img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 200px !important;   
+    }
+    
+    
+    .content-article * {
+        font-family: 'cs_prajad', sans-serif !important;
+        word-wrap: break-word;
+        margin: 5px;
+        color:#000 !important;
+        background-color:#fff !important;
+        font-size: 20px !important;
+        line-height: 45px !important;
+        /*min-width: 100%;*/
+        }
+
+        .content-article{
+        font-family: 'cs_prajad', sans-serif !important;
+        word-wrap: break-word;
+        margin: 5px;
+        color:#000 !important;
+        background-color:#fff !important;
+        font-size: 20px !important;
+        line-height: 45px !important;
+        min-width: 620px;
+        }
+    
+    
+    
+
+.content-profile{
+padding: 20px 40px;
+float: left;
+width: 80%;
+}
+
+.content-profile-into{
+float: left;
+width: 25%;
+}
+
+.content-profile-img{
+border-radius: 100px;
+height: 80px;
+object-fit: cover;
+width: 80px;
+display: inline-block;
+margin: 0px 0px;
+padding: 0px;
+}
+
+.content-profile-text{
+float: left;
+width: 55%;
+}
+
+#name{
+font-weight: 600;
+font-size:24px
+}
+
+
+@media screen and (max-width: 520px) {
+
+.content-into {
+margin: 0px 20px;
+}
+.content-profile-into {
+float: none;
+text-align: center;
+width: 100%;
+}
+.content-profile-text {
+float: none;
+text-align: center;
+width: 100%;
+margin: 15px 0px;
+}
+
+#detail{
+font-size: 16px;
+font-weight: 400;
+}
+#closecontent{
+top: 0;
+right: 0;
+left: 0;
+
+}
+
+
+}
+
+
+#closecontent {
+position: fixed;
+top: 50px;
+right: 80px;
+z-index: 1;
+}
+    
+        .comments{
+        width: 100%;
+        float: left;
+        border-bottom: 1px solid #eee;
+        float: left;
+        width: 100%;
+        padding: 15px 0px;
+    }
+    .comments-img{
+        float: left;
+        height: 40px;
+        width: 40px;
+        border-radius: 100px;
+        object-fit: cover;
+        display: inline-block;
+        margin: 0px 15px;
+        padding: 0px;
+    }
+    
+    .comments-name{
+        float: left;
+        width: 50%;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    
+    #frm-comment{
+        float: left;
+        width: 100%;
+        margin: 30px 10px;
+    }
+    
+    #Share {
+        font-size: 15px;
+        text-align: center;
+        padding: 10px;
+        max-width: 240px;
+        display: none;
+        position: absolute;
+        bottom: 140%;
+        right: 0;
+        border: 1px solid #e6e6e6;
+        background: #fff;
+        margin: 0px 0px;
+        display: none;
+        box-shadow: 0 1px 2px rgba(0,0,0,.25), 0 0 1px rgba(0,0,0,.35);
+    }
+    
+    #Share:before {
+        position: absolute;
+        bottom: -12px;
+        right: 21px;
+        display: inline-block;
+        border-right: 12px solid transparent;
+        border-top: 12px solid #ccc;
+        border-left: 12px solid transparent;
+        border-top-color: rgba(0,0,0,0.2);
+        content: '';
+    }
+    #Share:after {
+        position: absolute;
+        bottom: -10px;
+        right: 21px;
+        display: inline-block;
+        border-right: 12px solid transparent;
+        border-top: 12px solid #fff;
+        border-left: 12px solid transparent;
+        content: '';
+
+    }
+    
+    
+    .Hide
+    {
+        display:none;
+    }
+    
+    
+    .toggle{
+        margin-top:0px;
+    }
+    
+    
+    #edit {
+        display:none;
+        position: absolute;
+        top: 80%;
+        right: 0px;
+        width: 100%;
+        border: 1px solid #e6e6e6;
+        font-size:14px;
+        background:#fff;
+        width:60px;
+        height:40px;
+        display:none;
+        padding:5px;
+        box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+    }
+    
+    #edit:before {
+        position: absolute;
+        top: -7px;
+        right: 9px;
+        display: inline-block;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #ccc;
+        border-left: 7px solid transparent;
+        border-bottom-color: rgba(0,0,0,0.2);
+        content: '';
+    }
+    #edit:after {
+        position: absolute;
+        top: -6px;
+        right: 10px;
+        display: inline-block;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid #fff;
+        border-left: 6px solid transparent;
+        content: '';
+    }
+    
+    
+    .Hide
+    {
+        display:none;
+    }
+    
+    
+    .btnedit{
+        margin:10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .content-article{
+        min-width: 0px;
+        }
+
+        .content{
+            padding: 20px;
+            padding-right: 50px;
+            padding-left: 50px;
+        }
+
+
+    }
+        
+
+
+    @media only screen and (max-width: 620px) {
+
+        .content{
+            padding: 20px;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        .content-article * {
+            font-size: 18px !important;
+        line-height: 40px !important;
+        }
+
+        .content-article{
+        font-size: 18px !important;
+        line-height: 40px !important;
+        }
+        .content-title {
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+
+    }
+
+
+
+    .iconlike{
+        float: left;
+        padding: 8px;
+        width: 30px;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: 50px;
+        opacity: 1;
+    }
+    .iconlike:hover { 
+        border: 2px solid #ff7f7f;
+    }
+        
+    .iconlike:active { 
+        border: 2px solid #ff7f7f;
+        box-shadow: 0px 0px 15px 1px rgba(0,0,0,.15)!important;
+    }
+
+
+    #opencontent{
+        position: fixed!important;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        background: #e2e2e261;
+        top: 0;
+        overflow-y: scroll;
+        right: 0;
+        display:none;
+    }
+
+    .check{
+        display:none;    
+        position: absolute;  
+        position: fixed;
+        top: 30%;
+        left: 40%;
+        width:80px
+    }
+        
+    .textlike{
+        padding: 15px 5px 15px 15px;
+        float: left;
+        font-size: 14px;
+        /* font-weight: 600; */
+    }
+
+    #share ul{
+        padding: 0px;
+        margin: 0px;
+        margin-bottom: 0;
+        padding: 0;
+        list-style: none;
+        list-style-image: none;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 0;
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.4;   
+    }
+
+    #fb-share-button{
+        list-style: none !important;
+        display: block !important;
+        padding: 5px 0 !important;
+        border: 0 !important;
+        text-align: left !important;
+        width: 100% !important;
+        line-height: 1.4 !important;
+        white-space: nowrap !important;
+        padding: 5px 15px !important;
+        -webkit-box-sizing: border-box !important;
+        box-sizing: border-box !important;
+    }
+
+    #line-share-button{
+        list-style: none !important;
+        display: block !important;
+        padding: 0px 0 !important;
+        border: 0 !important;
+        text-align: left !important;
+        width: 100% !important;
+        line-height: 1.4 !important;
+        white-space: nowrap !important;
+        padding: 5px 15px !important;
+        -webkit-box-sizing: border-box !important;
+        box-sizing: border-box !important;
+    }
+    #popup-search{
+        position: fixed!important;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: #e2e2e261;
+        top: 0;
+        overflow-y: scroll;
+        right: 0;
+        display:none;
+    }
+
 </style>
 
 <!---   HEADER START   -->
@@ -596,7 +1025,78 @@
     </nav>  
 </div>
 <!---   HEADER END   -->
+<div id='popup-search'>
+    <div style="
+    margin-top:100px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 820px;
+    ">
+    <div class='search-data'></div>
+    </div>
+</div>
+<!-- OPEN CONTENT START -->
+<div id='opencontent'>
+    <img src="https://visualpharm.com/assets/311/Easy-595b40b85ba036ed117dc0a2.svg" class='check'>
 
+    <div id="closecontent">
+        <img src="https://img.icons8.com/cotton/50/000000/circled-chevron-left.png">
+    </div>
+
+ <div style="max-width: 820px;margin-left: auto;margin-right: auto;margin-top: 65px;">
+    <div class="content" style="">
+            <div class="content-load" style="display:none;text-align: center;">
+             <p><img src="https://loading.io/spinners/facebook/index.pulse-bar-preloader.svg" style="width:80px"></p>
+            </div>
+
+            <div class="content-title"></div><div class="content-type" onclick="window.location='/feedtype?t=knowledge'">
+                <div class="content-type-text"></div>
+                </div>
+                <div style="
+                float: left;
+                width: 50%;
+                margin-top: -10px;
+                margin-bottom: 50px;
+                opacity: 0.6;
+                ">
+                <div class="content-tag-text"></div></div>
+                    <article class="content-article" >
+                    </article>
+                <div style="
+                float: left;
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,.05)!important;
+                padding-bottom: 25px!important;
+                margin-top:60px;
+                ">
+                    <div style=" float: left; "><img class="iconlike" onclick='check()'src="https://visualpharm.com/assets/311/Easy-595b40b85ba036ed117dc0a2.svg">
+                        <span style="" class="textlike"></span></div>
+
+
+                    <div style='position: relative;float:right'>
+                            <div id="Share">
+                                <ul>
+                                    <li id="fb-share-button" ><img src="https://img.icons8.com/material/30/000000/facebook.png" style=" margin-bottom: -10px;opacity: 0.6; "> Share on facebook</li>
+                                    <li id="line-share-button" ><img src="https://img.icons8.com/ios-glyphs/30/000000/line-me.png" style="margin-bottom: -10px;opacity: 0.6; "> Share on line</li>                           
+                                </ul>        
+                            </div>
+                            <div class="toggle" style="margin: 5px 20px;float: right;"><img src="http://pic.90sjimg.com/design/00/23/31/57/58eef971e8910.png" style="width:25px;"></div>
+                            </div>
+                            
+                </div>
+
+                <div class="content-profile"><div class="content-profile-into"><img  class="content-profile-img">
+                </div>
+                
+                <div class="content-profile-text">
+                <div id='name'></div>
+                <div id='detail'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- OPEN CONTENT END -->
 
 <body style="background:#fff">
 
@@ -680,6 +1180,70 @@ function imgExists(content_id){
 
 
 $(document).ready(function () { 
+
+    $('#search').focus(function() {
+        contenteditable_focused = true;
+        $('#popup-search').show();
+
+          //ถ้าคลิกที่อื่น จะปิดตัว Jaipun Store ทันที
+        $("#popup-search").mouseup(function(e) 
+        {
+            var container = $(".search-data");
+            // if the target of the click isn't the container nor a descendant of the container
+            if (!container.is(e.target) && container.has(e.target).length === 0) 
+            {
+                $("#popup-search").hide();
+            }
+        });
+
+    });
+    $('#search').blur(function() {
+    //alert("Doesn't Have Focus");        
+        contenteditable_focused = false;
+        ///$('#popup-search').hide();
+    });
+    $('#search').keyup(function(e){
+        $('.search-data').html("");
+        if($(this).text()!=0){
+        url = encodeURI("http://jaipun.com/feed/search_top?t="+$(this).text());
+        $.ajax({
+            url: url,
+            beforeSend: function()
+                {
+                    $('.ajax-load').show();
+                }
+        }).then(function(data) {
+            $('.ajax-load').hide();
+            $('.search-data').html("");
+            document.title = $(this).text() + ' | Jaipun';                                        
+            for(var i = 0; i < data.length; i++){
+                var n = data[i].content.search("draw/");
+                var e = data[i].content.search("png"); var en = e + 3;
+                var all = data[i].content.slice(n, en);
+                var draw = "<img src='"+all+"'>";       
+                url = '/profile/'+data[i].user_id +".jpeg";
+                profileExists(url);
+                //imgExists(data[i].content_id);
+                if(data[i].contentLike != 0){var Like = data[i].contentLike+" liked";}else{var Like = ""}
+                $('.search-data').append(   "<div class='feed' id="+ data[i].contentLike+">" + 
+                    "<div class='feed-title'><div class='feed-title-text'>" + data[i].contentName + "</div>" +
+                    "<div class='feed-title-under'>" + 
+                    "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+  data[i].tagname + "</div>" +
+                    "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">' + data[i].type + "</div>" +  "</div>" +
+                    "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
+                     draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
+                    "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
+                     Like + "</span></div></div>" +  "<div class='feed-writer' style='width: 50%;'>" + 
+                    "<img src='"+profile+"' class='feed-writer-profile'>" +
+                    "<div class='feed-writer-name'  onclick="+ '"' + "window.location='/name/" + data[i].user_id + "'" + '">' + 
+                    data[i].name + "</div>" +"</div>"
+                );
+            }
+        });
+        $('.ajax-load').hide();
+        }
+    });
+
     feed_star();
     $('#latest').on('click', function(e) {
         $('.feed-data').attr("id","new");  
@@ -759,7 +1323,7 @@ $(document).ready(function () {
                                 "<div class='feed-title-under'>" + 
                                 "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+  data[i].tagname + "</div>" +
                                 "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">' + data[i].type + "</div>" +  "</div>" +
-                                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                                 draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                                 "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                                 Like + "</span></div></div>"  +"</div>"
@@ -795,7 +1359,7 @@ $(document).ready(function () {
                                                     "<div class='feed-title-under'>" + 
                                                     "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+  data[i].tagname + "</div>" +
                                                     "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">' + data[i].type + "</div>" +  "</div>" +
-                                                    "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                                    "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                                                     draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                                                     "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                                                     Like + "</span></div></div>"  +"</div>"
@@ -846,7 +1410,7 @@ function feed_star(){
                 "<div class='feed-title-under'>" + 
                 "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+  data[i].tagname + "</div>" +
                 "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">' + data[i].type + "</div>" +  "</div>" +
-                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                 draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                 "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                 Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -883,7 +1447,7 @@ function feed_new(){
                 "<div class='feed-title-under'>" + 
                 "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
                 "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
-                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                 draw  + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                 "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                 Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -923,7 +1487,7 @@ function feed_type(type){
                 "<div class='feed-title-under'>" + 
                 "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
                 "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
-                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                     draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                 "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                 Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -963,7 +1527,7 @@ function feed_type(type){
                                     "<div class='feed-title-under'>" + 
                                     "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
                                     "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
-                                    "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                    "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                                      draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                                     "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                                      Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -1009,7 +1573,7 @@ function feed_tag(id){
                 "<div class='feed-title-under'>" + 
                 "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
                 "<div class='feed-type' onclick="+ '"' + "feed_type('"  + data[i].type + "'" + ')">' + data[i].type + "</div>" +  "</div>" +
-                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                  draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                 "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                 Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -1049,7 +1613,7 @@ function feed_tag(id){
                                     "<div class='feed-title-under'>" + 
                                     "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
                                     "<div class='feed-type' onclick="+ '"' + "feed_type('"  + data[i].type + "'" + ')">'  + data[i].type + "</div>" +  "</div>" +
-                                    "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                    "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                                      draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                                     "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                                     Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -1133,7 +1697,7 @@ $(window).scroll(function() {
                             "<div class='feed-title-under'>" + 
                             "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
                             "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
-                            "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                            "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                             draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                             "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                             Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -1170,7 +1734,7 @@ $(window).scroll(function() {
                                 "<div class='feed-title-under'>" + 
                                 "<div class='feed-tag' onclick="+ '"' + "feed_tag('" + data[i].tag_id + "'" + ')">'+ data[i].tagname + "</div>" +
                                 "<div class='feed-type' onclick="+ '"' + "feed_type('" + data[i].type + "'" + ')">'+ data[i].type + "</div>" +  "</div>" +
-                                "<div class='feed-content' onclick="+ '"' + "window.location='/story.php?id=" + data[i].content_id + "'" + '">' + 
+                                "<div class='feed-content' onclick="+ '"' + "opencontent(" + data[i].content_id + ")" + '">' + 
                                     draw + "<div class='feed-content-into' >"+ data[i].content.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) +"...</div>" +
                                 "<div class='feed-date'>" + timeSince(data[i].contentDate) + "<span class='feed-like'>" + 
                                     Like + "</span></div></div>" +  "<div class='feed-writer'>" + "<img src='"+profile+"' class='feed-writer-profile'>" +
@@ -1209,5 +1773,103 @@ $(window).scroll(function() {
             }
     }, 200);
 });
+
+
+
+function check(content_id){
+ if($('.iconlike').attr('id') === undefined ){
+    $(".check").fadeIn(600);
+    $(".check").fadeOut(3000,"swing");
+    $('.iconlike').attr('id','checked');
+    $.ajax({
+        url: 'like.php',
+        type: 'post',
+        data: {
+            'liked': 1,
+            'content_id': content_id
+        },
+        success: function(response){
+            $('.textlike').text(response+" Liked");
+        }
+    });
+ }
+}
+
+
+$('.toggle').click(function() {
+    $('#Share').toggle();
+});
+
+$('.btnedit').click(function() {
+    $('#edit').toggle();
+});
+
+function opencontent(content_id){
+    $("#opencontent").animate({ scrollTop: 0 }, "fast");
+    $('#opencontent').show();
+   $.ajax({
+        url:"http://jaipun.com/data/stories/"+content_id,
+        beforeSend: function()
+            {
+                $('.content-load').show();
+            }
+    }).then(function(data) {
+        $('.content-load').hide();
+        var content = data.content.replace(/&lt;/gm,"<").replace(/&quot;/gm,"'").replace(/&gt;/gm,'>').replace(/&amp;nbsp;/gm,' ');
+            document.title = data.contentName+"  | Jaipun";
+            url = '/profile/'+data.user_id +".jpeg";
+            profileExists(url);
+            //imgExists(data[i].content_id);
+            if(data.contentLike != 0){var Like = data.contentLike+"  liked";}else{var Like = ""}
+            
+            $('.content-type').attr('onClick', "window.location='/feedtype?t="+data.type+"'");
+            //$('.content-type-icon').attr("src", "/type/"+data.type+".png");
+            $('.content-type-text').html(data.type);
+            $('.content-tag-text').html(data.tagname);
+            $('.content-tag-text').attr('onClick', "window.location='/tag?id="+data.tag_id+"'");
+            $('.content-title').html(data.contentName);            
+            $('.content-article').html(content);
+            $('.textlike').html(Like);         
+            $('.content-profile-img').attr('src', profile);
+            $('#name').html(data.name);      
+            $('#detail').html(data.detail);             
+            $('.iconlike').attr('onClick', "check("+data.content_id+")");                 
+            $('article img').click(function () {
+                var id =  $(this).attr('src').match(/\d+/)[0];
+                window.location.href='viewdraw.php?drawname_id='+id;
+                
+            });     
+            window.history.replaceState(null, null, "story.php?id="+data.content_id);
+            return urlshare = "jaipun.com/story.php?id="+data.content_id;
+
+    });
+
+    var fbButton = document.getElementById('fb-share-button');
+    fbButton.addEventListener('click', function() {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + urlshare,
+            'facebook-share-dialog',
+            'width=800,height=600'
+        );
+        return false;
+    });
+
+    var lineButton = document.getElementById('line-share-button');
+    lineButton.addEventListener('click', function() {
+        window.open('https://social-plugins.line.me/lineit/share?url=' + urlshare,
+            'facebook-share-dialog',
+            'width=800,height=600'
+        );
+        return false;
+    });
+
+    $('#closecontent').click(function () {
+        $('#opencontent').hide();
+        document.title = "Jaipun";
+        window.history.replaceState(null, null, "/");
+    });
+}
+
+
+
 </script>
 
