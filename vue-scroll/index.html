@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Scroll</title>
+      <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="demo" >
+        <h1>Vue.js Api</h1>
+    
+        <div v-for="data in commits" style="height:200px">{{data.content_id}}--- {{data.contentName}} --- {{data.content_id}} {{text}} </div>
+        <button v-on:click="userLastCount()">Reverse Message</button>
+    </div>
+<!--
+    <div id="apps">  
+      <button v-on:click="addItem()">Add Item</button>
+      <div id="container" style="max-height:200px; overflow-y: auto;">
+        <ul>
+          <li v-for="item in items">{{ item }}</li>
+        </ul>
+      </div>
+    </div>
+
+
+  <div id="app" class="list">
+ 
+  <div class="itexms"  v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10" infinite-scroll-throttle-delay="1000">
+     <div v-for="todo in todos">
+    {{ todo.text }}
+  </div>
+
+  </div>
+</div>
+
+-->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js'></script>
+  <!--
+<script src='https://unpkg.com/vue-infinite-scroll'></script>
+<script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+
+  -->
+
+<script>
+    var demo = new Vue({
+      el: '#demo',
+      data: {
+        text:"commits",
+        commits: null,
+        loadcommits:null
+        },
+      methods: {
+        init(){
+          var xhr = new XMLHttpRequest();
+          var self = this;
+          xhr.open('GET','http://jaipun.com/feed/feed_new');
+          xhr.onload = function () {
+            self.commits = JSON.parse(xhr.responseText);
+          };
+          xhr.send();
+        },
+        loadinit(content_id){
+          var xhr = new XMLHttpRequest();
+          var self = this;
+          var contents;
+          xhr.open('GET', "http://jaipun.com/feed/load_new?content_id="+content_id);
+          xhr.onload = function () {
+            contents = JSON.parse(xhr.responseText);
+            for (var i = 0; i < contents.length; i++) {
+              self.commits.push({content_id:contents[i].content_id,contentName:contents[i].contentName});
+            }
+          };
+          xhr.send();
+        },
+        handleScroll (event) {
+          this.scrolled = window.scrollY > 0;
+        // Any code to be executed when the window is scrolled
+         // alert(this.$el.lastElementChild.offsetTop-window.scrollY);
+
+            setTimeout(() => {
+              if(this.$el.lastElementChild.offsetTop-window.scrollY <= 650){
+              this.loadinit(this.commits[this.commits.length - 1].content_id);
+              }
+            }, 500);
+          
+        },
+        userLastCount() {
+          //window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+          alert(this.$el.lastElementChild.offsetTop);
+          this.$el.scrollTop = this.$el.lastElementChild.offsetTop;
+          alert(window.scrollY);
+        },
+      },
+      created () {
+      window.addEventListener('scroll', this.handleScroll);
+      },
+      destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
+      },mounted() {
+        this.init(); 
+        //this.loadinit();  
+      },
+    });
+
+
+
+
+
+    /*********************************************************************
+
+    this.busy = false;
+    //alert(contents);
+
+
+    var count = 0;
+    var items = [];
+
+    //testing scroll code.  may need to limit how often we update.
+    var last_known_scroll_position = 0;
+    var ticking = false;
+
+    for (var i = 0, j = 100; i < j; i++) {
+      items.push({ id: i, text: "Item " + i })
+    }
+
+    //HN api
+    //https://hn.algolia.com/api/v1/search_by_date?tags=story&page=1
+    // tags=story
+    // 20 per page.
+    new Vue({
+      el: "#app",
+      data: {
+        data: [{ name: 0 }, { name: 2 }],
+        busy: false,
+        todos: items,
+        todoId: 100
+      },
+      methods: {
+        loadMore: function() {
+          console.log('load more');
+          this.busy = true;
+
+
+          setTimeout(() => {
+
+              //this.data.push({ name: count++ });
+              this.todos.push({ text: "load item " + this.todoId++});
+            }
+            this.busy = false;
+          }, 500);
+        }
+      }
+    });
+
+
+    //requestAnimationFrame to limit amount of calls
+    function doScroll(scroll_pos) {
+      // do something with the scroll position\
+      console.log('Scroll: ' + scroll_pos);
+    }
+
+    window.addEventListener('scroll', function(e) {
+
+      last_known_scroll_position = window.scrollY;
+
+      if (!ticking) {
+
+        window.requestAnimationFrame(function() {
+          doScroll(last_known_scroll_position);
+          ticking = false;
+        });
+        
+        ticking = true;
+
+      }
+    });
+
+    /*********************************************************************
+    
+var vm = new Vue({
+  el: '#apps',
+  data: {
+    items: []
+  }, 
+  methods: {
+  	addItem: function() {
+    	this.items.push("Item #"+this.items.length);
+      this.scrollToEnd();
+    },
+  	scrollToEnd: function() {    	
+      var container = this.$el.querySelector("#container");
+      container.scrollTop = container.scrollHeight;
+    },
+    populate: function() {
+    	for(var i = 0; i<100; i++) {
+        this.items.push("Item #"+i);
+      }    
+    }
+  }
+});
+vm.populate();*/
+
+    
+</script>
+
+
+
+
+</body>
+
+</html>
