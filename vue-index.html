@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en" >
+<link rel='shortcut icon' href='/css/3ByI2t.ico' type='image/x-icon'>        
+<link rel="stylesheet" href="/css/font.css">   
+<head>
+  <meta charset="UTF-8">
+  <title>vue-router example</title>
+  
+  <style>
+      /************************ FEED START********************************/
+      *{
+        color:#000
+      }
+    .feed{
+        box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+        border-bottom: 2px solid rgba(0,0,0,.15)!important;
+        word-wrap: break-word;
+        float: left;
+        margin: 2px 0px;
+        width: 100%;
+        background: #fff;
+    }
+    .feed-title{
+            float: left;
+            width: 100%;
+    }
+    
+    .feed-title-text{
+        margin: 20px 20px 0px 40px;
+        display: inline-block;
+        font-size: 28px;  
+        font-weight: 600;
+        color: #000;
+    }
+    
+    .feed-title-under{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        width: 90%;
+        float: left;
+        margin-left: 35px;
+        opacity: 0.8;
+    }
+    
+    .feed-tag{
+        font-size: 18px;
+        float: left;
+        margin: 0px 10px;
+        font-weight: 600;
+    }
+    
+    .feed-type{
+        float: left;
+        font-weight: 600;
+        color: #008a0c;
+        font-size: 18px;
+        margin: 0px 10px;
+    }
+    .feed-content{
+        float: left;
+        width: 100%;
+    }
+    
+    .feed-content img { 
+        display: block;
+        margin-left: auto;
+        margin-right: 60px;
+        margin-top: -40px;
+        margin-bottom: -180px;
+        width: 200px;
+    }
+    
+    .feed-content-into{
+        word-wrap: break-word;
+        height: 2em;
+        overflow: hidden;
+        margin: 40px 300px 15px 40px;
+        min-height: 70px;
+        color: #757575;
+        font-size: 18px;
+        line-height: 32px;
+    }
+    
+    .feed-date{
+        margin: 0px 40px 10px;
+        float: left;
+        font-size: 12px;
+    }
+    
+    .feed-like{
+        font-size:12px;
+        margin:0px 10px
+    }
+    
+    .feed-writer{
+        float: left;
+        width: 100%;
+        border-top: none;
+        padding-bottom: 16px;
+    }
+    
+    .feed-writer-profile{
+            float: left;
+            margin: 5px 10px 5px 35px;
+            border-radius: 100px;
+            height: 35px;
+            width: 35px;
+            object-fit: cover;
+            display: inline-block;
+    }
+    
+    .feed-writer-name{
+        float: left;
+            font-weight: 600;
+            color: #E53935;
+            margin: 10px 0;
+            font-size: 18px;
+    }
+    
+    
+    .feed-writer-detail{
+        font-weight: 500;
+        color: #000;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    
+    .feed-user-draw{
+        display: block !important;
+        margin-left: auto !important;
+        margin-top: -45px !important;
+        margin-bottom: -140px !important;
+        width: 160px !important;
+    }
+    
+        
+    @media only screen and (max-width: 820px) {
+        .feed-data{
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+        .feed{
+            margin:5px 0px;
+        }
+        .feed-title-text{
+            margin: 20px 20px 0px 20px;
+            font-size: 28px;
+        }
+        
+        .feed-title-under{
+            margin-left: 15px;
+        }
+    
+        .feed-tag{
+            font-size: 18px;
+        }
+    
+        .feed-type{
+            font-size: 18px;
+        }
+    
+        .feed-content img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            width: 200px;
+        }
+        .feed-user-draw{
+            display: block !important;
+            margin-left: auto !important;
+            margin-right: auto!important;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+            width: 200px !important;
+        }
+    
+        .feed-content-into{
+            margin: 0 30px;
+            min-height: 70px;
+            font-size: 18px;
+        }
+        
+        .feed-date{
+            margin: 0px 30px 10px;
+        }
+    
+        .feed-writer-profile{
+            margin: 5px 10px 5px 30px;
+        }
+    
+    }
+    
+    
+    @media only screen and (max-width: 620px) {
+        .feed-data{
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+        .feed-title-text{
+            margin: 20px 20px 0px 20px;
+            font-size: 22px;
+        }
+        
+        .feed-title-under{
+            margin-left: 15px;
+        }
+    
+        .feed-tag{
+            font-size: 16px;
+        }
+    
+        .feed-type{
+            font-size: 16px;
+        }
+    
+        .feed-content img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            width: 140px;
+        }
+    
+        .feed-user-draw{
+            display: block !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+            width: 140px !important;
+        }
+    
+        .feed-content-into{
+            margin: 0 20px;
+            min-height: 70px;
+            font-size: 16px;
+        }
+        
+        .feed-date{
+            margin: 0px 20px 10px;
+        }
+    
+        .feed-writer-profile{
+            margin: 5px 10px 5px 20px;
+        }
+    
+    }
+        
+    /***************************FEED END************************************/
+
+
+    /*************************** TAG FEED START ************************************/
+    .tag {
+        padding: 20px 0;
+        text-align: center;
+        word-wrap: break-word;
+        float: left;
+        margin: 2px 0px;
+        width: 100%;
+        background: #fff;
+    }
+    .tag img {
+        width: 110px;
+    }
+
+    .tag-text {
+        float: left;
+        width: 100%;
+    }
+
+    .tag-name {
+        color: #ff5959;
+        margin: 0px;
+        display: inline-block;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .tag-detail {
+        float: none;
+        margin: 0px 50px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .tag-int {
+        font-size: 18px;
+        margin: 0px 10px;
+        float: none;
+        font-weight: 500;
+    }
+    /*************************** TAG FEED END ************************************/
+    
+      </style>
+  
+</head>
+
+<body>
+
+  <div id="app">
+  <nav class="nav">
+    <router-link class="nav__item" to="/new">new</router-link>
+    <router-link class="nav__item" to="/awesome">Awesome-Vue</router-link>
+    <router-link class="nav__item" to="/tags">tags</router-link>
+    <router-link class="nav__item" to="/search">search</router-link>
+  </nav>
+  <transition name="fade" mode="out-in">
+    <router-view></router-view>
+  </transition>
+  
+
+
+</div>
+
+<template id="new" style="overflow: auto;height:100%" >
+  <section class="section">
+    
+    <h2 class="title"> </h2> 
+    <div id="scroll" style="overflow: auto;height: 100%;width: 100%;position: fixed;">
+    <div style="margin-left: auto;margin-right: auto;max-width: 820px;">
+
+    <div class="feed" v-for="data in commits" >
+      <div class="feed-title">
+        <div class="feed-title-text">{{  data.contentName }} </div> 
+        <div class="feed-title-under">
+          <router-link :to="'/tag/' + data.tag_id"><div class="feed-tag">{{  data.tagname }}</div></router-link>
+          <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link>
+      </div> 
+        <div class="feed-content">
+          <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+          <div class="feed-content-into">
+              {{ data.content | truncate() }}
+        </div> 
+        <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
+        </div>
+      </div> 
+
+      <div class="feed-writer">
+        <router-link :to="'/name/' + data.name">
+        <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+        <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
+        </div>
+        </router-link>
+    </div>
+  </div>
+
+</div>
+</div>
+  </section>  
+</template>
+
+
+
+<template id="awesome">
+  <section class="section">
+    <div id="top-scroll" style="overflow: auto;height: 100%;width: 100%;position: fixed;">
+            <div style="margin-left: auto;margin-right: auto;max-width: 820px;">
+        
+            <div class="feed" v-for="data in commits" >
+              <div class="feed-title">
+                <div class="feed-title-text">{{  data.contentName }} </div> 
+                <div class="feed-title-under">          
+                  <router-link :to="'/tag/' + data.tag_id"><div class="feed-tag">{{  data.tagname }}</div></router-link>           
+                  <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link> 
+              </div> 
+                <div class="feed-content">
+                  <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+                  <div class="feed-content-into">
+                      {{ data.content | truncate() }}
+                </div> 
+                <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
+                </div>
+              </div> 
+        
+              <div class="feed-writer">
+                <router-link :to="'/name/' + data.name">
+                <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+                <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
+                </div>
+                </router-link>
+          </div>
+        
+        </div>
+        </div>
+  </section>  
+</template>
+
+
+<template id="tags">
+  <section class="section">
+  <div id="tags-scroll"  style="overflow: auto;height: 100%;width: 100%;position: fixed;">
+    <div   v-for="data in tags" >
+    <router-link :to="'/tag/' + data.tag_id">
+    <div class="tag"><img v-bind:src="data.tagDraw"><div class="tag-text"><div class="tag-name">{{data.tagname}}</div><div class="tag-detail">{{data.tagDetail}} </div><div class="tag-int">{{data.tagStories}}   Stories</div></div></div>
+    </router-link>
+  </div>
+</div>
+  </section>  
+</template>
+
+<template id="search">
+  <section class="section">
+    <input id="txtName" @keyup="addMessage" v-model="txtInput" type="text">
+
+<div id="searches-scroll" style="overflow: auto;height: 100%;width: 100%;position: fixed;">
+  <div style="margin-left: auto;margin-right: auto;max-width: 820px;">
+
+    <div class="feed" v-for="data in searches">
+        <div class="feed-title">
+            <div class="feed-title-text">{{  data.contentName }} </div> 
+            <div class="feed-title-under">          
+              <router-link :to="'/tag/' + data.tag_id"><div class="feed-tag">{{  data.tagname }}</div></router-link>           
+              <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link> 
+          </div> 
+            <div class="feed-content">
+              <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+              <div class="feed-content-into">
+                  {{ data.content | truncate() }}
+            </div> 
+            <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
+            </div>
+          </div> 
+    
+          <div class="feed-writer">
+            <router-link :to="'/name/' + data.name">
+            <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+            <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
+            </div>
+            </router-link>
+          </div>
+    
+    </div>
+    </div>
+  </section>  
+</template>
+
+
+<template id="type">
+  <section class="section">
+    <div id="type-scroll" style="overflow: auto;height: 100%;width: 100%;position: fixed;">
+            <div style="margin-left: auto;margin-right: auto;max-width: 820px;">
+        
+            <div class="feed" v-for="data in commits" >
+              <div class="feed-title">
+                <div class="feed-title-text">{{  data.contentName }} </div> 
+                <div class="feed-title-under">
+                  <router-link :to="'/tag/' + data.tag_id"><div class="feed-tag">{{  data.tagname }}</div></router-link> 
+                <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link>
+              </div> 
+                <div class="feed-content">
+                  <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+                  <div class="feed-content-into">
+                      {{ data.content | truncate() }}
+                </div> 
+                <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
+                </div>
+              </div> 
+        
+              <div class="feed-writer">
+                  <router-link :to="'/name/' + data.name">
+                    <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+                    <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
+                    </div>
+                  </router-link>
+          </div>
+        
+        </div>
+        </div>
+  </section>  
+</template>
+
+
+<template id="tag">
+  <section class="section">
+    <div id="tag-scroll" style="overflow: auto;height: 100%;width: 100%;position: fixed;">
+            <div style="margin-left: auto;margin-right: auto;max-width: 820px;">
+        
+            <div class="feed" v-for="data in commits" >
+              <div class="feed-title">
+                <div class="feed-title-text">{{  data.contentName }} </div> 
+                <div class="feed-title-under">          
+                  <router-link :to="'/tag/' + data.tag_id"><div class="feed-tag">{{  data.tagname }}</div></router-link> 
+                <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link>
+              </div> 
+                <div class="feed-content">
+                  <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+                  <div class="feed-content-into">
+                      {{ data.content | truncate() }}
+                </div> 
+                <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
+                </div>
+              </div> 
+        
+              <div class="feed-writer">
+                <router-link :to="'/name/' + data.name">
+                  <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+                  <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
+                  </div>
+                </router-link>
+          </div>
+        
+        </div>
+        </div>
+  </section>  
+</template>
+
+
+<template id="name">
+  <section class="section">
+    <div id="user-scroll" style="overflow: auto;height: 100%;width: 100%;position: fixed;">
+        <h2 class="title">name {{user_id | profileExists()}}  :: {{name}} :: {{detail}} :: {{stories}} </h2>
+            <div style="margin-top: 100px;margin-left: auto;margin-right: auto;max-width: 820px;">
+            <div class="feed" v-for="data in commits" >
+              <div class="feed-title">
+                <div class="feed-title-text">{{  data.contentName }} </div> 
+                <div class="feed-title-under">          
+                  <router-link :to="'/tag/' + data.tag_id"><div class="feed-tag">{{  data.tagname }}</div></router-link> 
+                <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link>
+              </div> 
+                <div class="feed-content">
+                  <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw" class='feed-user-draw'></span> 
+                  <div class="feed-content-into">
+                      {{ data.content | truncate() }}
+                </div> 
+                <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
+                </div>
+              </div> 
+        
+        
+        </div>
+        </div>
+  </section>  
+</template>
+
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js'></script>
+<script src='https://unpkg.com/vue-router/dist/vue-router.js'></script>
+
+  
+
+<script>
+const vueComponent = {
+  template: '#new',
+  data(){
+      return{
+        commits: null,
+        busy: false,
+        loading: false,
+      }
+  },
+  methods: {
+    init(){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      xhr.open('GET','http://jaipun.com/feed/feed_new');
+      xhr.onload = function () {
+        self.commits = JSON.parse(xhr.responseText);
+      };
+      xhr.send();
+    },
+    loadinit(content_id){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      var contents;
+      xhr.open('GET', "http://jaipun.com/feed/load_new?content_id="+content_id);
+      xhr.onload = function () {
+        contents = JSON.parse(xhr.responseText);
+        for (var i = 0; i < contents.length; i++) {
+          self.commits.push({
+            content_id:contents[i].content_id,
+            contentName:contents[i].contentName,
+            content:contents[i].content,
+            contentDate:contents[i].contentDate,
+            user_id:contents[i].user_id,
+            name:contents[i].name,
+            detail:contents[i].detail,      
+            contentLike:contents[i].contentLike,
+            tagname:contents[i].tagname,
+            tag_id:contents[i].tag_id,            
+            type:contents[i].type,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+          });
+        }
+      };
+      xhr.send();
+      },
+      ifdraw:function(text) {
+        var n = text.search("draw/");
+        var e = text.search("png"); var en = e + 3;
+        return text.slice(n, en);
+      }
+    },mounted() {
+    this.init(); 
+    const listElm = document.querySelector('#scroll');
+    listElm.addEventListener('scroll', e => {   
+      if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        this.loadinit(this.commits[this.commits.length - 1].content_id);
+      }
+    });
+  }
+}
+
+
+const awesomeComponent = {
+  template: '#awesome',
+  data(){
+      return{
+        commits: null,
+        loading: false,
+      }
+  },
+  methods: {
+    init(){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      xhr.open('GET','http://jaipun.com/feed/feed_top');
+      xhr.onload = function () {
+        self.commits = JSON.parse(xhr.responseText);
+      };
+      xhr.send();
+    },
+    loadinit(contentLike){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      var contents;
+      xhr.open('GET', "http://jaipun.com/feed/load_top?contentLike="+contentLike);
+      xhr.onload = function () {
+        contents = JSON.parse(xhr.responseText);
+        for (var i = 0; i < contents.length; i++) {
+          self.commits.push({
+            content_id:contents[i].content_id,
+            contentName:contents[i].contentName,
+            content:contents[i].content,
+            contentDate:contents[i].contentDate,
+            user_id:contents[i].user_id,
+            name:contents[i].name,
+            detail:contents[i].detail,      
+            contentLike:contents[i].contentLike,
+            tagname:contents[i].tagname,
+            type:contents[i].type,     
+            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+          });
+        }
+      };
+      xhr.send();
+      },
+      ifdraw:function(text) {
+        var n = text.search("draw/");
+        var e = text.search("png"); var en = e + 3;
+        return text.slice(n, en);
+      }
+    },mounted() {
+    this.init(); 
+    const listElm = document.querySelector('#top-scroll');
+    listElm.addEventListener('scroll', e => {   
+      if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        this.loadinit(this.commits[this.commits.length - 1].contentLike);
+      }
+    });
+  }
+}
+
+
+const type = {
+  template: '#type',
+  data(){
+      return{
+        commits: null,
+        loading: false,
+      }
+  },
+  methods: {
+    init(){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      xhr.open('GET','http://jaipun.com/feed/type_top?t='+this.$route.params.type);
+      xhr.onload = function () {
+        self.commits = JSON.parse(xhr.responseText);
+      };
+      xhr.send();
+    },
+    loadinit(contentTop){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      var contents;
+      xhr.open('GET', "http://jaipun.com/feed/typeload_top?contentTop="+contentTop+"&t="+this.$route.params.type);
+      xhr.onload = function () {
+        contents = JSON.parse(xhr.responseText);
+        for (var i = 0; i < contents.length; i++) {
+          self.commits.push({
+            content_id:contents[i].content_id,
+            contentName:contents[i].contentName,
+            content:contents[i].content,
+            contentDate:contents[i].contentDate,
+            user_id:contents[i].user_id,
+            name:contents[i].name,
+            detail:contents[i].detail,      
+            contentLike:contents[i].contentLike,
+            tagname:contents[i].tagname,
+            type:contents[i].type,     
+            contentTop:contents[i].contentTop,     
+            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+          });
+        }
+      };
+      xhr.send();
+      },
+      ifdraw:function(text) {
+        var n = text.search("draw/");
+        var e = text.search("png"); var en = e + 3;
+        return text.slice(n, en);
+      }
+    },mounted() {
+    alert(this.$route.params.type);
+    this.init(); 
+    const listElm = document.querySelector('#type-scroll');
+    listElm.addEventListener('scroll', e => {   
+      if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        this.loadinit(this.commits[this.commits.length - 1].contentTop);
+      }
+    });
+  }
+}
+
+
+
+const tags = {
+  template: '#tags',
+  data(){
+      return{
+        tags: null,
+        loading: false,
+      }
+  },
+  methods: {
+    init(){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      xhr.open('GET',"  http://jaipun.com/feed/tag_top");
+      xhr.onload = function () {
+        self.tags = JSON.parse(xhr.responseText);
+      };
+      xhr.send();
+    },
+    loadinit(tagTop){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      var contents;
+      xhr.open('GET', "http://jaipun.com/feed/tagload_top?tagTop="+tagTop);
+      xhr.onload = function () {
+        contents = JSON.parse(xhr.responseText);
+        for (var i = 0; i < contents.length; i++) {
+          self.tags.push({
+            tag_id:contents[i].tag_id,
+            tagname:contents[i].tagname,
+            tagDetail:contents[i].tagDetail,
+            tagStories:contents[i].tagStories,
+            tagDraw:contents[i].tagDraw,
+            tagTop:contents[i].tagTop,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+          });
+        }
+      };
+      xhr.send();
+      }
+    },mounted() {
+    this.init(); 
+    const listElm = document.querySelector('#tags-scroll');
+    listElm.addEventListener('scroll', e => {   
+      if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        this.loadinit(this.tags[this.tags.length - 1].tagTop);
+      }
+    });
+  }
+}
+
+
+const search = {
+  template: '#search',
+  data(){
+    return{
+      txtInput: '',
+      searches: null,
+    }
+  },
+  methods: {
+      addMessage(){
+        console.log(this.txtInput);
+        if(this.txtInput != ''){
+        var xhr = new XMLHttpRequest();
+        var self = this;
+        xhr.open('GET',encodeURI("http://jaipun.com/feed/search_top?t="+this.txtInput));
+        xhr.onload = function () {
+          self.searches = JSON.parse(xhr.responseText);
+        };
+        xhr.send();
+        }else{ this.searches=""; }
+      },
+      loadinit(contentTop){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      var contents;
+      xhr.open('GET', encodeURI("http://jaipun.com/feed/searchload_top?contentTop="+contentTop+"&t="+this.txtInput));
+      xhr.onload = function () {
+        contents = JSON.parse(xhr.responseText);
+        for (var i = 0; i < contents.length; i++) {
+          self.searches.push({
+            content_id:contents[i].content_id,
+            contentName:contents[i].contentName,
+            content:contents[i].content,
+            contentDate:contents[i].contentDate,
+            user_id:contents[i].user_id,
+            name:contents[i].name,
+            detail:contents[i].detail,      
+            contentLike:contents[i].contentLike,
+            tagname:contents[i].tagname,
+            type:contents[i].type,     
+            contentTop:contents[i].contentTop,     
+            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+          });
+        }
+      };
+      xhr.send();
+      },
+      ifdraw:function(text) {
+        var n = text.search("draw/");
+        var e = text.search("png"); var en = e + 3;
+        return text.slice(n, en);
+      }
+  },
+  mounted() {
+    const listElm = document.querySelector('#searches-scroll');
+    listElm.addEventListener('scroll', e => {   
+      if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        this.loadinit(this.searches[this.searches.length - 1].contentTop);
+      }
+    });
+  }
+}
+
+
+const tag = {
+  template: '#tag',
+  data(){
+      return{
+        commits: null,
+        loading: false,
+      }
+  },
+  methods: {
+    init(){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      xhr.open('GET',"http://jaipun.com/feed/tagid_top?id="+this.$route.params.tag_id);
+      xhr.onload = function () {
+        self.commits = JSON.parse(xhr.responseText);
+      };
+      xhr.send();
+    },
+    loadinit(contentTop){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      var contents;
+      xhr.open('GET', "http://jaipun.com/feed/tagidload_top?contentTop="+contentTop+"&id="+this.$route.params.tag_id);
+      xhr.onload = function () {
+        contents = JSON.parse(xhr.responseText);
+        for (var i = 0; i < contents.length; i++) {
+          self.commits.push({
+            content_id:contents[i].content_id,
+            contentName:contents[i].contentName,
+            content:contents[i].content,
+            contentDate:contents[i].contentDate,
+            user_id:contents[i].user_id,
+            name:contents[i].name,
+            detail:contents[i].detail,      
+            contentLike:contents[i].contentLike,
+            tagname:contents[i].tagname,
+            type:contents[i].type,     
+            contentTop:contents[i].contentTop,   
+            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+          });
+        }
+      };
+      xhr.send();
+      },
+      ifdraw:function(text) {
+        var n = text.search("draw/");
+        var e = text.search("png"); var en = e + 3;
+        return text.slice(n, en);
+      }
+    },mounted() {
+      alert(this.$route.params.tag_id);
+    this.init(); 
+    const listElm = document.querySelector('#tag-scroll');
+    listElm.addEventListener('scroll', e => {   
+      if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        this.loadinit(this.commits[this.commits.length - 1].contentTop);
+      }
+    });
+  }
+}
+
+
+const name = {
+  template: '#name',
+  data(){
+      return{
+        commits: null,
+        user_id: null,
+        name: null,
+        detail: null,  
+        stories: null,                                                                                                                                                                                                                                                      
+        loading: false,
+      }
+  },
+  methods: {
+    profile(){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      var profiles;
+      xhr.open('GET','http://jaipun.com/data/users/'+this.$route.params.name);
+      xhr.onload = function () {
+        profiles = JSON.parse(xhr.responseText);
+        self.user_id = profiles.user_id;
+        self.name = profiles.name;      
+        self.detail = profiles.detail;
+        self.stories = profiles.stories;                                            
+        xhr.open('GET','http://jaipun.com/feed/feed_user?id='+ profiles.user_id);
+        xhr.onload = function () {
+          self.commits = JSON.parse(xhr.responseText);
+        };
+        xhr.send();
+      };
+      xhr.send();
+    },
+    loadinit(content_id){
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      var contents;
+      xhr.open('GET',"http://jaipun.com/feed/load_user?content_id="+content_id+"&id="+this.user_id);
+      xhr.onload = function () {
+        contents = JSON.parse(xhr.responseText);
+        for (var i = 0; i < contents.length; i++) {
+          self.commits.push({
+            content_id:contents[i].content_id,
+            contentName:contents[i].contentName,
+            content:contents[i].content,
+            contentDate:contents[i].contentDate,
+            user_id:contents[i].user_id,
+            name:contents[i].name,
+            detail:contents[i].detail,      
+            contentLike:contents[i].contentLike,
+            tagname:contents[i].tagname,
+            type:contents[i].type,     
+            contentTop:contents[i].contentTop,     
+            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+          });
+        }
+      };
+      xhr.send();
+      },
+      ifdraw:function(text) {
+        var n = text.search("draw/");
+        var e = text.search("png"); var en = e + 3;
+        return text.slice(n, en);
+      }
+    },mounted() {
+      alert(this.$route.params.name);
+      this.profile();     
+      //this.init(this.user_id); 
+      const listElm = document.querySelector('#user-scroll');
+      listElm.addEventListener('scroll', e => {   
+        if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+          this.loadinit(this.commits[this.commits.length - 1].content_id);
+        }
+      });
+  }
+}
+
+Vue.use(VueRouter)
+const routes = [
+  { path: '/new', component: vueComponent },
+  { path: '/', component: awesomeComponent },
+  { path: '/tags', component: tags },
+  { path: '/search', component: search },
+  { path: '/type/:type', component: type },
+  { path: '/tag/:tag_id', component: tag },
+  { path: '/name/:name', component: name }
+]
+const router = new VueRouter({
+  routes
+})
+const mv = new Vue({
+  el: '#app',
+  router,
+})
+
+
+Vue.filter('truncate', function (text) {
+ return text.replace(/&lt;(?:.|\n)*?&gt;/gm, '').replace(/&amp;nbsp;/gi,' ').substring(0, 120) + '...';
+});
+
+Vue.filter('liked', function (text) {
+if(text == 0){
+return text = "";
+}else{
+return text = text + "  liked";
+}
+});
+
+Vue.filter('draw', function(text) {
+  var n = text.search("draw/");
+  var e = text.search("png"); var en = e + 3;
+  return text.slice(n, en);
+});
+
+Vue.filter('profileExists', function(user_id) {
+var http = new XMLHttpRequest();
+http.open('HEAD','/profile/'+ user_id +".jpeg");
+http.send();
+if (http.status == "404") {
+    return url = '/profile/user.jpeg';
+} else {
+    return url =  '/profile/'+ user_id +".jpeg";
+}
+});
+
+
+Vue.filter('timeSince', function(timeStamp) {
+timeStamp = new Date(timeStamp * 1000);
+var now = new Date(),
+secondsPast = (now.getTime() - timeStamp.getTime() ) / 1000;
+if(secondsPast < 60){
+    return parseInt(secondsPast) + ' seconds ago';
+}
+if(secondsPast < 3600){
+    return parseInt(secondsPast/60) + ' minutes ago';
+}
+if(secondsPast <= 86400){
+    return parseInt(secondsPast/3600) + ' hours ago';
+}
+if(secondsPast <= 259200){
+    hour = timeStamp.getHours();
+    minute = timeStamp.getMinutes();
+    return parseInt(secondsPast/86400) + ' day ago at  ' + hour +":"+ minute;
+}
+if(secondsPast > 259200){
+    day = timeStamp.getDate();
+    month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
+    year = timeStamp.getFullYear() == now.getFullYear() ? "" :  " "+timeStamp.getFullYear();
+    hour = timeStamp.getHours();
+    minute = timeStamp.getMinutes();
+    return day + " " + month + year + " " + hour +":"+ minute;
+}
+});
+
+</script>
+
+
+
+
+</body>
+
+</html>
