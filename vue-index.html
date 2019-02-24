@@ -117,8 +117,9 @@
 
 
       /************************ FEED START********************************/
-      *{
-        color:#000
+      a {
+        color:#000;
+        text-decoration: none;
       }
     .feed{
         box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
@@ -1022,11 +1023,14 @@ z-index: 4;
           <router-link :to="'/tag/' + data.tag_id"><div class="feed-tag">{{  data.tagname }}</div></router-link>
           <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link>
       </div> 
+      
         <div class="feed-content">
-          <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
-          <div class="feed-content-into">
-              {{ data.content | truncate() }}
-        </div> 
+            <router-link :to="'/story/' + data.content_id">
+              <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+              <div class="feed-content-into">
+                  {{ data.content | truncate() }}
+            </div> 
+          </router-link>
         <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
         </div>
       </div> 
@@ -1073,10 +1077,12 @@ z-index: 4;
                   <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link> 
               </div> 
                 <div class="feed-content">
-                  <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
-                  <div class="feed-content-into">
-                      {{ data.content | truncate() }}
-                </div> 
+                  <router-link :to="'/story/' + data.content_id">
+                    <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+                    <div class="feed-content-into">
+                        {{ data.content | truncate() }}
+                  </div> 
+                </router-link>
                 <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
                 </div>
               </div> 
@@ -1125,10 +1131,12 @@ z-index: 4;
               <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link> 
           </div> 
             <div class="feed-content">
-              <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
-              <div class="feed-content-into">
-                  {{ data.content | truncate() }}
-            </div> 
+              <router-link :to="'/story/' + data.content_id">
+                <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+                <div class="feed-content-into">
+                    {{ data.content | truncate() }}
+              </div> 
+            </router-link>
             <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
             </div>
           </div> 
@@ -1189,10 +1197,12 @@ z-index: 4;
                 <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link>
               </div> 
                 <div class="feed-content">
-                  <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
-                  <div class="feed-content-into">
-                      {{ data.content | truncate() }}
-                </div> 
+                  <router-link :to="'/story/' + data.content_id">
+                    <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+                    <div class="feed-content-into">
+                        {{ data.content | truncate() }}
+                  </div> 
+                </router-link>
                 <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
                 </div>
               </div> 
@@ -1226,10 +1236,12 @@ z-index: 4;
                 <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link>
               </div> 
                 <div class="feed-content">
-                  <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
-                  <div class="feed-content-into">
-                      {{ data.content | truncate() }}
-                </div> 
+                  <router-link :to="'/story/' + data.content_id">
+                    <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+                    <div class="feed-content-into">
+                        {{ data.content | truncate() }}
+                  </div> 
+                </router-link>
                 <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
                 </div>
               </div> 
@@ -1268,10 +1280,12 @@ z-index: 4;
                 <router-link :to="'/type/' + data.type"><div class="feed-type">{{  data.type }}</div></router-link>
               </div> 
                 <div class="feed-content">
-                  <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw" class='feed-user-draw'></span> 
-                  <div class="feed-content-into">
-                      {{ data.content | truncate() }}
-                </div> 
+                  <router-link :to="'/story/' + data.content_id">
+                    <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+                    <div class="feed-content-into">
+                        {{ data.content | truncate() }}
+                    </div> 
+                  </router-link>
                 <div class="feed-date"> {{ data.contentDate | timeSince() }} <span class="feed-like">{{ data.contentLike | liked() }}</span>
                 </div>
               </div> 
@@ -1319,7 +1333,7 @@ z-index: 4;
     padding-bottom: 25px!important;
     margin-top:60px;
     ">
-        <div style=" float: left; "><img class="iconlike" v-on:click="liked" src="https://visualpharm.com/assets/311/Easy-595b40b85ba036ed117dc0a2.svg">
+        <div style=" float: left; "><img class="iconlike" v-on:click="liked" src="https://image.flaticon.com/icons/svg/1531/1531027.svg">
             <span class="textlike">{{story.contentLike}}  liked</span></div>
 
 
