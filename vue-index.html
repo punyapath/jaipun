@@ -673,7 +673,6 @@ z-index: 4;
         width: 100%;
         float: left;
         border-bottom: 1px solid #eee;
-        float: left;
         width: 100%;
         padding: 15px 0px;
     }
@@ -932,8 +931,30 @@ z-index: 4;
         box-sizing: border-box !important;
     }
 
+/************  main start  ****************/
+.write-post {
+    padding: 20px;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;
+    border: 1px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    border-bottom: 3px solid #54ada1;
+}
+.write-create {
+    padding: 20px;
+    border: 1px solid #f3f3f3 !important;
+    border: 1px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
-
+/************  main end  ****************/
 
 </style>
   
@@ -1037,7 +1058,7 @@ z-index: 4;
 
       <div class="feed-writer">
         <router-link :to="'/name/' + data.name">
-        <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+        <img v-bind:src="data.profile | profileExists" class="feed-writer-profile"> 
         <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
         </div>
         </router-link>
@@ -1056,9 +1077,12 @@ z-index: 4;
     <div id="top-scroll" class="scroll" >
             <div style="margin-left: auto;margin-right: auto;max-width: 820px;">
         
-            <div class="btn-write" onclick="window.location.href='write.php'">
+        
+              <router-link to="/main">
+            <div class="btn-write" >
                 <span class="btn-write-text">WRITE YOUR STORY</span>
             </div>
+          </router-link>
             <div style="max-width:220px;margin: 20px auto;">
             <router-link to="/"><div style="float: left;width: 50%;border-bottom: 5px solid #cecece;color: rgb(99, 100, 99);font-size: 18px;line-height: 50px;text-align: center;font-weight: 600;">Popular</div></router-link>
             <router-link to="/new"><div style="float: left;width: 50%;color: rgb(99, 100, 99);font-size: 18px;line-height: 50px;text-align: center;">Latest</div></router-link>
@@ -1089,7 +1113,7 @@ z-index: 4;
         
               <div class="feed-writer">
                 <router-link :to="'/name/' + data.name">
-                <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+                <img v-bind:src="data.profile | profileExists" class="feed-writer-profile"> 
                 <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
                 </div>
                 </router-link>
@@ -1143,7 +1167,7 @@ z-index: 4;
     
           <div class="feed-writer">
             <router-link :to="'/name/' + data.name">
-            <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+            <img v-bind:src="data.profile | profileExists" class="feed-writer-profile"> 
             <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
             </div>
             </router-link>
@@ -1209,7 +1233,7 @@ z-index: 4;
         
               <div class="feed-writer">
                   <router-link :to="'/name/' + data.name">
-                    <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+                    <img v-bind:src="data.profile | profileExists" class="feed-writer-profile"> 
                     <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
                     </div>
                   </router-link>
@@ -1248,7 +1272,7 @@ z-index: 4;
         
               <div class="feed-writer">
                 <router-link :to="'/name/' + data.name">
-                  <img v-bind:src="data.user_id | profileExists" class="feed-writer-profile"> 
+                  <img v-bind:src="data.profile | profileExists" class="feed-writer-profile"> 
                   <div class="feed-writer-name">{{data.name}} <span class="feed-writer-detail">{{data.detail}}</span>
                   </div>
                 </router-link>
@@ -1265,7 +1289,7 @@ z-index: 4;
     <div id="user-scroll" class="scroll">
         <div style="padding-bottom: 20px; text-align: center;">
             <div style="height: 220px;background-image: url(/icon/backgroundtype.svg);background-size: 500px;"></div>
-          <div class="profile-photo"><img v-bind:src="user_id | profileExists"class="profile-photo-img"></div>
+          <div class="profile-photo"><img v-bind:src="img | profileExists"class="profile-photo-img"></div>
           <h2 style=" margin: 0px;margin-top: 15px;color:#54ada1">{{ name }}</h2> <p style="margin: 5px 10px;">{{ detail }} </p>
         <div class="profile-followers"><span class="profile-follow-int">{{stories}}</span><span class="profile-follow-text">Stories</span></div>
         </div>        
@@ -1281,7 +1305,7 @@ z-index: 4;
               </div> 
                 <div class="feed-content">
                   <router-link :to="'/story/' + data.content_id">
-                    <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw"></span> 
+                    <span v-if="ifdraw(data.content)"><img v-bind:src="data.content | draw" class="feed-user-draw"></span> 
                     <div class="feed-content-into">
                         {{ data.content | truncate() }}
                     </div> 
@@ -1354,7 +1378,7 @@ z-index: 4;
     <router-link :to="'/name/' + story.name">  
     <div class="content-profile">
       <div class="content-profile-into">
-        <img class="content-profile-img" v-bind:src="story.user_id | profileExists">
+        <img class="content-profile-img" v-bind:src="story.profile | profileExists">
       </div>
     
     <div class="content-profile-text">
@@ -1371,12 +1395,64 @@ z-index: 4;
 </div>
 </template>
 
+
+
+
+<template id="main">
+  <div style="margin-top:80px">
+    <img src="https://image.flaticon.com/icons/svg/124/124752.svg" style="display:block;width:140px;margin:0px auto">
+    <div class="write-post" onclick="window.location='/write.php'">write your story</div>
+    <div class="write-create" onclick="window.location='/create.html'">create a your tag</div>
+    <div  onclick="window.location='/editnew.php'" style="
+    padding: 15px 20px;
+    border: 1px solid #f3f3f3 !important;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: 600;
+    ">edit profile</div>
+<div onclick="window.location='/logout.php'" style="color: rgb(255, 0, 0);padding: 15px 20px;    border: 1px solid #f3f3f3 !important;max-width: 300px;margin-left: auto;margin-right: auto;text-align: center;font-weight: 600;">logout</div>
+  </div>
+</template>
+
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js'></script>
 <script src='https://unpkg.com/vue-router/dist/vue-router.js'></script>
 
   
 
 <script>
+
+
+
+  /*****************CHECK COOKIE START*********************/
+  
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {   
+    document.cookie = name+'=; Max-Age=-99999999;';  
+}
+
+  /*****************CHECK COOKIE END*********************/
+
 const vueComponent = {
   template: '#new',
   data(){
@@ -1416,7 +1492,9 @@ const vueComponent = {
             contentLike:contents[i].contentLike,
             tagname:contents[i].tagname,
             tag_id:contents[i].tag_id,            
-            type:contents[i].type,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+            type:contents[i].type,        
+            profile:contents[i].profile,                       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
           });
         }
       };
@@ -1477,7 +1555,9 @@ const awesomeComponent = {
             contentLike:contents[i].contentLike,
             tagname:contents[i].tagname,
             type:contents[i].type,     
-            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+            tag_id:contents[i].tag_id,    
+            profile:contents[i].profile,                       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
           });
         }
       };
@@ -1540,7 +1620,8 @@ const type = {
             tagname:contents[i].tagname,
             type:contents[i].type,     
             contentTop:contents[i].contentTop,     
-            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            tag_id:contents[i].tag_id,   
+            profile:contents[i].profile,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
           });
         }
       };
@@ -1657,7 +1738,8 @@ const search = {
             tagname:contents[i].tagname,
             type:contents[i].type,     
             contentTop:contents[i].contentTop,     
-            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            tag_id:contents[i].tag_id,        
+            profile:contents[i].profile,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
           });
         }
       };
@@ -1734,12 +1816,15 @@ const tag = {
             contentDate:contents[i].contentDate,
             user_id:contents[i].user_id,
             name:contents[i].name,
-            detail:contents[i].detail,      
+            detail:contents[i].detail, 
+            profile:contents[i].profile,                       
             contentLike:contents[i].contentLike,
             tagname:contents[i].tagname,
             type:contents[i].type,     
             contentTop:contents[i].contentTop,   
-            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+            tag_id:contents[i].tag_id, 
+            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
           });
         }
       };
@@ -1768,10 +1853,11 @@ const name = {
   data(){
       return{
         commits: null,
-        user_id: null,
+        member_id: null,
         name: null,
         detail: null,  
-        stories: null,                                                                                                                                                                                                                                                      
+        stories: null, 
+        img: null,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
         loading: false,
       }
   },
@@ -1779,16 +1865,18 @@ const name = {
     profile(){
       var xhr = new XMLHttpRequest();
       var self = this;
-      var profiles;
+      var profiles; 
       xhr.open('GET','http://jaipun.com/data/users/'+this.$route.params.name);
       xhr.onload = function () {
         profiles = JSON.parse(xhr.responseText);
-        self.user_id = profiles.user_id;
+
+        self.member_id = profiles.member_id;
         self.name = profiles.name;      
         self.detail = profiles.detail;
-        self.stories = profiles.stories;                 
+        self.stories = profiles.stories;   
+        self.img = profiles.profile;                                       
         document.title = profiles.name +' | Jaipun';                                                 
-        xhr.open('GET','http://jaipun.com/feed/feed_user?id='+ profiles.user_id);
+        xhr.open('GET','http://jaipun.com/feed/feed_user?id='+ profiles.member_id);
         xhr.onload = function () {
           self.commits = JSON.parse(xhr.responseText);
         };
@@ -1816,7 +1904,9 @@ const name = {
             tagname:contents[i].tagname,
             type:contents[i].type,     
             contentTop:contents[i].contentTop,     
-            tag_id:contents[i].tag_id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            tag_id:contents[i].tag_id,      
+            profile:contents[i].profile,                       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
           });
         }
       };
@@ -1904,9 +1994,22 @@ const story = {
   }
 };
 
+
+const main = {
+  template: '#main',
+  mounted() {
+      var member_id =getCookie('member_id');
+      if(member_id == null){
+        window.location.href="/register.php"
+      }
+      //this.init(this.user_id); 
+  }
+};
+
 Vue.use(VueRouter)
 const routes = [
   { path: '/new', component: vueComponent },
+  { path: '/main', component: main },  
   { path: '/', component: awesomeComponent },
   { path: '/tags', component: tags },
   { path: '/search', component: search },
@@ -1943,14 +2046,14 @@ Vue.filter('draw', function(text) {
 });
 
 
-Vue.filter('profileExists', function(user_id) {
+Vue.filter('profileExists', function(profile) {
   var http = new XMLHttpRequest();
-  http.open('HEAD','/profile/'+ user_id +".jpeg");
+  http.open('HEAD', profile);
   http.send();
   if (http.status == "404") {
       return url = '/profile/user.jpeg';
   } else {
-      return url =  '/profile/'+ user_id +".jpeg";
+      return url =  profile;
   }
 });
 
