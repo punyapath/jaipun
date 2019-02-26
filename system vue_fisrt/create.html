@@ -1,0 +1,235 @@
+<link rel="stylesheet" href="css/font.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+
+/************************DRAW FORM START*******************************/
+
+#drawForm img{
+  width:120px;
+  opacity: 0.6;
+}
+#drawForm img:hover{
+  opacity: 1;
+}
+
+
+#drawForm div{
+  float: left;
+  margin: 10px 20px;
+}    
+#drawForm span{
+  display: block;    
+  margin: 10px;
+} 
+.draw{
+  width: 80px;
+  margin: 10px 20px;
+}
+
+#selectdraw{
+  position:fixed!important;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: #75757585;
+  display:none;
+  top: 0;    
+  overflow-y: scroll;
+  right: 0;
+}
+.selectdraw-into{
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  z-index: 101;
+}
+
+.drawtitle{
+  padding: 15px;
+  background: #fafafa;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#drawcontent{
+  padding: 20px;
+  max-width: 720px;
+  float: left;
+  text-align: center;
+  border: 1px solid #e9eaea;
+  background: #fff;
+}
+  
+.drawtag div{
+    padding: 7px 10px;
+    opacity: 0.6;
+    /*border-right: 1px solid #eee;*/
+    display: inline-flex;
+  }
+
+  
+  .drawtag div img{
+    width: 25px;height:25px
+  }
+
+
+  .drawtag div:active{
+    opacity:1;
+    background:#eee;
+  }
+
+  .drawtag div:hover{
+    opacity:1;
+    background:#eee;
+  }
+
+#drawcontent img:hover{
+  background: #fafafa;
+  border-radius: 5px;
+}
+
+
+  /************************DRAW FORM END*******************************/
+
+input{
+  font-family: 'cs_prajad', sans-serif;
+}
+</style>
+
+<div id='selectdraw'>
+    <div class='selectdraw-into'>
+      <div class="drawtitle drawcontent"></div>
+      <div id="drawcontent" class='drawcontent'>
+        <form id="drawForm"></form>
+      </div>
+    </div>
+</div>
+
+
+<div style="margin-left: auto;margin-right: auto;max-width: 500px;box-shadow: 0 4px 12px 0 rgba(0,0,0,.05)!important;background: #fff;padding: 30px 0px;">
+  <div style="
+  font-size: xx-large;
+  text-align: center;
+">Create a tag</div>
+  <input type="text" name="tagname" placeholder="title" style="
+  background: #fafafa;
+  border: 1px solid #efefef;
+  border-bottom: 3px solid #ff9195;
+  outline: 0;
+  padding: 9px 0 7px 8px;
+  width: 240px;
+  border-radius: 3px;
+  -webkit-box-flex: 1;
+  color: #262626;
+  margin: 5px auto;
+  display: block;
+  ">
+  <img id="usedraw" src="https://image.flaticon.com/icons/svg/179/179981.svg" style="
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  width: 120px;
+  ">
+  
+  <input type="text" name="tagDetail" maxlength="120" placeholder="detail" style="
+    background: #fafafa;
+    border: 1px solid #efefef;
+    outline: 0;
+    padding: 9px 0 7px 8px;
+    width: 280px;
+    border-radius: 3px;
+    -webkit-box-flex: 1;
+    color: #262626;
+    margin: 5px auto;
+    display: block;
+">
+<div style="display: block;margin: 10px auto;width: 160px;color: #fff;border: 1px solid #fb6166;background: #fb6166;border-radius: 4px;font-size: 16px;font-weight: 600;padding: 10px 0px;text-align: center;" onclick="submit()">save</div>
+</div>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+ $(document).ready(function(){
+    selectdraw();
+    $("#usedraw").on("click",function(){
+        $("#selectdraw").show();
+    });
+
+    //ถ้าคลิกที่อื่น จะปิดตัว Jaipun Store ทันที
+    $("#selectdraw").mouseup(function(e) 
+    {
+        var container = $(".drawcontent");
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0) 
+        {
+            $("#selectdraw").hide();
+        }
+    });
+
+
+});
+
+//funtion สำหรับเลือก draw ที่จะใช้แสดง drawTag
+function selectdraw(){
+    $.ajax({
+      url: "http://jaipun.com/data/drawname",
+      }).then(function(data) {
+        $('.drawtitle').html("Jaipun Store");
+      for(var i = 0; i < data.length; i++){
+          $('#drawForm').append(   
+              "<div onclick="+ '"' + "opendraw(" + data[i].drawname_id + ")" + '">'+'<img src="drawtag/'+ data[i].drawTag +'">'+
+              "<span>"+data[i].drawname+"</span>"+"</div>"
+          );
+        }
+    });
+}
+
+function opendraw(drawname_id){
+    $('#drawcontent').html("");
+    $('.drawtitle').html("<img src='https://img.icons8.com/ios/50/000000/undo-filled.png' id='backdrawname' style='width: 20px;'>");
+    $.ajax({
+      url:"http://jaipun.com/data/usedraw/"+ drawname_id,
+      beforeSend: function()
+        {
+              $('.ajax-load').show();
+        }
+    }).then(function(emojis) {
+          for(var i = 0; i < emojis.length; i++){
+              $('#drawcontent').append(   
+                  '<img class="draw" src="/'+ emojis[i].name+'">'
+              );
+          }
+          $('#drawcontent img').on("click",function(){
+              $('#usedraw').attr('src', $(this).attr('src'));
+              $("#selectdraw").hide();
+          });
+    });
+    $("#backdrawname").on("click",function(){
+        $('#drawcontent').html("<form id='drawForm'></form>");
+        selectdraw();
+    });
+}
+
+function submit(){
+    var tagname = $('input[type=text][name=tagname]').val();
+    var tagDetail = $('input[type=text][name=tagDetail]').val();
+    var tagDraw = $('#usedraw').attr('src');
+    if(tagname==0 || tagDetail==0 || tagDraw==0){
+        alert("No Submit");
+    }else{
+        $.ajax({
+          type: "POST",
+          url: "savetag.php",
+          data:{tagname:tagname,tagDetail:tagDetail,tagDraw:tagDraw},
+          success: function(data){
+            window.location.href='write.php';
+          }
+        });
+    }
+}
+
+
+</script>
