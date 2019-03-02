@@ -428,8 +428,9 @@
 }
 
 .scroll{
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: scroll !important;
+   -webkit-overflow-scrolling: touch !important;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -1127,7 +1128,7 @@ z-index: 4;
 
 <template id="tags">
   <section class="section">
-  <div id="tags-scroll" class="scroll"  style="overflow: auto;height: 100%;width: 100%;position: fixed;">
+  <div id="tags-scroll" class="scroll">
     <div style="margin-top:100px"></div>
     <div   v-for="data in tags" >
     <router-link :to="'/tag/' + data.tag_id">
@@ -1474,45 +1475,62 @@ const vueComponent = {
       xhr.send();
     },
     loadinit(content_id){
-      var xhr = new XMLHttpRequest();
-      var self = this;
-      var contents;
-      xhr.open('GET', "http://jaipun.com/feed/load_new?content_id="+content_id);
-      xhr.onload = function () {
-        contents = JSON.parse(xhr.responseText);
-        for (var i = 0; i < contents.length; i++) {
-          self.commits.push({
-            content_id:contents[i].content_id,
-            contentName:contents[i].contentName,
-            content:contents[i].content,
-            contentDate:contents[i].contentDate,
-            user_id:contents[i].user_id,
-            name:contents[i].name,
-            detail:contents[i].detail,      
-            contentLike:contents[i].contentLike,
-            tagname:contents[i].tagname,
-            tag_id:contents[i].tag_id,            
-            type:contents[i].type,        
-            profile:contents[i].profile,                       
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-          });
-        }
-      };
-      xhr.send();
+
+        var xhr = new XMLHttpRequest();
+        var self = this;
+        var contents;
+        xhr.open('GET', "http://jaipun.com/feed/load_new?content_id="+content_id);
+        xhr.onload = function () {
+          contents = JSON.parse(xhr.responseText);
+          for (var i = 0; i < contents.length; i++) {
+            self.commits.push({
+              content_id:contents[i].content_id,
+              contentName:contents[i].contentName,
+              content:contents[i].content,
+              contentDate:contents[i].contentDate,
+              user_id:contents[i].user_id,
+              name:contents[i].name,
+              detail:contents[i].detail,      
+              contentLike:contents[i].contentLike,
+              tagname:contents[i].tagname,
+              tag_id:contents[i].tag_id,            
+              type:contents[i].type,        
+              profile:contents[i].profile,                       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            });
+          }
+        };
+        xhr.send();
+        const listElm = document.querySelector('#scroll');
+        removeEventListener('scroll', listElm);
       },
       ifdraw:function(text) {
         var n = text.search("draw/");
         var e = text.search("png"); var en = e + 3;
         return text.slice(n, en);
+      },
+      handleScroll: function (event) {
+        setTimeout(() => {
+          alert('OK');
+          if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+              this.loadinit(this.commits[this.commits.length - 1].content_id);
+          }
+        }, 500);
       }
     },mounted() {
     this.init(); 
     const listElm = document.querySelector('#scroll');
     listElm.addEventListener('scroll', e => {   
-      if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
-        this.loadinit(this.commits[this.commits.length - 1].content_id);
-      }
+
     });
+  },
+  created: function () {
+    const listElm = document.querySelector('#scroll');
+    listElm.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed: function () {
+    const listElm = document.querySelector('#scroll');
+    listElm.removeEventListener('scroll', this.handleScroll);
   }
 }
 
@@ -1573,7 +1591,9 @@ const awesomeComponent = {
     const listElm = document.querySelector('#top-scroll');
     listElm.addEventListener('scroll', e => {   
       if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        setTimeout(() => {
         this.loadinit(this.commits[this.commits.length - 1].contentLike);
+        }, 250);
       }
     });
   }
@@ -1638,7 +1658,9 @@ const type = {
     const listElm = document.querySelector('#type-scroll');
     listElm.addEventListener('scroll', e => {   
       if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        setTimeout(() => {
         this.loadinit(this.commits[this.commits.length - 1].content_id);
+       }, 250);
       }
     });
   }
@@ -1690,7 +1712,9 @@ const tags = {
     const listElm = document.querySelector('#tags-scroll');
     listElm.addEventListener('scroll', e => {   
       if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        setTimeout(() => {
         this.loadinit(this.tags[this.tags.length - 1].tagTop);
+        }, 250);
       }
     });
   }
@@ -1757,7 +1781,9 @@ const search = {
     const listElm = document.querySelector('#searches-scroll');
     listElm.addEventListener('scroll', e => {   
       if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+        setTimeout(() => {
         this.loadinit(this.searches[this.searches.length - 1].contentTop);
+        }, 250);
       }
     });
   }
@@ -1840,8 +1866,10 @@ const tag = {
     this.init(); 
     const listElm = document.querySelector('#tag-scroll');
     listElm.addEventListener('scroll', e => {   
-      if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+      if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {        
+        setTimeout(() => {
         this.loadinit(this.commits[this.commits.length - 1].content_id);
+        }, 250);
       }
     });
   }
@@ -1924,7 +1952,9 @@ const name = {
       const listElm = document.querySelector('#user-scroll');
       listElm.addEventListener('scroll', e => {   
         if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+          setTimeout(() => {
           this.loadinit(this.commits[this.commits.length - 1].content_id);
+          }, 250);
         }
       });
   }
